@@ -163,7 +163,7 @@ section
 
 a:hover .caption
 {
-    visibility: inherit;
+    visibility: visible;
 }
 
 section a
