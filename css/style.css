@@ -189,6 +189,12 @@ iframe
     z-index: 0;
 }
 
-@media (max-width: 1280px) 
+/* Maximum aspect ratio */
+@media (max-aspect-ratio: 1/1) 
 {
+    header 
+    {
+        width: 100%;
+        height: calc(100vw * 1.618);
+    }
 }
