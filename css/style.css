@@ -154,7 +154,8 @@ section
     width: 100%; 
     z-index: 1; 
     background: rgba(255, 255, 255, 0.7);
-    visibility: hidden;
+    font-size: calc((100vw - 2 * (var(--itemGap) + var(--mainMargin)) - var(--headshotWidth)) * 20 / 640);
+    font-weight: 600;
     color: black;
     display: flex;
     justify-content: center;
@@ -163,7 +164,8 @@ section
 
 a:hover .caption
 {
-    visibility: visible;
+    background: rgba(255, 255, 255, 0.4);
+    font-size: 0px;
 }
 
 section a
