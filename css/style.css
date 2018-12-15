@@ -144,12 +144,13 @@ section
     width: 100%; 
     z-index: 1; 
     background: rgba(255, 255, 255, 0.7);
-    font-size: calc((100vw - 2 * (var(--itemGap) + var(--mainMargin)) - var(--headshotWidth)) * 26 / 640);
+    font-size: 4vmin;
     font-weight: 300;
     color: black;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 a:hover .caption
@@ -190,11 +191,41 @@ iframe
 }
 
 /* Maximum aspect ratio */
-@media (max-aspect-ratio: 1/1) 
+@media (max-aspect-ratio: 110/89) 
 {
+    body
+    {
+        flex-wrap: wrap;
+    }
+    
     header 
     {
         width: 100%;
         height: calc(100vw * 1.618);
+    }
+    
+    section
+    {
+        width: 100%;
+        margin: 1vh 0;
+    }
+
+    .shader
+    {
+        height: calc((100vw - 2 * var(--mainMargin)) * 360 / 640);
+    }
+}
+
+/* Minimum aspect ratio */
+@media (min-aspect-ratio: 16/9) 
+{ 
+    section
+    {
+        width: calc(100% / 3 - var(--itemGap));
+    }
+
+    .shader
+    {
+        height: calc((100vw - 2 * var(--mainMargin) - 3 * var(--itemGap) - var(--headshotWidth)) * 120 / 640);
     }
 }
