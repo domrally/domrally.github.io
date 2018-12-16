@@ -132,14 +132,13 @@ section
     color: black;
     border-radius: var(--itemGap);
 }
-/* overlay, but remove on hover */
+/* overlay, but remove text on hover */
 .caption
 {
     position: absolute; 
     height: 100%; 
     width: 100%; 
     z-index: 1; 
-    background: rgba(255, 255, 255, 0.7);
     font-size: 4vmin;
     font-weight: 300;
     color: black;
@@ -150,8 +149,16 @@ section
 }
 a:hover .caption
 {
-    background: rgba(255, 255, 255, 0.4);
     font-size: 0px;
+}
+/* stylize media before hovering */
+.media
+{
+    filter: blur(0.25vmin) opacity(0.2);
+}
+a:hover .media
+{
+    filter: opacity(0.6);
 }
 /* clickable media */
 section a
