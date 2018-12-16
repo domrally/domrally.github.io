@@ -111,6 +111,17 @@ h1
     width: 100%;
     margin: 0;
 }
+h2, h3
+{
+    font-size: 0.09em;
+    font-weight: 300;
+    color: black;
+    line-height: 0;
+}
+h3
+{
+    font-weight: 200;
+}
 /*  */
 main
 {
@@ -131,6 +142,7 @@ section
     background: white;
     color: black;
     border-radius: var(--itemGap);
+    font-size: calc((100vw - 2 * (var(--itemGap) + var(--mainMargin)) - var(--headshotWidth)) / 2);
 }
 /* overlay, but remove text on hover */
 .caption
@@ -139,15 +151,12 @@ section
     height: 100%; 
     width: 100%; 
     z-index: 1; 
-    font-size: 4vmin;
-    font-weight: 300;
-    color: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    flex-direction: column;
 }
-a:hover .caption
+a:hover .caption *
 {
     font-size: 0px;
 }
@@ -210,6 +219,7 @@ iframe
         width: 100%;
         height: calc((100vw - 2 * var(--mainMargin)) * 360 / 640);
         margin: 1vh 0;
+        font-size: calc(100vw - 2 * var(--mainMargin));
     }
 }
 /* Minimum aspect ratio */
@@ -219,5 +229,6 @@ iframe
     {
         width: calc(100% / 3 - var(--itemGap));
         height: calc((100vw - 2 * var(--mainMargin) - 3 * var(--itemGap) - var(--headshotWidth)) * 120 / 640);
+        font-size: calc((100vw - 2 * var(--mainMargin) - 3 * var(--itemGap) - var(--headshotWidth)) / 3);
     }
 }
