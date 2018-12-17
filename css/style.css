@@ -5,6 +5,7 @@
     --itemGap: 2vw;
     --mainMargin: 3vw;
     --headerBorderWidth: 2vmin;
+    --aspectRatio: 0.5625em;
 }
 /* keep borders inside the box dimensions */
 html 
@@ -28,8 +29,7 @@ html, body
 /*  */
 body
 {
-    background: 
-        linear-gradient(
+    background: linear-gradient(
             to bottom,
             rgba(255, 233.8095, 69.6405, 0.04),
             rgba(0, 32.181, 76.8825, 0.07)
@@ -41,8 +41,7 @@ body
 /*  */
 header
 {
-    background: 
-        linear-gradient(
+    background: linear-gradient(
             to bottom,
             rgba(255, 233.8095, 69.6405, 0.4),
             rgba(0, 32.181, 76.8825, 0.7)
@@ -111,14 +110,24 @@ h1
     width: 100%;
     margin: 0;
 }
-h2, h3
+h2
+{
+    width: 100%;
+/*    font-size: 35px;*/
+    line-height: 0;
+    color: rgba(0, 32.181, 76.8825, 1);
+    text-align: center;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+h3, h4
 {
     font-size: 0.09em;
     font-weight: 300;
     color: black;
     line-height: 0;
 }
-h3
+h4
 {
     font-weight: 200;
 }
@@ -136,13 +145,13 @@ main
 /*  */
 section
 {
-    width: calc(50% - var(--itemGap));
-    height: calc((100vw - 2 * (var(--itemGap) + var(--mainMargin)) - var(--headshotWidth)) * 180 / 640);
+    font-size: calc((100vw - 2 * (var(--itemGap) + var(--mainMargin)) - var(--headshotWidth)) / 2);
+    width: 1em;/*calc(50% - var(--itemGap));*/
+    height: var(--aspectRatio);
     overflow: hidden;
     background: white;
     color: black;
     border-radius: var(--itemGap);
-    font-size: calc((100vw - 2 * (var(--itemGap) + var(--mainMargin)) - var(--headshotWidth)) / 2);
 }
 /* overlay, but remove text on hover */
 .caption
@@ -163,7 +172,7 @@ a:hover .caption *
 /* stylize media before hovering */
 .media
 {
-    filter: blur(0.25vmin) opacity(0.2);
+    filter: blur(0.007em) opacity(0.2);
 }
 a:hover .media
 {
@@ -216,8 +225,6 @@ iframe
     
     section
     {
-        width: 100%;
-        height: calc((100vw - 2 * var(--mainMargin)) * 360 / 640);
         margin: 1vh 0;
         font-size: calc(100vw - 2 * var(--mainMargin));
     }
@@ -227,8 +234,6 @@ iframe
 { 
     section
     {
-        width: calc(100% / 3 - var(--itemGap));
-        height: calc((100vw - 2 * var(--mainMargin) - 3 * var(--itemGap) - var(--headshotWidth)) * 120 / 640);
         font-size: calc((100vw - 2 * var(--mainMargin) - 3 * var(--itemGap) - var(--headshotWidth)) / 3);
     }
 }
