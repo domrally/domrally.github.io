@@ -220,7 +220,14 @@ iframe
     header 
     {
         width: 100%;
-        height: calc(100vw * 1.618);
+        height: 61vw;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 233.8095, 69.6405, 0.9),
+            rgba(0, 32.181, 76.8825, 0.9)
+        ),
+        url(../images/headshot.jpg);
+        background-size: cover;
     }
     
     section
