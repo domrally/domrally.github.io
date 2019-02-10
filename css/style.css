@@ -25,7 +25,7 @@ html
 html, body
 {
     padding: 0;
-    font-size: 1.1em;
+    font-size: 20px;
     font-family: Fira Sans;  
 }
 body
@@ -203,4 +203,12 @@ a:hover figcaption *
 a:hover .media
 {
     filter: opacity(1.0);
+}
+
+@media (min-aspect-ratio: 16/9) 
+{
+    section
+    {
+        width: 100%;
+    }
 }
