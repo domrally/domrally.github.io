@@ -205,7 +205,7 @@ a:hover .media
     filter: opacity(1.0);
 }
 
-@media (min-aspect-ratio: 16/9) 
+@media (max-aspect-ratio: 8/9) 
 {
     section
     {
