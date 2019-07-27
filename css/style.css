@@ -1,12 +1,14 @@
 /* common variables */
 :root 
 {
-    --emphasisColor: #CC7722;
+    --adjacentHue: #CC7722;    
+    --emphasisColor: #ffe945;    
+    --emphasisTextColor: black;
 }
 html 
 {
     box-sizing: border-box;
-    color: white;
+    color: #ffe945;
     background: white;
     margin: 0;
     height: 100%;
@@ -14,12 +16,13 @@ html
 }
 *, *:before, *:after 
 {
-  box-sizing: inherit;
+    box-sizing: inherit;
 }
-*::selection
+*::selection, a:hover figcaption *
 {
-    background: rgba(255, 255, 255, .99);
-    color: var(--emphasisColor);
+    /*background: white;*/
+    background: #fffffffe;
+    color: var(--emphasisTextColor);
 }
 /* get things to a good default */
 html, body
@@ -34,7 +37,7 @@ body
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    background: black;
+    background: #00204c;
     margin: 1em;
 }
 #headshot
@@ -43,7 +46,7 @@ body
     --size: calc(2 * var(--radius));
     width: var(--size);
     height: var(--size);
-    border: 0.25em solid;
+    border: 0.25em solid white;
     border-radius: var(--radius);
     background: url(../images/headshot.jpg);
     background-size: cover;
@@ -188,11 +191,6 @@ a figcaption *
 {
     display: inline-block;
     padding: 0.5em;
-}
-a:hover figcaption *
-{
-    background: white;
-    color: var(--emphasisColor);
 }
 .media
 {
