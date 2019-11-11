@@ -18,60 +18,57 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/brands.css" integrity="sha384-whKHCkwP9f4MyD1vda26+XRyEg2zkyZezur14Kxc784RxUU1E7HvWVYj9EoJnUV7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/fontawesome.css" integrity="sha384-WK8BzK0mpgOdhCxq86nInFqSWLzR5UAsNg0MGX9aDaIIrFWQ38dGdhwnNCAoXFxL" crossorigin="anonymous">
     
+    <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
-    <script type="module">
-        import renderMathInElement from "https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.mjs";
-        renderMathInElement(document.body);
+    <script>
+        window.WebFontConfig = {
+            custom: {
+                families: ['KaTeX_AMS', 'KaTeX_Caligraphic:n4,n7', 'KaTeX_Fraktur:n4,n7',
+                    'KaTeX_Main:n4,n7,i4,i7', 'KaTeX_Math:i4,i7', 'KaTeX_Script',
+                    'KaTeX_SansSerif:n4,n7,i4', 'KaTeX_Size1', 'KaTeX_Size2', 'KaTeX_Size3',
+                    'KaTeX_Size4', 'KaTeX_Typewriter'],
+            },
+        };
     </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
+    
+    <script type="module" type="text/javascript">
+        import katex from 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.mjs';
+        var math = document.getElementsByClassName('math');
+        for (var i = 0; i < math.length; i++) {
+          katex.render(math[i].textContent, math[i]);
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script nomodule defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+
+    <link href="../css/articles.css" rel="stylesheet" media="screen">
 
 </head>
 
 <body>
-
-<!--
-    <header>
-        
-        <h1>
-            dommandy.com
-        </h1>
-        
-        <figure id = "headshot">
-            <figcaption>
-                Dom Mandy
+    <main>
+        <figure>
+            <canvas class="glslCanvas" data-fragment-url="superRect.frag" width="512" height="512"></canvas>
+            <figcaption class="math">
+                \begin{aligned}
+                &\Huge\text{SuperRect}
+                \\ \normalsize
+                \\
+                \biggl⟮ \begin{matrix} x \\ y \end{matrix} \biggr⟯
+                &= \tanh \biggl( k
+                \biggl⟮ \begin{matrix} \cot t \\ \tan t \end{matrix} \biggr⟯
+                \biggr)
+                ~\mathrm{sgn} \begin{pmatrix} \sin t \\ \cos t \end{pmatrix}
+                \\
+                k &\approx 1.19228
+                \end{aligned}
             </figcaption>
         </figure>
-        
-        <nav>
-            <a target="_blank" href="https://www.linkedin.com/in/dominic-mandy-60b9794b/">
-                <i class="fab fa-linkedin"></i>
-            </a>
 
-            <a target="_blank" href="https://twitter.com/domrally">
-                <i class="fab fa-twitter-square"></i>
-            </a>
-
-            <a target="_blank" href="https://www.instagram.com/dommandy/">
-                <i class="fab fa-instagram"></i>
-            </a>
-        </nav>
-        
-        <p>
-            Hi, I'm Dom! I'm a mathematical artist and software developer based in Los Angeles. Check out my work below. Follow me on social media and contact me for business inquiries.
-        </p>
-        
-    </header>
-
-
-    <main>
         
     </main>
--->
-    <h1>$$e^t$$</h1>
-    <script src="container.js"></script>
-    
+            
 </body>
 
 </html>
