@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
     <title>SuperRect | Dom Mandy</title>
 
     <meta charset="utf-8">
@@ -14,9 +11,6 @@
     
     <!-- fira sans font -->
     <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
-    <!-- social media icons -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/brands.css" integrity="sha384-whKHCkwP9f4MyD1vda26+XRyEg2zkyZezur14Kxc784RxUU1E7HvWVYj9EoJnUV7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/fontawesome.css" integrity="sha384-WK8BzK0mpgOdhCxq86nInFqSWLzR5UAsNg0MGX9aDaIIrFWQ38dGdhwnNCAoXFxL" crossorigin="anonymous">
     
     <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
     
@@ -43,34 +37,130 @@
     <script nomodule defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
 
     <link href="../css/articles.css" rel="stylesheet" media="screen">
+    <link href="../css/common.css" rel="stylesheet" media="screen">
 
 </head>
 
 <body>
     <main>
-        <figure>
-            <canvas class="glslCanvas" data-fragment-url="superRect.frag" width="512" height="512"></canvas>
-            <figcaption class="math">
-                \begin{matrix}
-                \Huge\text{\textcolor{#191919}{SuperRect}}
-                \\ \normalsize
-                \begin{aligned}
-                \\ 
-                \biggl⟮ \begin{matrix} x \\ y \end{matrix} \biggr⟯
-                &= \tanh \biggl( k
-                \biggl⟮ \begin{matrix} \cot t \\ \tan t \end{matrix} \biggr⟯
-                \biggr)
-                ~\mathrm{sgn} \begin{pmatrix} \sin t \\ \cos t \end{pmatrix}
-                \\
-                k &\approx 1.19228
-                \end{aligned}
-                \end{matrix}
-            </figcaption>
-        </figure>
-
+        <header>
+            <h1>
+                The Circle and the Square had Babies—or: 
+                <br>
+                The Birth of the SuperRect
+            </h1>  
+            <a target="_blank" href="../index.html">
+                by Dom Mandy
+            </a>
+            <p>
+                A Geometric Interpretation of What Our Minds Think of What Our Eyes See
+            </p>
+        </header>
+        <section>
+            <h2>
+                Circle and Square
+            </h2>
+            <p>
+            The circle and the square are basic shapes. Designers use each one frequently. And Althoughwhile they are sometimes used for the same purpose, they do not carry the same meaning. The circle has become a symbol of beauty; the square, utility. 
+            </p>
+            <p>
+                The circle is an ideal form. It possesses a sort of divine perfection. The sun and (full) moon—celestial bodies—look like circles from earth, and our eyes—purported windows to the soul—are circles within circles. The circle’s bare symmetry is appealing; its soft arcs smiling kindly around its border.
+            </p>
+            <p>
+                The square boxes stuff in. It divides and defines the boundaries of our land. Squares surround our homes. We consume media enclosed by squared displays. The square’s effortless marriage of parallel and perpendicular lines makes it a user-friendly, all-purpose design tool. Designers’ use of square grids maximizes space, as the tiled squares leave no gaps and contain the entire plane.
+            </p>
+            <p>
+                Somewhere between a circle and a square, there exists an uncompromising shape offering both form and function. 
+            </p>
+        </section>
         
-    </main>
-            
+        <section>
+            <h2>
+                Psychology of Visual Perception
+            </h2>
+            <p>
+                A square with rounded corners blends the aesthetic of the circle and the usefulness of the square. But for us to see a rounded square the same way we see a circle, our brains must also see them similarly.
+            </p>
+        </section>
+        
+        <section>
+            <h2>
+                Timeline
+            </h2>
+            <section>
+                <header>
+                    <h3>
+                        1818—Superellipse
+                    </h3>
+                </header>
+                <p>
+                    In 1818 Gabriel Lamé discovered a curve mathematically similar to a circle and superficially similar to a square. It was long known as Lamé's Special Quartic --; now, the Squircle. The Squircle is from a family of squares with rounded corners known as Lamé Curves (until the name was changed in 1959). 
+                </p>
+            </section>
+            <section>
+                <header>
+                    <h3>
+                        1981—RoundRect
+                    </h3>
+                </header>
+                <p>
+                </p>
+            </section>
+            <section>
+                <header>
+                    <h3>
+                        2018—SuperRect
+                    </h3>
+                    <figure>
+                        <canvas class="glslCanvas" data-fragment-url="superRect.frag" width="512" height="512"></canvas>
+                        <figcaption class="math">
+                            \begin{matrix}
+                            \Huge\text{\textcolor{#191919}{SuperRect}}
+                            \\ \normalsize
+                            \begin{aligned}
+                            \\ 
+                            \biggl⟮ \begin{matrix} x \\ y \end{matrix} \biggr⟯
+                            &= \tanh \biggl( k
+                            \biggl⟮ \begin{matrix} \cot t \\ \tan t \end{matrix} \biggr⟯
+                            \biggr)
+                            ~\mathrm{sgn} \begin{pmatrix} \sin t \\ \cos t \end{pmatrix}
+                            \\
+                            k &\approx 1.19228
+                            \end{aligned}
+                            \end{matrix}
+                        </figcaption>
+                    </figure>
+                </header>
+                <p>
+                </p>
+            </section>
+        </section>
+        <section>
+            <h2>
+                Perceptual Geometry
+            </h2>
+            <p>
+                Let’s take a step back and look at the math behind our visual perception before I get into the reasoning behind the SuperRect. In fact, let’s step all the way back to the math behind the circle and square.
+            </p>
+        </section>
+        <section>
+            <h2>
+                Discovering the SuperRect
+            </h2>
+            <p>
+                A square with rounded corners periodically alternates between being circle-like and square-like. This suggests that we could generate the rounded square using a periodic function. A square has 4 sides, so our x and y functions should each become flat twice per period. But how does a curve become flat if it is not already a straight line?
+            </p>
+        </section>
+        <section>
+            <h2>
+                Implementations
+            </h2>
+        </section>
+        <section>
+            <h2>
+                Further Reading
+            </h2>
+        </section>
+    </main>          
 </body>
-
 </html>
