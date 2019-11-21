@@ -95,6 +95,6 @@ void main()
     float stroke = flatstep(r - 4. * scale, r, d);
     // stroke *= fill;
     // render
-    gl_FragColor = getColor(fill, stroke);
+    gl_FragColor = vec4(d);//getColor(fill, stroke);
     gl_FragColor.a = 1.;// - gl_FragColor.a;
 }
