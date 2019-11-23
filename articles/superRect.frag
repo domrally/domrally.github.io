@@ -87,7 +87,7 @@ void main()
     p = abs(p);
     p = mix(p, p.yx, step(p.x, p.y));
     p.y = mix(p.y, .1, step(p.y, .1));
-    gl_FragColor.b = acosf(p.x);
+    gl_FragColor.b = atanh(p.x);
     return;
     // since the shape is convex we can be sure which points are inside
     float x = p.y - sinf(acosf(p.x));
