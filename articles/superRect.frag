@@ -87,10 +87,10 @@ void main()
     p = abs(p);
     p = mix(p, p.yx, step(p.x, p.y));
     p.y = mix(p.y, .1, step(p.y, .1));
+    gl_FragColor.b = acosf(p.x);
+    return;
     // since the shape is convex we can be sure which points are inside
     float x = p.y - sinf(acosf(p.x));
-    gl_FragColor.r = x;
-    return;
     float y = p.x - cosf(asinf(p.y));
     float fill = 1. - step(.0, x) * step(.0, y);
     // distance field becomes assymptotically correct as points get close to curve
