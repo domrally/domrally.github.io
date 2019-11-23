@@ -2,8 +2,6 @@
 precision highp float;
 #endif
 
-// #extension GL_OES_standard_derivatives : enable
-
 uniform vec2 u_resolution;
 // 
 float tanh(float t)
@@ -44,28 +42,11 @@ float acosf(float x)
     return f;
 }
 // 
-float flatstep(float low, float high, float t)
-{
-    float u = (t - low) / (high - low);
-    u = clamp(0., 1., u);
-    return .5 + .5 * cosf(u * 3.14);
-}
-// gets rid of the jaggies
-float getAntiAliasing(float dist, float radius)
-{
-    return flatstep(0., radius, dist);
-    // 
-    // float aaDelta = fwidth(dist);
-    // 
-    // return flatstep(radius - aaDelta, radius, dist);
-    // return smoothstep(radius, radius - aaDelta, dist);
-}
-// 
 vec4 getColor(float fill, float stroke)
 {
     vec4 color = vec4(1.);
-    color = mix(color, vec4(1.), fill);
-    color = mix(color, vec4(0.), stroke);
+    color.rgb = mix(color.rgb, vec3(1.), fill);
+    color.rgb = mix(color.rgb, vec3(0.), stroke);
     return color;
 }
 
@@ -74,12 +55,8 @@ void main()
     // set up the composition
     float scale = 1. / min(u_resolution.x, u_resolution.y);
     vec2 p = scale * (2. * gl_FragCoord.xy - u_resolution.xy);
-    // fixed pixel width
-    float r = 16. * scale;
-    // relative container width
-    r = .015;
     // make sure it's always at least a certain size
-    r = max(16. * scale, .015);
+    float r = max(16. * scale, .015);
     p *= 1. + r;
     // take advantage of symmetry
     p = abs(p);
@@ -89,15 +66,9 @@ void main()
     float x = p.y - sinf(acosf(p.x));
     float y = p.x - cosf(asinf(p.y));
     float fill = 1. - step(.0, x) * step(.0, y);
-    // gl_FragColor = vec4(1.);
-    // gl_FragColor.g = fill;
-    // return;
     // distance field becomes assymptotically correct as points get close to curve
 	float d = x * y * inversesqrt(x * x + y * y);
-    // float stroke = getAntiAliasing(d, r);
     float stroke = smoothstep(r, r - 4. * scale, d);
-    // stroke *= fill;
     // render
     gl_FragColor = getColor(fill, stroke);
-    gl_FragColor.a = 1.;// - gl_FragColor.a;
 }
