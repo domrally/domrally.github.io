@@ -89,6 +89,9 @@ void main()
     float x = p.y - sinf(acosf(p.x));
     float y = p.x - cosf(asinf(p.y));
     float fill = 1. - step(.0, x) * step(.0, y);
+    gl_FragColor = vec4(1.);
+    gl_FragColor.g = fill;
+    return;
     // distance field becomes assymptotically correct as points get close to curve
 	float d = x * y * inversesqrt(x * x + y * y);
     // float stroke = getAntiAliasing(d, r);
