@@ -95,7 +95,7 @@ void main()
     // distance field becomes assymptotically correct as points get close to curve
 	float d = x * y * inversesqrt(x * x + y * y);
     // float stroke = getAntiAliasing(d, r);
-    float stroke = flatstep(r - 4. * scale, r, d);
+    float stroke = smoothstep(r, r - 4. * scale, d);
     // stroke *= fill;
     // render
     gl_FragColor = getColor(fill, stroke);
