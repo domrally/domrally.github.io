@@ -89,10 +89,10 @@ void main()
     p.y = mix(p.y, .1, step(p.y, .1));
     // since the shape is convex we can be sure which points are inside
     float x = p.y - sinf(acosf(p.x));
+    gl_FragColor.r = x;
+    return;
     float y = p.x - cosf(asinf(p.y));
     float fill = 1. - step(.0, x) * step(.0, y);
-    gl_FragColor.rgb = vec3(fill);
-    return;
     // distance field becomes assymptotically correct as points get close to curve
 	float d = x * y * inversesqrt(x * x + y * y);
     // float stroke = getAntiAliasing(d, r);
