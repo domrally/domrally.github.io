@@ -2,7 +2,7 @@
 precision mediump float;
 #endif
 
-// #extension GL_OES_standard_derivatives : enable
+#extension GL_OES_standard_derivatives : enable
 
 uniform vec2 u_resolution;
 // 
@@ -14,7 +14,7 @@ float tanh(float t)
 // 
 float atanh(float x)
 {
-    return .5 * log((x + 1.) / (x - 1.));
+    return .5 * log((1. + x) / (1. - x));
 }
 // 
 const float k = 1.19228;
@@ -53,11 +53,11 @@ float flatstep(float low, float high, float t)
 // gets rid of the jaggies
 float getAntiAliasing(float dist, float radius)
 {
-    return flatstep(0., radius, dist);
+    // return flatstep(0., radius, dist);
     // 
-    // float aaDelta = fwidth(dist);
+    float aaDelta = fwidth(dist);
     // 
-    // return flatstep(radius - aaDelta, radius, dist);
+    return flatstep(radius - aaDelta, radius, dist);
     // return smoothstep(radius, radius - aaDelta, dist);
 }
 // 
@@ -71,8 +71,6 @@ vec4 getColor(float fill, float stroke)
 
 void main()
 {    
-    gl_FragColor.rgb = vec3(0.);
-    gl_FragColor.a = 1.;
     // set up the composition
     float scale = 1. / min(u_resolution.x, u_resolution.y);
     vec2 p = scale * (2. * gl_FragCoord.xy - u_resolution.xy);
@@ -87,16 +85,14 @@ void main()
     p = abs(p);
     p = mix(p, p.yx, step(p.x, p.y));
     p.y = mix(p.y, .1, step(p.y, .1));
-    gl_FragColor.b = atanh(p.x);
-    return;
     // since the shape is convex we can be sure which points are inside
     float x = p.y - sinf(acosf(p.x));
     float y = p.x - cosf(asinf(p.y));
     float fill = 1. - step(.0, x) * step(.0, y);
     // distance field becomes assymptotically correct as points get close to curve
 	float d = x * y * inversesqrt(x * x + y * y);
-    // float stroke = getAntiAliasing(d, r);
-    float stroke = flatstep(r - 4. * scale, r, d);
+    float stroke = getAntiAliasing(d, r);
+    // float stroke = flatstep(r - 4. * scale, r, d);
     // stroke *= fill;
     // render
     gl_FragColor = getColor(fill, stroke);
