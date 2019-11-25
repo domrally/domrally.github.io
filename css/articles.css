@@ -9,7 +9,7 @@ main
     margin: auto;
 }
 
-p
+p, i
 {
     line-height: 1.618em;
     font-weight: 300;
@@ -30,9 +30,8 @@ h1
     text-align: center;
     font-size: 2em;
 }
-header a
+#author
 {
-    text-decoration: none;
     background: black;
     color: white;
     border-radius: 1em;
@@ -40,7 +39,7 @@ header a
 }
 header p
 {
-    font-weight: 200;
+    font-weight: 300;
     text-align: center;
     font-size: 1.25em;
 }
@@ -58,6 +57,14 @@ figure
     width: 512px; 
     height: 512px; 
     position: relative;
+    border-top: solid 2px grey;
+    padding-top: 2em;
+    margin: auto;
+}
+
+section:first-of-type figure
+{
+    border: none;
 }
 
 canvas
@@ -68,9 +75,9 @@ canvas
 
 figcaption
 {
-    line-height: 500px; 
+    line-height: 512px; 
     position: absolute; 
-    top: 0px; 
+    bottom: 0px; 
     width: 100%; 
     text-align: center;
 }
