@@ -1,0 +1,180 @@
+The Circle and the Square had Babies
+—or:
+The Birth of the SuperRect
+by Dom Mandy
+A Geometric Interpretation of What We Think of What We See
+
+The circle and the square each communicate fundamental yet divergent visual information. Although designers sometimes use them for the same purpose, they do not carry the same meaning. We perceive the circle as a symbol of beauty; the square, utility. 
+
+The circle possesses an ideal form. The universe bestowed it with a sort of divine perfection. The sun and (full) moon—celestial bodies—look like circles from earth, and our eyes—purported windows to the soul—evolved into circles within circles. The circle’s bare symmetry appeals to us; its soft arcs a reasuring smile around its border.
+
+The square boxes us in. It divides and defines the boundaries of our land. Squares surround our homes. We consume media enclosed by squared displays. The square’s effortless marriage of parallel and perpendicular lines makes it a user-friendly, all-purpose design tool. Designers’ use of square grids maximizes space, as the tiled squares leave no gaps and contain the entire plane.
+
+Somewhere between a circle and a square, there exists an uncompromising shape offering both form and function. 
+The Psychology of Visual Perception
+A square with rounded corners blends the aesthetic of the circle and the usefulness of the square. But for us to see a rounded square the same way we see a circle, our brains must also see them similarly.
+
+Our brains perform rapid signal processing when light enters our eyes and stores  information in a short-term form of memory. The brain selects and passes information to our conscious processing based on how much it stands out from its environment—a quality known as salience.
+
+The circle’s smoothness makes it easy on the eyes. The visual cortex processes smooth shapes faster than sharp ones, increasing speed and simplicity of our subconcious thought. Objects that the brain spends less time processing have less salience. 
+
+Our brains use salience to tell us what we need to pay attention to, and our brains deem any old corners worthy of our time. We evolved this function to protect us from death by sharp corners. Our brains have a nostalgic view of the world, and they often give us warnings in the absence of real threats. By recalling our genetic memories we can design our world to work in harmony with our minds. 
+
+Squares won’t stop being useful, and humanity will continue to use them. But sighted humans understand information more effectively when communicated without corners. We can make better squares by making squares without corners.
+Timeline
+1818—Superellipse
+
+
+In 1818 Gabriel Lamé discovered a curve mathematically like a circle and superficially like a square. Long known as Lamé's Special Quartic, we now know it as the Squircle. The Squircle comes from a family of rounded squares known as Lamé Curves—until the name changed in 1959. 
+
+The need for a rounded and squared shape gained public attention in 1959 with the construction of Sergels torg, a plaza in Stockholm, Sweden. The city planners wanted to design a fountain that would align with the intersection of two roads but with a shape better looking than a square. 
+The city selected a Lamé Curve at the suggestion of Piet Hein, who renamed the shape to a Superellipse—a name still used today.
+1981—RoundRect
+
+Perhaps the most commonly used rounded square is the RoundRect. Web browsers use RoundRects to round corners on page elements through the border-radius. Almost any graphic design software gives users the RoundRect as a primitive shape for their designs. The addition of the RoundRect to one of the first examples of graphic design software solidified its ubiquity.
+
+In May 1981, Bill Atkinson programmed the shapes to include in LisaGraf (a drawing program for the Apple Lisa computer). They understood the importance of adding squares with rounded corners but they could not use a Superellipse, since the hardware of the time could not render such a complicated shape. We often don’t get the best way; we get the way that works. In this case the RoundRect worked.
+2018—SuperRect
+
+In late 2017, I went in search of the best square with rounded corners. In 2018—the Squircle’s bicentennial year—I discovered the SuperRect.
+Geometry
+Let’s take a step back and look at the math behind our visual perception before I get into the reasoning behind the SuperRect. In fact, let’s step all the way back to the math behind our perception of the circle and square.
+
+I'd like to talk about these shapes using smoothness and flatness. A smooth curve has continuous curvature and smooth change in curvature. A flat curve has zero curvature and flat change in curvature. We can feel curvature, allowing us to understand it beyond the abstraction of mathematics.
+
+You feel curvature when you go around a corner on a train. In physics you would call this centripital force. In mathematics it all comes down to curvature. Moving through a smooth curve feels predictably smooth. Moving through a flat curve feels like nothing.
+
+Imagine yourself on a train. Please put your train on a circle shaped track. As your train moves around the loop you feel a constant pull away from the center. The amount of pull you feel matches the amount of curvature. The constant curvature defines the circle preceptually.
+
+Now let’s move your train to a square shaped track. Moving along a side of the square you feel no pull at all. When your train reaches a turn in the track, your train starts moving in a different direction and slams you to the side of the traincar. We see this violent change in direction as a corner. This corner makes the curvature discontinuous, preventing smoothness in a square.
+
+Now imagine your train on one of Lamé’s Superellipses. Here, like a circle, you feel a pull away from the center of the tracks, but the amount of pull changes over time. You will have a smooth ride with no bumps implying the smoothness of a Superellipse. The centripital force you feel never goes away, preventing flatness in a Superellipse.
+
+Now let’s look at the RoundRect. It has flat sides like the square and smooth corners like a circle. When our train crosses from a square-like length of track to a circle like part, we can feel a jarring bump. This makes our ride not smooth, implying the lack of smoothness in the RoundRect.
+
+Time to ride the train on a SuperRect track. Spoiler: The SuperRect is both smooth and flat. We have a smooth ride around the loop and at 4 points, one on each side, we feel free from all centripital force. This means the SuperRect can appear both circle-like and square-like.
+
+Discovering the SuperRect
+
+Trigonometry provides a natural way to define a circle.
+Cos
+sin
+
+The study of non-analytic smooth funtions gives us a way to combine flatness with smoothness. 
+The bump function
+
+Let us then create non-analytic smooth analogues of our triginometric functions
+1 / x => Tan
+exponential => Tanh
+
+We can take these flat functionions and turn them into a form we need using a trick from the superellipse.
+Sign(Cos(t))
+
+now we have our flat triginometric analogues
+cosf
+sinf
+
+next we need to find the bifurcation point to make sure that there are only 4 bends in the curve to match a square
+k = 1.19228
+
+
+
+[image of Tanh]
+Tanh is one such function. At negative and positive infinity we see the function approach our target values.
+
+Then we need an input function that reaches positive and negative infinity periodically.
+[image of Tan]
+Tan is one such function. The period is Pi/2.
+
+How about y = Tanh(Tan(t))? 
+[image of Tanh(Tan(t))]
+That is periodically flat. Now let’s make it better. y = Tanh(Tan(t))Sign(Cos(t)). 
+[image of Tanh(Tan(t))Sign(Cos(t))]
+Now we have our Sine analogue, we need our Cosine analogue. 
+x = Tanh(Cot(t))Sign(Sin(t)). 
+[image of Tanh(Cot(t))Sign(Sin(t))]
+There we go!
+
+Let’s check that the curvature is flat. For the curvature to be flat we need only one component (horizontal or vertical) of the parametric equations to be flat. 
+[equation of curvature from parameters]
+This can be seen by using the quotient rule of calculus.
+[image of proof of flat curvature using quotient rule]
+Blah blah blah metaphor for how this makes sense in the train. 
+
+Plotting this, we see something close to what we are looking for.
+[image of rounded octogon]
+This has the flat sides and the smoothness, but it lacks our target symmetry.
+
+The curvature is unchanging (stationary) in both circles and squares. Therefore all circle-like or square-like points on our shape need to be stationary points. Additionally, the curvature of a square is zero (flat) everywhere. So all square-like points on our shape must be flat. We want 4 sides and 4 rounded corners, so the circle-like and square-like points should occur with a period of one quarter turn each. 
+
+Now let’s make the first derivative of the curvature 0 at only 4 points instead of 8. 
+[plot of phase diagram showing that 1.19228 is the winner]
+y = Tanh(1.19228*Tan(t))Sign(Cos(t)). 
+[plot of super-rect]
+That’s it!
+Discussion
+[image of 3x3 grid of super-rects colored preceptually]
+[image of grid of SuperRects with different length flat portions]
+The super-rect can do things that the others can’t do. 
+Like extend.
+Further Reading
+Article that inspired my work on the topic
+Optical Effects in User Interfaces (for True Nerds)
+Someone who tried to use math to match Apple’s iOS7+ icons
+Desperately Seeking Squircles
+Salience
+Articles on salience
+Why Our Brains Love Curvy Architecture
+Why Rounded Corners Are Easier on the Eyes
+Paper on salience and corner sharpness
+Corner salience varies linearly with corner angle duringflicker-augmented contrast: a general principle of cornerperception based on Vasarely’s artworks
+Article discussing curvature and showing curvature combs
+Apple’s Icons Have That Shape for a Very Good Reason
+Book chapter on how apple ended up popularizing the RoundRect
+Round Rects are Everywhere!
+Date on the Squircle
+http://www.math.drexel.edu/~tolya/implicit%20equations.pdf
+
+
+
+Outline
+Math
+Curvature
+Description
+As kinematic force on particle moving along curve
+
+
+Flat at 4 sides
+Smooth
+2nd Derivative
+0 at 4 corners
+Symmetry
+
+
+History
+Superellipse
+Lame
+Sergels torg
+Piet hein
+Squircle
+Nokia
+Lame’s special quartic
+Fiat
+Dinner plates
+Apple
+Round-rect
+Device designs
+iOS 7 icons
+Bezier curves
+Many people start with a round-rect and pull out the corners
+Perception
+Salience
+Corners hurt communication
+Gestalt principles
+Objects with straight sides create a longer line in the mind
+Grouping helps communication
+Function
+Efficient use of space
+Dividing an area into rectangles fills all space
+Ease of use in creating rectangular object
+
