@@ -60,6 +60,7 @@ Trigonometry provides a natural way to define a circle.
 Cos
 sin
 
+
 The study of non-analytic smooth funtions gives us a way to combine flatness with smoothness. 
 The bump function
 
