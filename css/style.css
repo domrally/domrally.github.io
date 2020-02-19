@@ -8,7 +8,7 @@
 html 
 {
     box-sizing: border-box;
-    color: #ffe945;
+/*    color: #ffe945;*/
     background: white;
     margin: 0;
     height: 100%;
@@ -37,7 +37,8 @@ body
     height: auto;
     display: flex;
     flex-wrap: wrap;
-    background: #00204c;
+/*    background: #00204c;    */
+    background: #000;
     margin: 1em;
 }
 #headshot
@@ -80,9 +81,10 @@ header a:hover
 }
 p
 {
-    margin: 1em 2em;
+    padding: 1em 2em;
     text-align: justify;
     width: 24em;
+    background: white;
 }
 
 nav
