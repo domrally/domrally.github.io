@@ -1,0 +1,84 @@
+@import url(../css/common.css);
+
+body
+{
+    line-height: 1.618em;
+    font-weight: 400;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+main
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    max-width: 32em;
+    min-width: 24em;
+    margin: auto;
+}
+main > *
+{
+    margin: 1em 0;
+}
+
+header
+{
+    font-family: Fira Mono;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+header > *
+{
+    margin: .5em;
+}
+
+#description
+{
+    font-style: italic;
+}
+
+h1, h2
+{
+    margin: 0;
+    font-weight: inherit;
+}
+h1
+{
+    font-size: 1.618em;
+    font-weight: inherit;
+}
+h2
+{
+    font-size: inherit;
+}
+.linkToComments
+{
+    float: right;
+}
+
+figure
+{
+    width: 512px; 
+    height: 512px; 
+    position: relative;
+    border-top: solid 2px grey;
+    padding-top: 2em;
+    margin: auto;
+}
+figcaption
+{
+    line-height: 512px; 
+    position: absolute; 
+    bottom: 0px; 
+    width: 100%; 
+    text-align: center;
+}
+section:first-of-type figure
+{
+    border: none;
+}

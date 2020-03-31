@@ -9,9 +9,6 @@
 
     <link href="favicon.ico" rel="shortcut icon">
     
-    <!-- fira sans font -->
-    <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
-    
     <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
     
     <script>
@@ -24,7 +21,6 @@
             },
         };
     </script>
-    <script defer src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script>
     
     <script type="module" type="text/javascript">
         import katex from 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.mjs';
@@ -36,9 +32,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
     <script nomodule defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
 
-    <link href="../css/articles.css" rel="stylesheet" media="screen">
-    <link href="../css/common.css" rel="stylesheet" media="screen">
-
+    <link href="../writings.css" rel="stylesheet" media="screen">
 </head>
 
 <body>
@@ -46,29 +40,43 @@
         <header>
             <a href="">
                 <h1>
-                    The Circle and the Square had Babies
-                    <br>
-                    —or: 
-                    <br>
                     The Birth of the SuperRect
-                </h1>  
+                </h1>
+                <h2>
+                    —or: The Circle and the Square had Babies                    
+                </h2>  
             </a>
-            <a target="_blank" href="../index.html" id="author">
-                by Dom Mandy
-            </a>
-            <p>
-                A Geometric Interpretation of What We Think of What We See
-            </p>
-            <i>
-                10 minute read
-            </i>
+            <section id="description">
+                <nav>
+<!--
+                    <a target="_blank" href="../index.html">
+                        a living document⮥
+                    </a>
+-->
+                    by
+                    <a target="_blank" href="../index.html" id="author">
+                         Dom Mandy
+                    </a>
+                </nav>
+                <p>
+                    10 minute read
+                </p>
+            </section>
+            <canvas class="glslCanvas" data-fragment-url="media/banner.frag" width="512" height="512"></canvas>
         </header>
         <section id="CircleandSquare">
-            <a href="#CircleandSquare">
-                <h2>
+            
+            <h2>
+                <a href="#CircleandSquare">
                     Circle and Square
-                </h2>
-            </a>
+                </a>
+<!--
+                <a target="_blank" href="#" class="linkToComments">
+                    (view comments)
+                </a>
+-->
+            </h2>
+            
             <p>
                 The circle and the square each communicate fundamental yet divergent visual information. Although designers sometimes use them for the same purpose, they do not carry the same meaning. We perceive the circle as a symbol of beauty; the square, utility. 
             </p>
@@ -79,16 +87,21 @@
                 The square boxes us in. It divides and defines the boundaries of our land. Squares surround our homes. We consume media enclosed by squared displays. The square’s effortless marriage of parallel and perpendicular lines makes it a user-friendly, all-purpose design tool. Designers’ use of square grids maximizes space, as the tiled squares leave no gaps and contain the entire plane.
             </p>
             <p>
-                Somewhere between a circle and a square, there exists an uncompromising shape offering both form and function. 
+                Somewhere between a circle and a square, there exists an uncompromising shape offering both form and function. This would be a cooperative solution between the id and the superego.
             </p>
         </section>
         
         <section id="PsychologyofVisualPerception">
-            <a href="#PsychologyofVisualPerception">
-                <h2>
+            <h2>
+                <a href="#PsychologyofVisualPerception">
                     Psychology of Visual Perception
-                </h2>
-            </a>
+                </a>
+<!--
+                <a target="_blank" href="#" class="linkToComments">
+                    (view comments)
+                </a>
+-->
+            </h2>
             <p>
                 A square with rounded corners blends the aesthetic of the circle and the usefulness of the square. But for us to see a rounded square the same way we see a circle, our brains must also see them similarly.
             </p>
@@ -107,14 +120,19 @@
         </section>
         
         <section id="Timeline">
-            <a href="#Timeline">
-                <h2>
+            <h2>
+                <a href="#Timeline">
                     Timeline
-                </h2>
-            </a>
+                </a>
+<!--
+                <a target="_blank" href="#" class="linkToComments">
+                    (view comments)
+                </a>
+-->
+            </h2>
             <section>
                 <figure>
-                    <canvas class="glslCanvas" data-fragment-url="superEllipse.frag" width="512" height="512"></canvas>
+                    <canvas class="glslCanvas" data-fragment-url="media/superEllipse.frag" width="512" height="512"></canvas>
                     <figcaption class="math">
                         \begin{matrix}
                         \Huge\text{\textcolor{#191919}{1818}}
@@ -143,7 +161,7 @@
             </section>
             <section>
                 <figure>
-                    <canvas class="glslCanvas" data-fragment-url="roundRect.frag" width="512" height="512"></canvas>
+                    <canvas class="glslCanvas" data-fragment-url="media/roundRect.frag" width="512" height="512"></canvas>
                     <figcaption class="math">
                         \begin{matrix}
                         \Huge\text{\textcolor{#191919}{1981}}
@@ -174,7 +192,7 @@
             </section>
             <section>
                 <figure>
-                    <canvas class="glslCanvas" data-fragment-url="superRect.frag" width="512" height="512"></canvas>
+                    <canvas class="glslCanvas" data-fragment-url="media/superRect.frag" width="512" height="512"></canvas>
                     <figcaption class="math">
                         \begin{matrix}
                         \Huge\text{\textcolor{#191919}{2018}}
@@ -202,11 +220,16 @@
             </section>
         </section>
         <section id="PerceptualGeometry">
-            <a href="#PerceptualGeometry">
-                <h2>
+            <h2>
+                <a href="#PerceptualGeometry">
                     Perceptual Geometry
-                </h2>
-            </a>
+                </a>
+<!--
+                <a target="_blank" href="#" class="linkToComments">
+                    (view comments)
+                </a>
+-->
+            </h2>
             <p>
                 Let’s take a step back and look at the math behind our visual perception before I get into the reasoning behind the SuperRect. In fact, let’s step all the way back to the math behind our perception of the circle and square.
             </p>
@@ -233,28 +256,43 @@
             </p>
         </section>
         <section id="DiscoveringtheSuperRect">
-            <a href="#DiscoveringtheSuperRect">
-                <h2>
+            <h2>
+                <a href="#DiscoveringtheSuperRect">
                     Discovering the SuperRect
-                </h2>
-            </a>
+                </a>
+<!--
+                <a target="_blank" href="#" class="linkToComments">
+                    (view comments)
+                </a>
+-->
+            </h2>
             <p>
                 A square with rounded corners periodically alternates between being circle-like and square-like. This suggests that we could generate the rounded square using a periodic function. A square has 4 sides, so our x and y functions should each become flat twice per period. But how does a curve become flat if it is not already a straight line?
             </p>
         </section>
         <section id="Implementations">
-            <a href="#Implementations">
-                <h2>
+            <h2>
+                <a href="#Implementations">
                     Implementations
-                </h2>
-            </a>
+                </a>
+<!--
+                <a target="_blank" href="#" class="linkToComments">
+                    (view comments)
+                </a>
+-->
+            </h2>
         </section>
         <section id="FurtherReading">
-            <a href="#FurtherReading">
-                <h2>
+            <h2>
+                <a href="#FurtherReading">
                     Further Reading
-                </h2>
-            </a>
+                </a>
+<!--
+                <a target="_blank" href="#" class="linkToComments">
+                    (view comments)
+                </a>
+-->
+            </h2>
         </section>
     </main>          
 </body>
