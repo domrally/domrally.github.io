@@ -171,5 +171,9 @@ footer *
 }
 .externalLink::after
 {
-    content: '\2BA5';
+    display: inline-block;
+    transform: scale(-1, 1) translateX(.4em);
+    vertical-align: super;
+    font-size: .618em;
+    content: "\21f1";
 }
