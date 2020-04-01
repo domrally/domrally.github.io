@@ -64,15 +64,15 @@ void main()
     // take advantage of symmetry
     p=-abs(p);
     // p+=t;
-    s=mix(1.618,4.,t);
-    p+=mix(0.,.25,t);
+    s=mix(1.,2.*1.618,t);
+    p+=mix(0.,.5,t);
     // p*=20.;
     p*=s;
     scale=s/min(u_resolution.x,u_resolution.y);
     r=max(16.*scale,.015);
     //stay stable
-    p.x=min(p.x,-.000001);
-    p.y=min(p.y,-.000001);
+    p.x=min(p.x,-.1);
+    p.y=min(p.y,-.1);
     // // p*=s;
     // p.x=min(p.x,0.);
     // p.y=min(p.y,-.000001);
