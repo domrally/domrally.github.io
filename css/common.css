@@ -1,12 +1,14 @@
 @import url(https://code.cdn.mozilla.net/fonts/fira.css);
-
+html
+{
+    font-size: 2.8vmax;
+    letter-spacing: .02em;
+    font-family: Fira Sans; 
+}
 body
 {
     margin: 1em;
     padding: 0;
-    font-size: 3vh;
-    letter-spacing: .02em;
-    font-family: Fira Sans; 
     
     min-height: 100%;
     height: auto;

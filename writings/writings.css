@@ -54,19 +54,20 @@ h1, h2, h3
 }
 h1
 {
-    font-size: 6vh;
+    font-size: 1.618rem;
     font-weight: inherit;
 }
 h2
 {
     align-self: stretch;
-    font-size: 3vh;
+    font-size: 1rem;
     font-weight: 500;
 }
 h3
 {
     text-transform: uppercase;
     font-size: 1rem;
+    font-weight: 400;
 }
 .linkToComments
 {
