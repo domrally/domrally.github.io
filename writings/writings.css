@@ -83,8 +83,12 @@ figure
     padding: 3em 0;
     margin-left: -3em;
     margin-right: -2em;
-    text-align: center;
     color: #fff;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 #rainbow
 {
