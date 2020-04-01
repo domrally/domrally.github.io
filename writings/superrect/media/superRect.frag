@@ -55,8 +55,8 @@ void main()
     vec2 p=scale*(2.*gl_FragCoord.xy-u_resolution.xy);
     // make sure it's always at least a certain size
     float r=max(16.*scale,.015);
-    p=clamp(p,-1.,1.);
-    p*=1.+20.2*r;
+    r=3.*scale;
+    p*=1.+r;
     // take advantage of symmetry
     p=-abs(p);
     // p = mix(p, p.yx, step(p.x, p.y));
@@ -65,8 +65,8 @@ void main()
     p.x=min(p.x,0.);
     p.y=min(p.y,-.000001);
     // since the shape is convex we can be sure which points are inside
-    float x=p.y-clamp(sinf(acosf(p.x)),-1.,1.);
-    float y=p.x-clamp(cosf(asinf(p.y)),-1.,1.);
+    float x=p.y-sinf(acosf(p.x));
+    float y=p.x-cosf(asinf(p.y));
     float fill=step(.0,x)*step(.0,y);
     // distance field becomes assymptotically correct as points get close to curve
     float d=x*y*inversesqrt(x*x+y*y);
