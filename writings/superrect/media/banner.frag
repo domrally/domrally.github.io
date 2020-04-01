@@ -48,8 +48,8 @@ vec4 getColor(float fill,float stroke)
 
 void main()
 {
-    float t=8.*u_time;
-    t=.5+.5*clamp(sinf(t),-1.,1.)*sign(cos(t));
+    float t=4.*u_time;
+    t=.5+.5*clamp(cos(t),-1.,1.);
     float s=1.;//mix(1.618,4.,t);
     // set up the composition
     float scale=s/min(u_resolution.x,u_resolution.y);
@@ -64,8 +64,8 @@ void main()
     // take advantage of symmetry
     p=-abs(p);
     // p+=t;
-    s=mix(1.,4.,t);;
-    p+=1.-1./s;
+    s=mix(1.618,4.,t);
+    p+=mix(0.,.25,t);
     // p*=20.;
     p*=s;
     scale=s/min(u_resolution.x,u_resolution.y);
