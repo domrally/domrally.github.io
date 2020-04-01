@@ -50,39 +50,28 @@ void main()
 {
     float t=4.*u_time;
     t=.5+.5*clamp(cos(t),-1.,1.);
-    float s=1.;//mix(1.618,4.,t);
+    float s=1.;
     // set up the composition
     float scale=s/min(u_resolution.x,u_resolution.y);
     vec2 p=scale*(2.*gl_FragCoord.xy-u_resolution.xy);
     // make sure it's always at least a certain size
     float r=max(16.*scale,.015);
     //animate
-    // float t=1.5*u_time;
-    // float sine=.5+.5*sin(t);
-    // float tri=.5+asin(sin(t))/3.14;
-    // float h=mix(tri,sine,ceil(cos(t)));
     // take advantage of symmetry
     p=-abs(p);
     // p+=t;
-    s=mix(1.,2.*1.618,t);
-    p+=mix(0.,.5,t);
-    // p*=20.;
+    // s=mix(1.,2.*1.618,t);
+    t=mix(0.,.9,t);
+    // p+=mix(0.,.5,t);
+    p+=t;//1.-1./s;
+    s=1./(1.-t);
+    s*=mix(1.,1.168,t);
     p*=s;
     scale=s/min(u_resolution.x,u_resolution.y);
     r=max(16.*scale,.015);
     //stay stable
     p.x=min(p.x,-.1);
     p.y=min(p.y,-.1);
-    // // p*=s;
-    // p.x=min(p.x,0.);
-    // p.y=min(p.y,-.000001);
-    // p=-abs(p);
-    // p.x=min(p.x,0.);
-    // p.y=min(p.y,-.000001);
-    // p/=t+1.;
-    // p/=s;
-    // p.x=min(p.x,0.);
-    // p.y=min(p.y,-.000001);
     // since the shape is convex we can be sure which points are inside
     float x=p.y-sinf(acosf(p.x));
     float y=p.x-cosf(asinf(p.y));
