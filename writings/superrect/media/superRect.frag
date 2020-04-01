@@ -58,7 +58,7 @@ void main()
     // take advantage of symmetry
     p=-abs(p);
     //stay stable
-    p.x=min(p.x,-.1);
+    p.x=min(p.x,.0);
     p.y=min(p.y,-.000001);
     // since the shape is convex we can be sure which points are inside
     float x=p.y-sinf(acosf(p.x));

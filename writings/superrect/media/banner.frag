@@ -42,7 +42,7 @@ vec4 getColor(float fill,float stroke)
 {
     vec4 color=vec4(0.);
     color=mix(color,vec4(1.),fill);
-    color=mix(color,vec4(vec3(1.),0.),stroke);
+    color=mix(color,vec4(0.),stroke);
     return color;
 }
 
@@ -63,19 +63,24 @@ void main()
     // float h=mix(tri,sine,ceil(cos(t)));
     // take advantage of symmetry
     p=-abs(p);
+    // p+=t;
+    s=mix(2.,1.,t);
+    p+=.25;
+    // p*=20.;
+    p*=4.;
     //stay stable
     p.x=min(p.x,0.);
     p.y=min(p.y,-.000001);
-    s=mix(1.618,4.,t);
-    p*=s;
-    p.x=min(p.x,0.);
-    p.y=min(p.y,-.000001);
-    p=-abs(p);
-    p.x=min(p.x,0.);
-    p.y=min(p.y,-.000001);
-    p+=t;
-    p.x=min(p.x,0.);
-    p.y=min(p.y,-.000001);
+    // // p*=s;
+    // p.x=min(p.x,0.);
+    // p.y=min(p.y,-.000001);
+    // p=-abs(p);
+    // p.x=min(p.x,0.);
+    // p.y=min(p.y,-.000001);
+    // p/=t+1.;
+    // p/=s;
+    // p.x=min(p.x,0.);
+    // p.y=min(p.y,-.000001);
     // since the shape is convex we can be sure which points are inside
     float x=p.y-sinf(acosf(p.x));
     float y=p.x-cosf(asinf(p.y));
