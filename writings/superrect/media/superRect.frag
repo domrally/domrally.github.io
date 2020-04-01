@@ -54,14 +54,14 @@ void main()
     float scale=1./min(u_resolution.x,u_resolution.y);
     vec2 p=scale*(2.*gl_FragCoord.xy-u_resolution.xy);
     // antialiasing
-    float r=2.*scale;
+    float r=16.*scale;
     p*=1.+r;
     // take advantage of symmetry
     p=-abs(p);
     // p = mix(p, p.yx, step(p.x, p.y));
     // p.y = mix(p.y, .1, step(p.y, .1));
     //stay stable
-    p.x=min(p.x,0.);
+    p.x=min(p.x,-.1);
     p.y=min(p.y,-.000001);
     // since the shape is convex we can be sure which points are inside
     float x=p.y-sinf(acosf(p.x));
