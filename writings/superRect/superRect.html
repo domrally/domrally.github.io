@@ -11,26 +11,18 @@
     
     <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
     
+<!--
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+-->
     <script>
-        window.WebFontConfig = {
-            custom: {
-                families: ['KaTeX_AMS', 'KaTeX_Caligraphic:n4,n7', 'KaTeX_Fraktur:n4,n7',
-                    'KaTeX_Main:n4,n7,i4,i7', 'KaTeX_Math:i4,i7', 'KaTeX_Script',
-                    'KaTeX_SansSerif:n4,n7,i4', 'KaTeX_Size1', 'KaTeX_Size2', 'KaTeX_Size3',
-                    'KaTeX_Size4', 'KaTeX_Typewriter'],
-            },
+        MathJax = {
+            loader: {
+                load: ['input/asciimath', 'output/svg', 'ui/menu']
+            }
         };
     </script>
-    
-    <script type="module" type="text/javascript">
-        import katex from 'https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.mjs';
-        var math = document.getElementsByClassName('math');
-        for (var i = 0; i < math.length; i++) {
-          katex.render(math[i].textContent, math[i]);
-        }
-    </script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
-    <script nomodule defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js"></script>
 
     <link href="../writings.css" rel="stylesheet" media="screen">
 </head>
@@ -48,13 +40,11 @@
             </a>
             <section id="description">
                 <nav>
-<!--
-                    <a target="_blank" href="../index.html">
+                    <a target="_blank" href="../index.html" style="display: none">
                         a living document⮥
                     </a>
--->
                     by
-                    <a target="_blank" href="../index.html" id="author">
+                    <a target="_blank" href="../../index.html" id="author">
                          Dom Mandy
                     </a>
                 </nav>
@@ -70,11 +60,9 @@
                 <a href="#CircleandSquare">
                     Circle and Square
                 </a>
-<!--
                 <a target="_blank" href="#" class="linkToComments">
                     (view comments)
                 </a>
--->
             </h2>
             
             <p>
@@ -96,11 +84,9 @@
                 <a href="#PsychologyofVisualPerception">
                     Psychology of Visual Perception
                 </a>
-<!--
                 <a target="_blank" href="#" class="linkToComments">
                     (view comments)
                 </a>
--->
             </h2>
             <p>
                 A square with rounded corners blends the aesthetic of the circle and the usefulness of the square. But for us to see a rounded square the same way we see a circle, our brains must also see them similarly.
@@ -124,32 +110,23 @@
                 <a href="#Timeline">
                     Timeline
                 </a>
-<!--
                 <a target="_blank" href="#" class="linkToComments">
                     (view comments)
                 </a>
--->
             </h2>
             <section>
                 <figure>
                     <canvas class="glslCanvas" data-fragment-url="media/superEllipse.frag" width="512" height="512"></canvas>
-                    <figcaption class="math">
-                        \begin{matrix}
-                        \Huge\text{\textcolor{#191919}{1818}}
-                        \\
-                        \\
-                        \Huge\text{\textcolor{#191919}{Superellipse}}
-                        \\ 
-                        \normalsize
-                        \begin{aligned}
-                        \\ 
-                        \biggl⟮ \begin{matrix} x \\ y \end{matrix} \biggr⟯
-                        &= \sqrt { \begin{vmatrix}
-                        \cos t \\ \sin t
-                        \end{vmatrix} }
-                        ~\mathrm{sgn} \begin{pmatrix} \cos t \\ \sin t \end{pmatrix}
-                        \end{aligned}
-                        \end{matrix}
+                    <figcaption>
+                        <h3>
+                            superellipse
+                        </h3>
+                        <span class="math">
+                            `((x),(y)) = sqrt|(cos t),(sin t)| |(cos t),(sin t)|^'`
+                        </span>
+                        <h3>
+                            1818
+                        </h3>
                     </figcaption>
                 </figure>
                 <p>
@@ -162,25 +139,20 @@
             <section>
                 <figure>
                     <canvas class="glslCanvas" data-fragment-url="media/roundRect.frag" width="512" height="512"></canvas>
-                    <figcaption class="math">
-                        \begin{matrix}
-                        \Huge\text{\textcolor{#191919}{1981}}
-                        \\
-                        \\
-                        \Huge\text{\textcolor{#191919}{RoundRect}}
-                        \\ 
-                        \normalsize
-                        \begin{aligned}
-                        \\ 
-                        \biggl⟮ \begin{matrix} x \\ y \end{matrix} \biggr⟯
-                        &= \tanh \biggl( k
-                        \biggl⟮ \begin{matrix} \cot t \\ \tan t \end{matrix} \biggr⟯
-                        \biggr)
-                        ~\mathrm{sgn} \begin{pmatrix} \sin t \\ \cos t \end{pmatrix}
-                        \\
-                        k &\approx 1.19228
-                        \end{aligned}
-                        \end{matrix}
+                    <figcaption>
+                        <h3>
+                            roundrect
+                        </h3>
+                        <span class="math">
+                            `((x),(y)) = 
+                            { 
+                                ( ((cos t),(sin t)) min(|sec t|,|csc t|), + |__ {: (cos t),(sin t) :} ~| ),
+                                ( ((cos t),(sin t)),                      + |      (cos t),(sin t)|^'    )
+                            :}`
+                        </span>
+                        <h3>
+                            1981
+                        </h3>
                     </figcaption>
                 </figure>
                 <p>
@@ -193,25 +165,19 @@
             <section>
                 <figure>
                     <canvas class="glslCanvas" data-fragment-url="media/superRect.frag" width="512" height="512"></canvas>
-                    <figcaption class="math">
-                        \begin{matrix}
-                        \Huge\text{\textcolor{#191919}{2018}}
-                        \\
-                        \\
-                        \Huge\text{\textcolor{#191919}{SuperRect}}
-                        \\ 
-                        \normalsize
-                        \begin{aligned}
-                        \\ 
-                        \biggl⟮ \begin{matrix} x \\ y \end{matrix} \biggr⟯
-                        &= \tanh \biggl( k
-                        \biggl⟮ \begin{matrix} \cot t \\ \tan t \end{matrix} \biggr⟯
-                        \biggr)
-                        ~\mathrm{sgn} \begin{pmatrix} \sin t \\ \cos t \end{pmatrix}
-                        \\
-                        k &\approx 1.19228
-                        \end{aligned}
-                        \end{matrix}
+                    <figcaption>
+                        <h3>
+                            superrect
+                        </h3>
+                        <span class="math">
+                            `{:
+                                ( ((x),(y)),  =, tanh(k ((cot t),(tan t))) |(sin t),(cos t)|^' ),
+                                ( " "     k, ~~, 1.19228 )
+                            :}`
+                        </span>
+                        <h3>
+                            2018
+                        </h3>
                     </figcaption>
                 </figure>
                 <p>
@@ -224,11 +190,9 @@
                 <a href="#PerceptualGeometry">
                     Perceptual Geometry
                 </a>
-<!--
                 <a target="_blank" href="#" class="linkToComments">
                     (view comments)
                 </a>
--->
             </h2>
             <p>
                 Let’s take a step back and look at the math behind our visual perception before I get into the reasoning behind the SuperRect. In fact, let’s step all the way back to the math behind our perception of the circle and square.
@@ -242,32 +206,38 @@
             <p>
                 Imagine yourself on a train. Please put your train on a circle shaped track. As your train moves around the loop you feel a constant pull away from the center. The amount of pull you feel matches the amount of curvature. The constant curvature defines the circle preceptually.
             </p>
+            <canvas class="glslCanvas" data-fragment-url="media/curvatureCircle.frag" width="512" height="512"></canvas>
             <p>
                 Now let’s move your train to a square shaped track. Moving along a side of the square you feel no pull at all. When your train reaches a turn in the track, your train starts moving in a different direction and slams you to the side of the traincar. We see this violent change in direction as a corner. This corner makes the curvature discontinuous, preventing smoothness in a square.
             </p>
+            <canvas class="glslCanvas" data-fragment-url="media/curvatureSquare.frag" width="512" height="512"></canvas>
             <p>
                 Now imagine your train on one of Lamé’s Superellipses. Here, like a circle, you feel a pull away from the center of the tracks, but the amount of pull changes over time. You will have a smooth ride with no bumps implying the smoothness of a Superellipse. The centripital force you feel never goes away, preventing flatness in a Superellipse.
             </p>
+            <canvas class="glslCanvas" data-fragment-url="media/curvatureSuperEllipse.frag" width="512" height="512"></canvas>
             <p>
                 Now let’s look at the RoundRect. It has flat sides like the square and smooth corners like a circle. When our train crosses from a square-like length of track to a circle like part, we can feel a jarring bump. This makes our ride not smooth, implying the lack of smoothness in the RoundRect.
             </p>
+            <canvas class="glslCanvas" data-fragment-url="media/curvatureRoundRect.frag" width="512" height="512"></canvas>
             <p>
                 Time to ride the train on a SuperRect track. Spoiler: The SuperRect is both smooth and flat. We have a smooth ride around the loop and at 4 points, one on each side, we feel free from all centripital force. This means the SuperRect can appear both circle-like and square-like.
             </p>
+            <canvas class="glslCanvas" data-fragment-url="media/curvatureSuperRect.frag" width="512" height="512"></canvas>
         </section>
         <section id="DiscoveringtheSuperRect">
             <h2>
                 <a href="#DiscoveringtheSuperRect">
                     Discovering the SuperRect
                 </a>
-<!--
                 <a target="_blank" href="#" class="linkToComments">
                     (view comments)
                 </a>
--->
             </h2>
             <p>
                 A square with rounded corners periodically alternates between being circle-like and square-like. This suggests that we could generate the rounded square using a periodic function. A square has 4 sides, so our x and y functions should each become flat twice per period. But how does a curve become flat if it is not already a straight line?
+            </p>
+            <p>
+                Circle gets the Square.
             </p>
         </section>
         <section id="Implementations">
@@ -275,11 +245,9 @@
                 <a href="#Implementations">
                     Implementations
                 </a>
-<!--
                 <a target="_blank" href="#" class="linkToComments">
                     (view comments)
                 </a>
--->
             </h2>
         </section>
         <section id="FurtherReading">
@@ -287,11 +255,9 @@
                 <a href="#FurtherReading">
                     Further Reading
                 </a>
-<!--
                 <a target="_blank" href="#" class="linkToComments">
                     (view comments)
                 </a>
--->
             </h2>
         </section>
     </main>          
