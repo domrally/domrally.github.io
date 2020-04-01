@@ -13,7 +13,7 @@ body
     display: flex;
     flex-direction: column;
     
-    max-width: 100vh;
+    max-width: 24rem;
     min-width: 512px;    
     margin: 1em auto;
 }
