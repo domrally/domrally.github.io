@@ -67,9 +67,11 @@ void main()
     s=mix(2.,1.,t);
     p+=.25;
     // p*=20.;
-    p*=4.;
+    s=4.;
+    p*=s;
+    scale=s/min(u_resolution.x,u_resolution.y);
     //stay stable
-    p.x=min(p.x,0.);
+    p.x=min(p.x,-.000001);
     p.y=min(p.y,-.000001);
     // // p*=s;
     // p.x=min(p.x,0.);
