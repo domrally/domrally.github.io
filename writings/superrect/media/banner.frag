@@ -70,6 +70,7 @@ void main()
     s=4.;
     p*=s;
     scale=s/min(u_resolution.x,u_resolution.y);
+    r=max(16.*scale,.015);
     //stay stable
     p.x=min(p.x,-.000001);
     p.y=min(p.y,-.000001);
