@@ -4,19 +4,24 @@ body
 {
     line-height: 1.618em;
     font-weight: 400;
+    
     text-align: justify;
     text-justify: inter-word;
+    
+    display: flex;
+    flex-direction: column;
+    
+    max-width: 32em;
+    min-width: 512px;
+    margin: auto;
+    
+    padding: 1em;
 }
 
 main
 {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    
-    max-width: 32em;
-    min-width: 512px;
-    margin: auto;
 }
 main > *
 {
@@ -56,6 +61,7 @@ h2
 {
     align-self: stretch;
     font-size: inherit;
+    font-weight: 500;
 }
 h3
 {
@@ -97,8 +103,23 @@ section
     flex-direction: column;
     align-items: center;
 }
-/*
-section:first-of-type figure
+footer
 {
-    border: none;
-}*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer > * 
+{
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0 0;
+}
+footer *
+{
+    margin: 0;
+}
+.externalLink::after
+{
+    content: "⮥";
+}
