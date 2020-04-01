@@ -70,8 +70,7 @@ void main()
     scale=s/min(u_resolution.x,u_resolution.y);
     r=max(16.*scale,.015);
     //stay stable
-    p.x=min(p.x,-.1);
-    p.y=min(p.y,-.1);
+    p=min(p,-r);
     // since the shape is convex we can be sure which points are inside
     float x=p.y-sinf(acosf(p.x));
     float y=p.x-cosf(asinf(p.y));
