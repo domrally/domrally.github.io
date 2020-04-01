@@ -72,6 +72,9 @@ void main()
         ss=1./(1.-.1*float(i));
         s=pp*ss;
         p=s;
+        //stay stable
+        p.x=min(p.x,0.);
+        p.y=min(p.y,-.000001);
         // since the shape is convex we can be sure which points are inside
         float x=p.y-clamp(sinf(acosf(p.x)),-1.,1.);
         float y=p.x-clamp(cosf(asinf(p.y)),-1.,1.);

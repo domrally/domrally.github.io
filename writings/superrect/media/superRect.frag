@@ -64,8 +64,8 @@ void main()
     p.x=min(p.x,0.);
     p.y=min(p.y,-.000001);
     // since the shape is convex we can be sure which points are inside
-    float x=p.y-sinf(acosf(p.x));
-    float y=p.x-cosf(asinf(p.y));
+    float x=p.y-clamp(sinf(acosf(p.x)),-1.,1.);
+    float y=p.x-clamp(cosf(asinf(p.y)),-1.,1.);
     float fill=step(.0,x)*step(.0,y);
     // distance field becomes assymptotically correct as points get close to curve
     float d=x*y*inversesqrt(x*x+y*y);
