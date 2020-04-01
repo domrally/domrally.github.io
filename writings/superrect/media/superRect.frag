@@ -54,8 +54,8 @@ void main()
     float scale=1./min(u_resolution.x,u_resolution.y);
     vec2 p=scale*(2.*gl_FragCoord.xy-u_resolution.xy);
     // make sure it's always at least a certain size
-    float r=16.*scale;
-    p*=1.+r;
+    float r=max(16.*scale,.015);
+    p*=1.+.5*r;
     // take advantage of symmetry
     p=-abs(p);
     // p = mix(p, p.yx, step(p.x, p.y));
