@@ -69,6 +69,8 @@ void main()
     s=mix(1.618,4.,t);
     p*=s;
     p=-abs(p);
+    p.x=min(p.x,0.);
+    p.y=min(p.y,-.000001);
     p+=t;
     p.x=min(p.x,0.);
     p.y=min(p.y,-.000001);
