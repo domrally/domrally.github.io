@@ -73,8 +73,8 @@ void main()
         s=pp*ss;
         p=s;
         // since the shape is convex we can be sure which points are inside
-        float x=p.y-sinf(acosf(p.x));
-        float y=p.x-cosf(asinf(p.y));
+        float x=p.y-clamp(sinf(acosf(p.x)),-1.,1.);
+        float y=p.x-clamp(cosf(asinf(p.y)),-1.,1.);
         ff=step(.0,x)*step(.0,y);
         fill+=ff;
         // distance field becomes assymptotically correct as points get close to curve
