@@ -48,7 +48,9 @@ vec4 getColor(float fill,float stroke)
 
 void main()
 {
-    float s=1.618;
+    float t=8.*u_time;
+    t=.5+.5*clamp(sinf(t),-1.,1.)*sign(cos(t));
+    float s=mix(1.618,4.,t);
     // set up the composition
     float scale=s/min(u_resolution.x,u_resolution.y);
     vec2 p=scale*(2.*gl_FragCoord.xy-u_resolution.xy);
@@ -62,8 +64,9 @@ void main()
     // take advantage of symmetry
     p=-abs(p);
     //stay stable
-    // p.x=min(p.x,0.);
-    // p.y=min(p.y,-.000001);
+    p+=t;
+    p.x=min(p.x,0.);
+    p.y=min(p.y,-.000001);
     // since the shape is convex we can be sure which points are inside
     float florp=1.-clamp(dot(p,p)/(s*s),0.,1.);
     float x=p.y-sinf(acosf(p.x));
