@@ -40,9 +40,9 @@ float acosf(float x)
 //
 vec4 getColor(float fill,float stroke)
 {
-    vec4 color=vec4(1.);
-    color.rgb=mix(vec3(0.),color.rgb,fill);
-    color.rgb=mix(color.rgb,vec3(1.),stroke);
+    vec4 color=vec4(0.);
+    color=mix(color,vec4(vec3(1.),1.),fill);
+    color=mix(color,vec4(vec3(1.),1.),stroke);
     return color;
 }
 
@@ -68,8 +68,8 @@ void main()
     float florp=1.-clamp(dot(p,p)/(s*s),0.,1.);
     float x=p.y-sinf(acosf(p.x));
     float y=p.x-cosf(asinf(p.y));
-    float fill=1.-step(.0,x)*step(.0,y);
-    fill=1.-exp(-1./florp)/exp(-1.);
+    float fill=step(.0,x)*step(.0,y);
+    // fill=exp(-1./florp)/exp(-1.);
     // distance field becomes assymptotically correct as points get close to curve
     float d=x*y*inversesqrt(x*x+y*y);
     float stroke=smoothstep(r,r-4.*scale,d);

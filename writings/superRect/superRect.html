@@ -51,7 +51,9 @@
                 10 minute read
             </p>
         </section>
-        <canvas class="glslCanvas" data-fragment-url="media/banner.frag" width="512" height="512"></canvas>
+        <canvas id="rainbow" class="glslCanvas" data-fragment-url="media/rainbow.frag" height="512">
+        </canvas>
+        <canvas id="banner" class="glslCanvas" data-fragment-url="media/banner.frag" width="512" height="512"></canvas>
     </header>
     <main>
         <section id="CircleandSquare">
@@ -206,23 +208,33 @@
             <p>
                 Imagine yourself on a train. Please put your train on a circle shaped track. As your train moves around the loop you feel a constant pull away from the center. The amount of pull you feel matches the amount of curvature. The constant curvature defines the circle preceptually.
             </p>
-            <canvas class="glslCanvas" data-fragment-url="media/curvatureCircle.frag" width="512" height="512"></canvas>
+            <figure>
+                <canvas class="glslCanvas" data-fragment-url="media/curvatureCircle.frag" width="512" height="512"></canvas>
+            </figure>
             <p>
                 Now let’s move your train to a square shaped track. Moving along a side of the square you feel no pull at all. When your train reaches a turn in the track, your train starts moving in a different direction and slams you to the side of the traincar. We see this violent change in direction as a corner. This corner makes the curvature discontinuous, preventing smoothness in a square.
             </p>
-            <canvas class="glslCanvas" data-fragment-url="media/curvatureSquare.frag" width="512" height="512"></canvas>
+            <figure>
+                <canvas class="glslCanvas" data-fragment-url="media/curvatureSquare.frag" width="512" height="512"></canvas>
+            </figure>
             <p>
                 Now imagine your train on one of Lamé’s Superellipses. Here, like a circle, you feel a pull away from the center of the tracks, but the amount of pull changes over time. You will have a smooth ride with no bumps implying the smoothness of a Superellipse. The centripital force you feel never goes away, preventing flatness in a Superellipse.
             </p>
-            <canvas class="glslCanvas" data-fragment-url="media/curvatureSuperEllipse.frag" width="512" height="512"></canvas>
+            <figure>
+                <canvas class="glslCanvas" data-fragment-url="media/curvatureSuperEllipse.frag" width="512" height="512"></canvas>
+            </figure>
             <p>
                 Now let’s look at the RoundRect. It has flat sides like the square and smooth corners like a circle. When our train crosses from a square-like length of track to a circle like part, we can feel a jarring bump. This makes our ride not smooth, implying the lack of smoothness in the RoundRect.
             </p>
-            <canvas class="glslCanvas" data-fragment-url="media/curvatureRoundRect.frag" width="512" height="512"></canvas>
+            <figure>
+                <canvas class="glslCanvas" data-fragment-url="media/curvatureRoundRect.frag" width="512" height="512"></canvas>
+            </figure>
             <p>
                 Time to ride the train on a SuperRect track. Spoiler: The SuperRect is both smooth and flat. We have a smooth ride around the loop and at 4 points, one on each side, we feel free from all centripital force. This means the SuperRect can appear both circle-like and square-like.
             </p>
-            <canvas class="glslCanvas" data-fragment-url="media/curvatureSuperRect.frag" width="512" height="512"></canvas>
+            <figure>
+                <canvas class="glslCanvas" data-fragment-url="media/curvatureSuperRect.frag" width="512" height="512"></canvas>
+            </figure>
         </section>
         <section id="DiscoveringtheSuperRect">
             <h2>
@@ -236,6 +248,16 @@
             <p>
                 A square with rounded corners periodically alternates between being circle-like and square-like. This suggests that we could generate the rounded square using a periodic function. A square has 4 sides, so our x and y functions should each become flat twice per period. But how does a curve become flat if it is not already a straight line?
             </p>
+            <canvas class="glslCanvas" data-fragment-url="media/curvatureRoundRect.frag" width="512" height="128">sine wave</canvas>
+            <canvas class="glslCanvas" data-fragment-url="media/curvatureRoundRect.frag" width="512" height="128">flat wave</canvas>
+            <canvas class="glslCanvas" data-fragment-url="media/curvatureRoundRect.frag" width="512" height="128">wave for square</canvas>
+<!--
+            <canvas class="glslCanvas" data-fragment-url="media/curvatureRoundRect.frag" width="512" height="128">wave for roundrect</canvas>
+            <canvas class="glslCanvas" data-fragment-url="media/curvatureRoundRect.frag" width="512" height="128">wave for superellipse</canvas>
+            
+            <canvas class="glslCanvas" data-fragment-url="media/curvatureRoundRect.frag" width="512" height="128">interactive</canvas>
+            <canvas class="glslCanvas" data-fragment-url="media/curvatureRoundRect.frag" width="512" height="128">grid</canvas>
+-->
             <p>
                 Circle gets the Square.
             </p>

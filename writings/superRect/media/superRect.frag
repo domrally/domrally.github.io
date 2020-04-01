@@ -42,9 +42,9 @@ float acosf(float x)
 //
 vec4 getColor(float fill,float stroke)
 {
-    vec4 color=vec4(1.);
-    color.rgb=mix(color.rgb,vec3(1.),fill);
-    color.rgb=mix(color.rgb,vec3(0.),stroke);
+    vec4 color=vec4(0.);
+    color=mix(color,vec4(vec3(0.),1.),fill);
+    color=mix(color,vec4(vec3(0.),1.),stroke);
     return color;
 }
 
@@ -66,7 +66,7 @@ void main()
     // since the shape is convex we can be sure which points are inside
     float x=p.y-sinf(acosf(p.x));
     float y=p.x-cosf(asinf(p.y));
-    float fill=1.-step(.0,x)*step(.0,y);
+    float fill=step(.0,x)*step(.0,y);
     // distance field becomes assymptotically correct as points get close to curve
     float d=x*y*inversesqrt(x*x+y*y);
     float stroke=smoothstep(r,r-4.*scale,d);

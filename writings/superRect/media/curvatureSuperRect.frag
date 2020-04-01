@@ -42,9 +42,9 @@ float acosf(float x)
 //
 vec4 getColor(float fill,float stroke)
 {
-    vec4 color=vec4(1.);
-    color.rgb=mix(color.rgb,vec3(1.),fill);
-    color.rgb=mix(color.rgb,vec3(0.),stroke);
+    vec4 color=vec4(0.);
+    color=mix(color,vec4(vec3(1.),1.),fill);
+    color=mix(color,vec4(vec3(0.),1.),stroke);
     return color;
 }
 
@@ -63,6 +63,7 @@ void main()
     p.y=min(p.y,-.000001);
     float dd=1000.;
     float fill=0.;
+    float ff=0.;
     vec2 s=p;
     float ss=1.;
     vec2 pp=p;
@@ -74,10 +75,14 @@ void main()
         // since the shape is convex we can be sure which points are inside
         float x=p.y-sinf(acosf(p.x));
         float y=p.x-cosf(asinf(p.y));
+        ff=step(.0,x)*step(.0,y);
+        fill+=ff;
         // distance field becomes assymptotically correct as points get close to curve
         float d=x*y*inversesqrt(x*x+y*y);
         dd=min(dd,abs(d)/ss);
     }
+    fill=min(fill,1.);
+    fill-=ff;
     float stroke=smoothstep(r,r-4.*scale,dd);
     // render
     gl_FragColor=getColor(fill,stroke);
