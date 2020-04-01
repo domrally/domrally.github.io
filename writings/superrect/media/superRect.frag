@@ -44,7 +44,7 @@ vec4 getColor(float fill,float stroke)
 {
     vec4 color=vec4(0.);
     color=mix(color,vec4(vec3(0.),1.),fill);
-    color=mix(color,vec4(vec3(0.),1.),stroke);
+    color=mix(color,vec4(0.),stroke);
     return color;
 }
 
@@ -54,12 +54,9 @@ void main()
     float scale=1./min(u_resolution.x,u_resolution.y);
     vec2 p=scale*(2.*gl_FragCoord.xy-u_resolution.xy);
     // antialiasing
-    float r=16.*scale;
-    p*=1.+r;
+    float r=max(16.*scale,.015);
     // take advantage of symmetry
     p=-abs(p);
-    // p = mix(p, p.yx, step(p.x, p.y));
-    // p.y = mix(p.y, .1, step(p.y, .1));
     //stay stable
     p.x=min(p.x,-.1);
     p.y=min(p.y,-.000001);

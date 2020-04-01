@@ -44,7 +44,7 @@ vec4 getColor(float fill,float stroke)
 {
     vec4 color=vec4(0.);
     color=mix(color,vec4(vec3(1.),1.),fill);
-    color=mix(color,vec4(vec3(0.),1.),stroke);
+    color=mix(color,vec4(0.),stroke);
     return color;
 }
 
@@ -54,8 +54,8 @@ void main()
     float scale=1./min(u_resolution.x,u_resolution.y);
     vec2 p=scale*(2.*gl_FragCoord.xy-u_resolution.xy);
     // make sure it's always at least a certain size
-    float r=2.*scale;
-    p*=1.+r;
+    float r=max(16.*scale,.015);
+    // p*=1.+r;
     // take advantage of symmetry
     p=-abs(p);
     //stay stable
