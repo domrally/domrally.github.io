@@ -53,9 +53,8 @@ void main()
     // set up the composition
     float scale=1./min(u_resolution.x,u_resolution.y);
     vec2 p=scale*(2.*gl_FragCoord.xy-u_resolution.xy);
-    // make sure it's always at least a certain size
-    float r=max(16.*scale,.015);
-    r=3.*scale;
+    // antialiasing
+    float r=2.*scale;
     p*=1.+r;
     // take advantage of symmetry
     p=-abs(p);

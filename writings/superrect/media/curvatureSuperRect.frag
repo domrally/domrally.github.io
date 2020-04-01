@@ -1,5 +1,5 @@
 #ifdef GL_ES
-precision lowp float;
+precision highp float;
 #endif
 
 uniform vec2 u_resolution;
@@ -54,8 +54,8 @@ void main()
     float scale=1./min(u_resolution.x,u_resolution.y);
     vec2 p=scale*(2.*gl_FragCoord.xy-u_resolution.xy);
     // make sure it's always at least a certain size
-    float r=max(16.*scale,.015);
-    p*=1.+20.2*r;
+    float r=2.*scale;
+    p*=1.+r;
     // take advantage of symmetry
     p=-abs(p);
     //stay stable
@@ -72,12 +72,9 @@ void main()
         ss=1./(1.-.1*float(i));
         s=pp*ss;
         p=s;
-        //stay stable
-        p.x=min(p.x,0.);
-        p.y=min(p.y,-.000001);
         // since the shape is convex we can be sure which points are inside
-        float x=p.y-clamp(sinf(acosf(p.x)),-1.,1.);
-        float y=p.x-clamp(cosf(asinf(p.y)),-1.,1.);
+        float x=p.y-sinf(acosf(p.x));
+        float y=p.x-cosf(asinf(p.y));
         ff=step(.0,x)*step(.0,y);
         fill+=ff;
         // distance field becomes assymptotically correct as points get close to curve
