@@ -64,8 +64,11 @@ void main()
     // take advantage of symmetry
     p=-abs(p);
     //stay stable
+    p.x=min(p.x,0.);
+    p.y=min(p.y,-.000001);
     s=mix(1.618,4.,t);
     p*=s;
+    p=-abs(p);
     p+=t;
     p.x=min(p.x,0.);
     p.y=min(p.y,-.000001);
