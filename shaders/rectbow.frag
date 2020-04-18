@@ -351,25 +351,25 @@ float hsluv_maxSafeChromaForL(float L){
                                     // fade=exp(-1./(1.-fade*fade))/exp(-1.);
                                     // color=mix(vec3(1.),color,fade);
                                     // render
-                                    // gl_FragColor=vec4(color,1.);//getColor(color,fill,stroke);
+                                    gl_FragColor=vec4(color,1.);//getColor(color,fill,stroke);
                                     
-                                    // set up the composition
-                                    float scale=1./min(u_resolution.x,u_resolution.y);
-                                    vec2 p=scale*(2.*gl_FragCoord.xy-u_resolution.xy);
-                                    // antialiasing
-                                    float r=max(16.*scale,.015);
-                                    // take advantage of symmetry
-                                    p=-abs(p);
-                                    //stay stable
-                                    p.x=min(p.x,.0);
-                                    p.y=min(p.y,-.000001);
-                                    // since the shape is convex we can be sure which points are inside
-                                    float x=p.y-sinf(acosf(p.x));
-                                    float y=p.x-cosf(asinf(p.y));
-                                    float fill=step(.0,x)*step(.0,y);
-                                    // distance field becomes assymptotically correct as points get close to curve
-                                    float d=.25*x*y*inversesqrt(x*x+y*y);
-                                    float stroke=smoothstep(r,r-4.*scale,d);
-                                    // render
-                                    gl_FragColor=getColor(color,fill,stroke);
+                                    // // set up the composition
+                                    // float scale=1./min(u_resolution.x,u_resolution.y);
+                                    // vec2 p=scale*(2.*gl_FragCoord.xy-u_resolution.xy);
+                                    // // antialiasing
+                                    // float r=max(16.*scale,.015);
+                                    // // take advantage of symmetry
+                                    // p=-abs(p);
+                                    // //stay stable
+                                    // p.x=min(p.x,.0);
+                                    // p.y=min(p.y,-.000001);
+                                    // // since the shape is convex we can be sure which points are inside
+                                    // float x=p.y-sinf(acosf(p.x));
+                                    // float y=p.x-cosf(asinf(p.y));
+                                    // float fill=step(.0,x)*step(.0,y);
+                                    // // distance field becomes assymptotically correct as points get close to curve
+                                    // float d=.25*x*y*inversesqrt(x*x+y*y);
+                                    // float stroke=smoothstep(r,r-4.*scale,d);
+                                    // // render
+                                    // gl_FragColor=getColor(color,fill,stroke);
                                 }
