@@ -47,7 +47,7 @@ header > *
     font-style: italic;
 }
 
-h1, h2, h3
+h1, h2, h3, h4
 {
     margin: 0;
     font-weight: inherit;
@@ -66,8 +66,14 @@ h2
 h3
 {
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: 3em;
     font-weight: 400;
+}
+.year
+{
+    position: absolute;
+    z-index: 3;
+    left: -2em;
 }
 .linkToComments
 {
@@ -77,18 +83,34 @@ h3
 
 figure
 {
-    position: relative;
-    width: 100vw;
-    height: 512px;
-    padding: 3em 0;
+/*    position: relative;*/
+/*    width: 100vw;*/
+/*    height: 512px;*/
+/*    padding: 0em 10em;*/
+/*
     margin-left: -3em;
     margin-right: -2em;
+*/
+/*
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+*/
+    border-width: 0 1000px;
+    border-color: #000;
+    border-style: solid;
+    width: 100%;
+    margin-left: -1000px;
     color: #fff;
     
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    
+    font-size: 20px;
 }
 #rainbow
 {
@@ -99,9 +121,10 @@ figure
     width: 100vw;
     height: 100%;
 }
-/*
 #banner
 {
+/*    display: none;*/
+/*
     width: 512px;
     height: 512px;
     padding: 20px;
@@ -111,15 +134,21 @@ figure
     left: 50%;
 
     margin: -256px 0 0 -256px;
+*/
     position: absolute;
     top:  50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-*/
 #Timeline figure
 {
     background: #ffa0c0;
+    border-color: #ffa0c0;
+}
+#Timeline figure canvas
+{
+    width: 8em;
+    height: 8em;
 }
 #PerceptualGeometry figure
 {
@@ -129,35 +158,50 @@ figure
 {
     background: #bdb2fc;
 }
+#PerceptualGeometry
+{
+    display: none;
+}
 figcaption
 {
-    position: absolute;
-    top:  50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
+    position: relative;
+/*    position: absolute;*/
+/*    top:  50%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    z-index: 3;*/
+/*
     width:  61.8%;
     height: 61.8%;
+*/
+/*    width: 512px;*/
     
+/*
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+*/
     
-    font-size: 20px;
+/*    font-size: 1.618em;*/
 }
 canvas
 {
 /*    width: 62vw;*/
 /*    max-width: 100vh;*/
 /*    max-height: 10vh;*/
+/*    position: relative;*/
+/*    margin: 1em 0;*/
 }
 section
 {
     width: 100%;
+/*    position: relative;*/
+/*
     display: flex;
     flex-direction: column;
     align-items: center;
+*/
 }
 footer
 {
@@ -173,12 +217,4 @@ footer > *
 footer *
 {
     margin: 0;
-}
-.externalLink::after
-{
-    display: inline-block;
-    transform: scale(-1, 1) translateX(.4em);
-    vertical-align: super;
-    font-size: .618em;
-    content: "\21f1";
 }

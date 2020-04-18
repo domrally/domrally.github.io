@@ -1,245 +1,45 @@
-/* common variables */
-:root 
-{
-    --adjacentHue: #CC7722;    
-    --gradientHigh: #ffe945;    
-    --emphasisColor: #c00000;    
-    --emphasisTextColor: black;
-    
-    --category0Color: #ffdada;
-    --category1Color: #eee1c8;
-    --category2Color: #e6e4c7;
-    --category3Color: #f4dbf6;
-    --category4Color: #c1ebdf;
-    --category5Color: #fbdcd3;
-    --category6Color: #d8e3fb;
-}
-html 
-{
-    box-sizing: border-box;
-    background: white;
-    margin: 0;
-    height: 100%;
-    position: relative;
-    padding: 0;
-    font-size: 20px;
-    font-family: Fira Sans; 
-}
-*, *:before, *:after 
-{
-    box-sizing: inherit;
-}
-a, a:visited
-{
-    color: black;
-    text-decoration: none;
-    background: var(--category0Color);
-}
-*::selection, a:hover, a:active
-{
-    background: var(--emphasisColor);
-    color: white;
-}
+@import url(../css/common.css);
+
 body
 {
-    min-height: 100%;
-    height: auto;
-/*    width: 100%;*/
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-    align-items: stretch;
     background: #000;
-    margin: 1em;
-    padding: 0;
 }
 
-.top, .bottom, .left, .right
-{
-    position: absolute;
-}
-.top
-{
-    top: 0;
-}
-.right
-{
-    right: 0;
-}
-.bottom
-{
-    bottom: 0;
-}
-.left
-{
-    left: 0;
-}
-
-#headshot
-{
-    --size: 8em;
-    width: var(--size);
-    height: var(--size);
-    border: 0.25em solid white;
-    border-radius: calc(.49 * var(--size));
-    background: url(../images/headshot.jpg);
-    background-size: cover;
-    margin: 1em 0 0;
-}
-#headshot:hover
-{
-    border-color: var(--emphasisColor);
-}
-p
-{
-    padding: calc(.618 * 32px) 32px;
-    text-align: justify;
-    max-width: 24em;
-    background: white;
-    position: relative;
-}
 header
 {
-    width: 100%;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    flex-flow: column nowrap;
 }
 
-.category
+h1, p
 {
-    display: block;
-    border: 1em white solid;
-    border-width: 1em 0;
-/*    position: relative;*/
-    background: white;
-    margin-bottom: 1em;
-}
-.category:nth-of-type(2n-1)
-{
-    background: var(--category1Color);
-    height: 10em;
-}
-.category:nth-of-type(2n)
-{
-    background: var(--category0Color);
-    height: 16em;
-}
-
-nav
-{
-}
-/*  */
-footer
-{
-}
-h1
-{
-    position: absolute;
-    top: 0;
-    left: 1rem;
+    font-size: inherit;
+    font-weight: inherit;
+    
     padding: 0;
     margin: 0;
-    color: black;
-    font-size: 0.75em;
-    font-weight: 400;
+    
+    background: #fff;
 }
-h2
+header a
 {
-    width: 100%;
-    font-size: 2em;
-    line-height: 0;
-    text-align: center;
-    font-weight: 100;
+/*    color: #0ff;*/
 }
-h3, h4
-{
-    font-size: 2em;
-    font-weight: 300;
-    color: white;
-    margin: 0;
-    margin: -0.25em;
-    line-height: 100%;
-    text-align: center;
-}
-h4
-{
-    font-weight: 200;
-}
-/*  */
+
 main
 {
-/*    display: flex;*/
-    width: 100%;
-/*    position: relative;*/
-/*    position: absolute;*/
-/*    height: auto;*/
+    background: #fff;
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
 }
-/*  */
-section
-{
-    overflow: hidden;
-    position: relative;
-    min-width: 16em;
-    flex-grow: 1;
-}
-section:before
-{
-    content: "";
-	display: block;
-	padding-top: 56.25%; 	/* aspect ratio of 16:9*/
-}
-/* clickable media */
-section a
-{
-    position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-}
-section figure
+figure
 {
     margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+    padding: 0em;
+    
+    color: #666;
 }
-/* overlay, but remove text on hover */
-section figcaption
-{
-    position: absolute; 
-    top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-    z-index: 1; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-a figcaption *
-{
-    display: inline-block;
-    padding: 0.5em;
-}
-.media
-{
-    width: 100%;
-    min-height: 100%;
-    filter: blur(0.1em) opacity(0.375);
-}
-a:hover .media
-{
-    filter: opacity(1.0);
-}
-
-/*
-@media (max-aspect-ratio: 8/9) 
-{
-    section
-    {
-        width: 100%;
-    }
-}*/

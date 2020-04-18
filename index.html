@@ -12,83 +12,87 @@
 
     <link href="favicon.ico" rel="shortcut icon">
     
-    <!-- fira sans font -->
-    <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
-    
     <!-- custom styling -->
-    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="css/home.css" rel="stylesheet" media="screen">
     
     <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
 </head>
 
 <body>
-
     <header>
-        
         <h1>
             dommandy.com
         </h1>
-        
-        <figure id = "headshot">
-        </figure>
-        
         <p>
-            Hi, I'm Dom! I'm a mathematical artist and software developer based in Los Angeles. Check out my work below. Follow me or contact me on <a target="_blank" href="https://github.com/domrally">GitHub</a>
-            
-            <canvas class="glslCanvas top left" data-fragment-url="shaders/superRectTopLeft.frag" width="32" height="32"></canvas>
-            <canvas class="glslCanvas top right" data-fragment-url="shaders/superRectTopRight.frag" width="32" height="32"></canvas>
-            <canvas class="glslCanvas bottom left" data-fragment-url="shaders/superRectBottomLeft.frag" width="32" height="32"></canvas>
-            <canvas class="glslCanvas bottom right" data-fragment-url="shaders/superRectBottomRight.frag" width="32" height="32"></canvas>
+            check out my work below and on <a target="_blank" class="externalLink" href="https://github.com/domrally">GitHub</a>
         </p>
-        
     </header>
-
-
     <main>
-        <nav>
-            <a class="category" target="_blank" href="https://github.com/domrally">
-                a
-            </a>
-            <a class="category" target="_blank" href="https://github.com/domrally">
-                b
-            </a>
-            <a class="category" target="_blank" href="https://github.com/domrally">
-                c
-            </a>
-            <a class="category" target="_blank" href="https://github.com/domrally">
-                d
-            </a>
-            <a class="category" target="_blank" href="https://github.com/domrally">
-                e
-            </a>
-            <a class="category" target="_blank" href="https://github.com/domrally">
-                f
-            </a>
-        </nav>                       
-<!--
-        <section>
-            <a href="">
-                <div class="caption">
-                    <h3>on perceptual geometry</h3>
-                    <h4>#article</h4>
-                </div>
-            </a>
-        </section>
--->
-        
-<!--
-        <section>
-            <a href="">
-                <div class="caption">
-                    <h3>on journaling</h3>
-                    <h4>#app</h4>
-                </div>
-            </a>
-        </section>
--->
-        
+        <figure>
+            <canvas data-fragment-url="shaders/ringbow.frag" width="720" height="720">
+                <script>
+                    var canvas = document.currentScript.parentElement;
+                    var sandbox = new GlslCanvas(canvas);
+                    sandbox.pause();                    
+                </script>
+            </canvas>
+            <figcaption>
+                fixed hue and saturation
+            </figcaption>
+        </figure>
+        <figure>
+            <figure>
+                <canvas data-fragment-url="shaders/lineOfChartreuses.frag" width="720" height="180">
+                    <script>
+                        var canvas = document.currentScript.parentElement;
+                        var sandbox = new GlslCanvas(canvas);
+                        sandbox.pause();                    
+                    </script>
+                </canvas>
+                <figcaption>
+                    line of charteuses
+                </figcaption>
+            </figure>
+            <figure>
+                <canvas data-fragment-url="shaders/lineOfOranges.frag" width="720" height="180">
+                    <script>
+                        var canvas = document.currentScript.parentElement;
+                        var sandbox = new GlslCanvas(canvas);
+                        sandbox.pause();                    
+                    </script>
+                </canvas>
+                <figcaption>
+                    line of oranges
+                </figcaption>
+            </figure>
+            <figure>
+                <canvas data-fragment-url="shaders/triangleOfPurples.frag" width="720" height="180">
+                    <script>
+                        var canvas = document.currentScript.parentElement;
+                        var sandbox = new GlslCanvas(canvas);
+                        sandbox.pause();                    
+                    </script>
+                </canvas>
+                <figcaption>
+                    line of violets
+                </figcaption>
+            </figure>
+        </figure>
+        <figure>
+            <canvas data-fragment-url="shaders/rectbow.frag" width="720" height="720">
+                <script>
+                    var canvas = document.currentScript.parentElement;
+                    var sandbox = new GlslCanvas(canvas);
+                    sandbox.pause();                    
+                </script>
+            </canvas>
+            <figcaption>
+                fixed saturation
+            </figcaption>
+        </figure>
     </main>
-    
+    <footer>
+    </footer>
 </body>
 
 </html>
