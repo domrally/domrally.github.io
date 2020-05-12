@@ -28,7 +28,7 @@ main
 }
 section
 {
-    width: 100%;
+/*    width: 100%;*/
 }
 canvas
 {
@@ -54,6 +54,36 @@ footer > *
     display: flex;
     flex-direction: column;
     padding: 1em 0 0;
+}
+.link:hover::first-line
+{
+    text-decoration: underline;
+}
+.link::first-line
+{
+    text-decoration: none;
+    color: #0043ff;
+}
+.link::after
+{
+    display: inline-block;
+    transform: scale(-1, 1);
+    content: "\21f1";
+}
+.downloads:hover::first-line
+{
+    text-decoration: underline;
+}
+.downloads::first-line
+{
+    text-decoration: none;
+    color: #7800ff;
+    display: inline;
+}
+.downloads::after
+{
+    display: inline-block;
+    content: "\2b73";
 }
 .bold::first-line
 {
@@ -86,8 +116,13 @@ footer > *
     display: inline;
     padding: .3em;
 }
-.emphasis::first-line
+.target:hover::first-line
 {
+    text-decoration: overline;
+}
+.target::first-line
+{
+    text-decoration: none;
     color: #c00000;
 }
 .small::first-line

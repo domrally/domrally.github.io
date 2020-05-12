@@ -21,11 +21,27 @@
             </h3>
         </header>
         <main>
+            <section class="downloads">
+                +save.txt
+                <script>
+                    const save = document.currentScript.parentElement;
+                    save.onclick = function saveFile(){
+                        var text = save.nextElementSibling.innerText,
+                            blob = new Blob([text], { type: 'text/plain' }),
+                            anchor = document.createElement('a');
+                        anchor.download = "save.txt";
+                        anchor.href = (window.webkitURL || window.URL).createObjectURL(blob);
+                        anchor.dataset.downloadurl = ['text/plain', anchor.download, anchor.href].join(':');
+                        anchor.click();
+                    }
+                </script>
+            </section>
             <section contenteditable="true">
                 <div>normal</div>
                 <div class="light">\light</div>
                 <div class="sans">~proportional</div>
-                <div class="emphasis">:emphasis</div>
+                <div class="link">@link</div>
+                <div class="target">#target</div>
                 <div class="italics">/italics</div>
                 <div class="strikethrough">-strike-through</div>
                 <div class="underline">_underline</div>
@@ -36,6 +52,7 @@
                 <div>#section</div>
                 <div class="link">@link</div>
                 these I really want to include but don't know what for
+                <div class="wat">:abc</div>
                 i don't know about these
                 <div class="">+abc</div>
                 <sup class="super">^superscript</sup>
@@ -68,8 +85,11 @@
                                     case '~':
                                         className = "sans";
                                         break;
-                                    case ':':
-                                        className = "emphasis";
+                                    case '@':
+                                        className = "link";
+                                        break;
+                                    case '#':
+                                        className = "target";
                                         break;
                                     case '/':
                                         className = "italics";
