@@ -76,14 +76,19 @@ footer > *
 }
 .downloads::first-line
 {
-    text-decoration: none;
+    text-decoration: overline;
     color: #7800ff;
     display: inline;
 }
 .downloads::after
 {
+    text-decoration: none;
     display: inline-block;
     content: "\2b73";
+}
+.downloads:hover::after
+{
+    text-decoration: underline;
 }
 .bold::first-line
 {
