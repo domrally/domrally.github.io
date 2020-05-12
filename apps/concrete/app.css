@@ -55,42 +55,42 @@ footer > *
     flex-direction: column;
     padding: 1em 0 0;
 }
-.bold
+.bold::first-line
 {
     font-weight: 900;
 }
-.italics
+.italics::first-line
 {
     font-style: italic;
 }
-.light
+.light::first-line
 {
     color: #bbb;
 }
-.sans
+.sans::first-line
 {
     font-family: Fira Sans;
 }
-.underline
+.underline::first-line
 {
     text-decoration: underline;
 }
-.strikethrough
+.strikethrough::first-line
 {
     text-decoration: line-through;
 }
-.highlight
+.highlight::first-line
 {
     background: #000;
     color: #fff;
     display: inline;
     padding: .3em;
 }
-.emphasis
+.emphasis::first-line
 {
     color: #c00000;
 }
-.small
+.small::first-line
 {
     font-variant: small-caps;
 }
