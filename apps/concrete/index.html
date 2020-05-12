@@ -58,12 +58,10 @@
                             // remove the empty element
                             parent.removeChild(el);
                         }
-                        // Use traditional 'for loops' for IE 11
-                        for(let mutation of mutationsList) {
-                            if (mutation.type === "characterData"){
-                                var className = "";
+                        const updateStyle = function(elem){
+                            var className = "";
                                 var id = "";
-                                switch (mutation.target.textContent.charAt()) {
+                                switch (elem.textContent.charAt()) {
                                     case '\\':
                                         className = "light";
                                         break;
@@ -93,14 +91,20 @@
     //                                    break;
                                     default:
                                 }
-                                const element = mutation.target.parentElement;
+                                const element = elem.parentElement;
                                 element.className = className;
                                 element.id = id;
                                 element.style = "";
-
-    //                            while (element.firstChild && element.firstChild.firstChild) {
-    //                              element.firstChild.removeChild(element.firstChild.firstChild);
-    //                            }
+                        }
+                        // Use traditional 'for loops' for IE 11
+                        for(let mutation of mutationsList) {
+                            if (mutation.type === "characterData"){
+                                updateStyle(mutation.target);
+                            }
+                            else if(mutation.type === "childList"){
+                                for(let child of document.getElementsByTagName('div')){
+                                    updateStyle(child.firstChild);
+                                }
                             }
                         }
                     };
