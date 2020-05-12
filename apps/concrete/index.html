@@ -20,106 +20,106 @@
                 <span class="markup">/</span>try typing in the box below
             </h3>
         </header>
-        <main contenteditable="true">
-            <div>normal</div>
-            <div class="light">\light</div>
-            <div class="sans">~variable width</div>
-            <div class="emphasis">:emphasis</div>
-            <div class="italics">/italics</div>
-            <div class="strikethrough">-strike-through</div>
-            <div class="underline">_underline</div>
-            <div class="bold">|bold</div>
-            <div class="highlight">=highlight</div>
-<!--
-            these two I need to figure out a elements
-            <div>#section</div>
-            <div class="link">@link</div>
-            these I really want to include but don't know what for
-            i don't know about these
-            <div class="">+abc</div>
-            <sup class="super">^superscript</sup>
-            <div class="small">.small-caps</div>
--->
-            <script>
-                // Select the node that will be observed for mutations
-                const editor = document.currentScript.parentElement;
-                // Options for the observer (which mutations to observe)
-                const config = { characterData: true, subtree: true };
-                // Callback function to execute when mutations are observed
-                const callback = function(mutationsList, observer) {
-                    // Use traditional 'for loops' for IE 11
-                    for(let mutation of mutationsList) {
-                        var className = "";
-                        var id = "";
-                        switch (mutation.target.textContent.charAt()) {
-                            case '\\':
-                                className = "light";
-                                break;
-                            case '~':
-                                className = "sans";
-                                break;
-                            case ':':
-                                className = "emphasis";
-                                break;
-                            case '/':
-                                className = "italics";
-                                break;
-                            case '-':
-                                className = "strikethrough";
-                                break;
-                            case '_':
-                                className = "underline";
-                                break;
-                            case '|':
-                                className = "bold";
-                                break;
-                            case '=':
-                                className = "highlight";
-                                break;
-                            case '#':
-                                id = mutation.target.textContent.slice(1);
-                                break;
-                            default:
+        <main>
+            <section contenteditable="true">
+                <div>normal</div>
+                <div class="light">\light</div>
+                <div class="sans">~variable width</div>
+                <div class="emphasis">:emphasis</div>
+                <div class="italics">/italics</div>
+                <div class="strikethrough">-strike-through</div>
+                <div class="underline">_underline</div>
+                <div class="bold">|bold</div>
+                <div class="highlight">=highlight</div>
+    <!--
+                these two I need to figure out a elements
+                <div>#section</div>
+                <div class="link">@link</div>
+                these I really want to include but don't know what for
+                i don't know about these
+                <div class="">+abc</div>
+                <sup class="super">^superscript</sup>
+                <div class="small">.small-caps</div>
+    -->
+                <script>
+                    // Select the node that will be observed for mutations
+                    const editor = document.currentScript.parentElement;
+                    // Options for the observer (which mutations to observe)
+                    const config = { characterData: true, subtree: true };
+                    // Callback function to execute when mutations are observed
+                    const callback = function(mutationsList, observer) {
+                        // Use traditional 'for loops' for IE 11
+                        for(let mutation of mutationsList) {
+                            var className = "";
+                            var id = "";
+                            switch (mutation.target.textContent.charAt()) {
+                                case '\\':
+                                    className = "light";
+                                    break;
+                                case '~':
+                                    className = "sans";
+                                    break;
+                                case ':':
+                                    className = "emphasis";
+                                    break;
+                                case '/':
+                                    className = "italics";
+                                    break;
+                                case '-':
+                                    className = "strikethrough";
+                                    break;
+                                case '_':
+                                    className = "underline";
+                                    break;
+                                case '|':
+                                    className = "bold";
+                                    break;
+                                case '=':
+                                    className = "highlight";
+                                    break;
+                                case '#':
+                                    id = mutation.target.textContent.slice(1);
+                                    break;
+                                default:
+                            }
+                            mutation.target.parentElement.className = className;
+                            mutation.target.parentElement.id = id;
                         }
-                        mutation.target.parentElement.className = className;
-                        mutation.target.parentElement.id = id;
-                    }
-                };
-                // Create an observer instance linked to the callback function
-                const observer = new MutationObserver(callback);
-                // Start observing the target node for configured mutations
-                observer.observe(editor, config);
-            </script>
-            <div>
-                <canvas class="top left" data-fragment-url="../../shaders/superRectTopLeft.frag" width="32" height="32">
-                    <script>
-                        var canvas = document.currentScript.parentElement;
-                        var sandbox = new GlslCanvas(canvas);
-                        sandbox.pause();                    
-                    </script>
-                </canvas>
-                <canvas class="bottom left" data-fragment-url="../../shaders/superRectBottomLeft.frag" width="32" height="32">
-                    <script>
-                        var canvas = document.currentScript.parentElement;
-                        var sandbox = new GlslCanvas(canvas);
-                        sandbox.pause();                    
-                    </script>
-                </canvas>
-                <canvas class="top right" data-fragment-url="../../shaders/superRectTopRight.frag" width="32" height="32">
-                    <script>
-                        var canvas = document.currentScript.parentElement;
-                        var sandbox = new GlslCanvas(canvas);
-                        sandbox.pause();                    
-                    </script>
-                </canvas>
-                <canvas class="right bottom" data-fragment-url="../../shaders/superRectBottomRight.frag" width="32" height="32">
-                    <script>
-                        var canvas = document.currentScript.parentElement;
-                        var sandbox = new GlslCanvas(canvas);
-                        sandbox.pause();                    
-                    </script>
-                </canvas>
-            </div>
+                    };
+                    // Create an observer instance linked to the callback function
+                    const observer = new MutationObserver(callback);
+                    // Start observing the target node for configured mutations
+                    observer.observe(editor, config);
+                </script>
+            </section>
+            <canvas class="top left" data-fragment-url="../../shaders/superRectTopLeft.frag" width="32" height="32">
+                <script>
+                    var canvas = document.currentScript.parentElement;
+                    var sandbox = new GlslCanvas(canvas);
+                    sandbox.pause();                    
+                </script>
+            </canvas>
+            <canvas class="bottom left" data-fragment-url="../../shaders/superRectBottomLeft.frag" width="32" height="32">
+                <script>
+                    var canvas = document.currentScript.parentElement;
+                    var sandbox = new GlslCanvas(canvas);
+                    sandbox.pause();                    
+                </script>
+            </canvas>
+            <canvas class="top right" data-fragment-url="../../shaders/superRectTopRight.frag" width="32" height="32">
+                <script>
+                    var canvas = document.currentScript.parentElement;
+                    var sandbox = new GlslCanvas(canvas);
+                    sandbox.pause();                    
+                </script>
+            </canvas>
+            <canvas class="right bottom" data-fragment-url="../../shaders/superRectBottomRight.frag" width="32" height="32">
+                <script>
+                    var canvas = document.currentScript.parentElement;
+                    var sandbox = new GlslCanvas(canvas);
+                    sandbox.pause();                    
+                </script>
+            </canvas>
         </main>
     </body>
 </html>
