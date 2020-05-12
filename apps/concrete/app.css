@@ -78,7 +78,6 @@ footer > *
 {
     text-decoration: overline;
     color: #7800ff;
-    display: inline;
 }
 .downloads::after
 {
@@ -129,6 +128,12 @@ footer > *
 {
     text-decoration: none;
     color: #c00000;
+}
+.editor
+{
+    margin: 0;
+    padding: 0;
+    min-height: 360px;
 }
 .small::first-line
 {

@@ -36,7 +36,7 @@
                     }
                 </script>
             </section>
-            <section contenteditable="true">
+            <section class="editor" contenteditable="true">
                 <div>normal</div>
                 <div class="light">\light</div>
                 <div class="sans">~proportional</div>
@@ -48,13 +48,9 @@
                 <div class="bold">|bold</div>
                 <div class="highlight">=highlight</div>
     <!--
-                these two I need to figure out a elements
-                <div>#section</div>
-                <div class="link">@link</div>
                 these I really want to include but don't know what for
                 <div class="wat">:abc</div>
                 i don't know about these
-                <div class="">+abc</div>
                 <sup class="super">^superscript</sup>
                 <div class="small">.small-caps</div>
     -->
@@ -105,6 +101,9 @@
                                         break;
                                     case '=':
                                         className = "highlight";
+                                        break;
+                                    case '+':
+                                        className = "downloads";
                                         break;
     //                                case '#':
     //                                    id = mutation.target.textContent.slice(1);
