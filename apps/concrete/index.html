@@ -82,9 +82,13 @@
 //                                    break;
                                 default:
                             }
-                            mutation.target.parentElement.className = className;
-                            mutation.target.parentElement.id = id;
-                            mutation.target.parentElement.style = "";
+                            const element = mutation.target.parentElement;
+                            element.className = className;
+                            element.id = id;
+                            element.style = "";
+                            while (element.firstChild && element.firstChild.firstChild) {
+                              element.firstChild.removeChild(element.firstChild.firstChild);
+                            }
                         }
                     };
                     // Create an observer instance linked to the callback function
