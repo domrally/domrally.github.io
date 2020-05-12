@@ -7,10 +7,6 @@ body
     width: 720px;    
     margin: 1em auto;  
 }
-#title
-{
-    font-weight: 900;
-}
 #description
 {
     font-style: italic;
