@@ -1,52 +1,33 @@
 @import url(../css/common.css);
-
 body
 {
     background: #000;
+    border-left: 8px solid;    
+    border-right: 8px solid;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
-
 header
 {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
-
 h1, p
 {
     font-size: inherit;
     font-weight: inherit;
-    
-    padding: 0;
-    margin: 0;
-    
+    padding: 0 8px;
+    margin: 8px 0;
     background: #fff;
 }
-
 main
-{
+{    
     padding: .618em;
-    
     background: #fff;
-    
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: space-around;
-}
-figure
-{
-    margin: 0;
-    padding: 0;
-    
-    font-weight: 300;
-    
-/*    color: #fff;  */
-    
-/*    border-left: 2px solid black;*/
-}
-figcaption
-{
-/*    background: #000;*/
-/*    padding: 0 .618em;*/
 }

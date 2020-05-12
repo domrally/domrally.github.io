@@ -29,40 +29,32 @@
 
 <body>
     <header>
-        <a href="">
+        <a href="" id="title">
             <h1>
-                The Birth of the SuperRect
+                <span class="markup">|</span>The Birth of the SuperRect
             </h1>
             <h2>
-                —or: The Circle and the Square had Babies                    
+                <span class="markup">|</span>—or: How the Circle Meets the Square                    
             </h2>  
         </a>
         <section id="description">
             <nav>
                 <a target="_blank" href="../index.html" style="display: none" class="externalLink">
-                    a living document
+                    <span class="markup">/</span>a living document
                 </a>
-                by
+                <span class="markup">/</span>by
                 <a target="_blank" href="../../index.html" id="author">
                      Dom Mandy
                 </a>
             </nav>
-            <p>
-                10 minute read
-            </p>
+            <span class="markup">/</span>10 minute read
         </section>
-        <figure id="banner">
-            <canvas id="rainbow" class="glslCanvas" data-fragment-url="media/rainbow.frag" height="512">
-            </canvas>
-            <canvas class="glslCanvas" data-fragment-url="media/banner.frag" width="512" height="512"></canvas>
-        </figure>
     </header>
     <main>
         <section id="CircleandSquare">
-            
             <h2>
                 <a href="#CircleandSquare">
-                    Circle and Square
+                    <span class="markup">#</span>Circle and Square
                 </a>
                 <a target="_blank" href="#" class="linkToComments">
                     (view comments)
@@ -73,7 +65,7 @@
                 The circle and the square each communicate fundamental yet divergent visual information. Although designers sometimes use them for the same purpose, they do not carry the same meaning. We perceive the circle as a symbol of beauty; the square, utility. 
             </p>
             <p>
-                The circle possesses an ideal form. The universe bestowed it with a sort of divine perfection. The sun and (full) moon—celestial bodies—look like circles from earth, and our eyes—purported windows to the soul—evolved into circles within circles. The circle’s bare symmetry appeals to us; its soft arcs a reasuring smile around its border.
+                The circle possesses an ideal form. The universe bestowed it with a sort of divine perfection. The sun and moon—celestial bodies—look like circles from earth, and our eyes—poetically purported windows to the soul—evolved into circles within circles. The circle’s bare symmetry appeals to us; its soft arcs a reasuring smile around its border.
             </p>
             <p>
                 The square boxes us in. It divides and defines the boundaries of our land. Squares surround our homes. We consume media enclosed by squared displays. The square’s effortless marriage of parallel and perpendicular lines makes it a user-friendly, all-purpose design tool. Designers’ use of square grids maximizes space, as the tiled squares leave no gaps and contain the entire plane.
@@ -82,11 +74,10 @@
                 Somewhere between a circle and a square, there exists an uncompromising shape offering both form and function. This would be a cooperative solution between the id and the superego.
             </p>
         </section>
-        
         <section id="PsychologyofVisualPerception">
             <h2>
                 <a href="#PsychologyofVisualPerception">
-                    Psychology of Visual Perception
+                    <span class="markup">#</span>Psychology of Visual Perception
                 </a>
                 <a target="_blank" href="#" class="linkToComments">
                     (view comments)
@@ -108,31 +99,26 @@
                 Squares won’t stop being useful, and humanity will continue to use them. But sighted humans understand information more effectively when communicated without corners. We can make better squares by making squares without corners.
             </p>
         </section>
-        
         <section id="Timeline">
             <h2>
                 <a href="#Timeline">
-                    Timeline
+                    <span class="markup">#</span>Timeline
                 </a>
                 <a target="_blank" href="#" class="linkToComments">
                     (view comments)
                 </a>
             </h2>
             <section>
-                <figure>
-                    <h3>
-                        1818
-                    </h3>
-                    <canvas class="glslCanvas" data-fragment-url="media/superEllipse.frag" width="512" height="512"></canvas>
-                    <figcaption>
-                        <h4>
-                            superellipse
-                        </h4>
-                        <span class="math">
-                            `((x),(y)) = sqrt|(cos t),(sin t)| |(cos t),(sin t)|^'`
-                        </span>
-                    </figcaption>
-                </figure>
+                <h3>
+                    <span class="markup">|</span>1818
+                </h3>
+                <h3>
+                    superellipse
+                </h3>
+                <canvas class="glslCanvas" data-fragment-url="media/superEllipse.frag" width="512" height="512"></canvas>
+                <p class="math">
+                    `((x),(y)) = sqrt|(cos t),(sin t)| |(cos t),(sin t)|^'`
+                </p>
                 <p>
                     In 1818 Gabriel Lamé discovered a curve mathematically like a circle and superficially like a square. Long known as Lamé's Special Quartic, we now know it as the Squircle. The Squircle comes from a family of rounded squares known as Lamé Curves—until the name changed in 1959. 
                 </p>
@@ -141,24 +127,20 @@
                 </p>
             </section>
             <section>
-                <figure>
-                    <h3>
-                        1981
-                    </h3>
-                    <canvas class="glslCanvas" data-fragment-url="media/roundRect.frag" width="512" height="512"></canvas>
-                    <figcaption>
-                        <h4>
-                            roundrect
-                        </h4>
-                        <span class="math">
-                            `((x),(y)) = 
-                            { 
-                                ( ((cos t),(sin t)) min(|sec t|,|csc t|), +, |__ {: (cos t),(sin t) :} ~| ),
-                                ( ((cos t),(sin t)),                      +, |      (cos t),(sin t)|^'    )
-                            :}`
-                        </span>
-                    </figcaption>
-                </figure>
+                <h3>
+                    <span class="markup">|</span>1981
+                </h3>
+                <h3>
+                    roundrect
+                </h3>
+                <canvas class="glslCanvas" data-fragment-url="media/roundRect.frag" width="512" height="512"></canvas>
+                <p class="math">
+                    `((x),(y)) = 
+                    { 
+                        ( ((cos t),(sin t)) min(|sec t|,|csc t|), +, |__ {: (cos t),(sin t) :} ~| ),
+                        ( ((cos t),(sin t)),                      +, |      (cos t),(sin t)|^'    )
+                    :}`
+                </p>
                 <p>
                     Perhaps the most commonly used rounded square is the RoundRect. Web browsers use RoundRects to round corners on page elements through the border-radius. Almost any graphic design software gives users the RoundRect as a primitive shape for their designs. The addition of the RoundRect to one of the first examples of graphic design software solidified its ubiquity.
                 </p>
@@ -167,32 +149,28 @@
                 </p>
             </section>
             <section>
-                <figure>
-                    <canvas class="glslCanvas" data-fragment-url="media/superRect.frag" width="512" height="512"></canvas>
-                    <figcaption>
-                        <h3 class="year">
-                            2018
-                        </h3>
-                        <h3>
-                            superrect
-                        </h3>
-                        <span class="math">
-                            `{:
-                                ( ((x),(y)),  =, tanh(k ((cot t),(tan t))) |(sin t),(cos t)|^' ),
-                                ( " "     k, ~~, 1.19228 )
-                            :}`
-                        </span>
-                    </figcaption>
-                </figure>
+                <h3>
+                    <span class="markup">|</span>2018
+                </h3>
+                <h3>
+                    superrect
+                </h3>
+                <canvas class="glslCanvas" data-fragment-url="media/superRect.frag" width="512" height="512"></canvas>
+                <p class="math">
+                    `{:
+                        ( ((x),(y)),  =, tanh(k ((cot t),(tan t))) |(sin t),(cos t)|^' ),
+                        ( " "     k, ~~, 1.19228 )
+                    :}`
+                </p>
                 <p>
-                    In late 2017, I went in search of the best square with rounded corners. In 2018—the Squircle’s bicentennial year—I discovered the SuperRect.
+                    In late 2017, I was working on a project. I wanted to animate some fish. I wanted a procedural animation system to interpolate between 2 fish motion vectors. I didn't want to keep track of speeds and accelerations though. I just wanted to input a time and get a position out. In 2018—200 years after the Squircle—I discovered the SuperRect. Happy bicentennial birthday squircle. I still never made that fish animation.
                 </p>
             </section>
         </section>
         <section id="PerceptualGeometry">
             <h2>
                 <a href="#PerceptualGeometry">
-                    Perceptual Geometry
+                    <span class="markup">#</span>Perceptual Geometry
                 </a>
                 <a target="_blank" href="#" class="linkToComments">
                     (view comments)
@@ -219,20 +197,16 @@
             <p>
                 Now let’s look at the RoundRect. It has flat sides like the square and smooth corners like a circle. When our train crosses from a square-like length of track to a circle like part, we can feel a jarring bump. This makes our ride not smooth, implying the lack of smoothness in the RoundRect.
             </p>
-            <figure>
-                <canvas class="glslCanvas" data-fragment-url="media/curvatureRoundRect.frag" width="512" height="512"></canvas>
-            </figure>
+            <canvas class="glslCanvas" data-fragment-url="media/curvatureRoundRect.frag" width="512" height="512"></canvas>
             <p>
                 Time to ride the train on a SuperRect track. Spoiler: The SuperRect is both smooth and flat. We have a smooth ride around the loop and at 4 points, one on each side, we feel free from all centripital force. This means the SuperRect can appear both circle-like and square-like.
             </p>
-            <figure>
-                <canvas class="glslCanvas" data-fragment-url="media/curvatureSuperRect.frag" width="512" height="512"></canvas>
-            </figure>
+            <canvas class="glslCanvas" data-fragment-url="media/curvatureSuperRect.frag" width="512" height="512"></canvas>
         </section>
         <section id="DiscoveringtheSuperRect">
             <h2>
                 <a href="#DiscoveringtheSuperRect">
-                    Discovering the SuperRect
+                    <span class="markup">#</span>Discovering the SuperRect
                 </a>
                 <a target="_blank" href="#" class="linkToComments">
                     (view comments)
@@ -241,7 +215,7 @@
             <p>
                 A square with rounded corners periodically alternates between being circle-like and square-like. This suggests that we could generate the rounded square using a periodic function. A square has 4 sides, so our x and y functions should each become flat twice per period. But how does a curve become flat if it is not already a straight line?
             </p>
-            <canvas class="glslCanvas" data-fragment-url="media/curvatureRoundRect.frag" width="512" height="128">sine wave</canvas>
+            <canvas class="glslCanvas" data-fragment-url="media/super8.frag" width="512" height="512">sine wave</canvas>
 <!--
             <canvas class="glslCanvas" data-fragment-url="media/curvatureRoundRect.frag" width="512" height="128">flat wave</canvas>
             <canvas class="glslCanvas" data-fragment-url="media/curvatureRoundRect.frag" width="512" height="128">wave for square</canvas>
@@ -260,7 +234,7 @@
         <section id="Implementations">
             <h2>
                 <a href="#Implementations">
-                    Implementations
+                    <span class="markup">#</span>Implementations
                 </a>
                 <a target="_blank" href="#" class="linkToComments">
                     (view comments)
@@ -270,7 +244,7 @@
         <section id="FurtherReading">
             <h2>
                 <a href="#FurtherReading">
-                    Further Reading
+                    <span class="markup">#</span>Further Reading
                 </a>
                 <a target="_blank" href="#" class="linkToComments">
                     (view comments)

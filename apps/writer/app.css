@@ -1,0 +1,118 @@
+@import url(../../css/common.css);
+body
+{
+    font-family: Fira Mono;
+    display: flex;
+    flex-direction: column;
+    width: 720px;    
+    margin: 1em auto;  
+}
+#title
+{
+    font-weight: 900;
+}
+#description
+{
+    font-style: italic;
+}
+h1, h2, h3, h4
+{
+    font-size: inherit;
+    font-weight: inherit;
+}
+main
+{
+    border: solid 2px;
+    padding: 24px 32px;
+    flex-grow: 1;
+    position: relative;
+    margin-bottom: 1em;
+}
+canvas
+{
+    margin: auto;
+    display: block;
+}
+.math
+{
+    text-align: center;
+}
+.linkToComments
+{
+    float: right;
+    display: none;
+}
+footer
+{
+    display: flex;
+    flex-direction: column;
+}
+footer > * 
+{
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0 0;
+}
+div
+{
+    color: #000;
+}
+.bold
+{
+    font-weight: 900;
+}
+.italics
+{
+    font-style: italic;
+}
+.light
+{
+    color: #bbb;
+}
+.sans
+{
+    font-family: Fira Sans;
+}
+.underline
+{
+    text-decoration: underline;
+}
+.strikethrough
+{
+    text-decoration: line-through;
+}
+.highlight
+{
+    background: #000;
+    color: #fff;
+    display: inline;
+    padding: .3em;
+}
+.emphasis
+{
+    color: #c00000;
+}
+.small
+{
+    font-variant: small-caps;
+}
+.top
+{
+    top: -2px;
+}
+.left
+{
+    left: -2px;
+}
+.right
+{
+    right: -2px;
+}
+.bottom
+{
+    bottom: -2px;
+}
+canvas
+{
+    position: absolute;
+}
