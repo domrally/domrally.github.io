@@ -11,13 +11,13 @@
     <body>
         <header>
             <h1 class="highlight">
-                <span class="markup">=</span>concrete
+                =concrete
             </h1>
             <h2 class="light">
-                <span class="markup">\</span>lightweight brutalist markup
+                \lightweight brutalist markup
             </h2>
             <h3 class="italics">
-                <span class="markup">/</span>try typing in the box below
+                /try typing in the box below
             </h3>
         </header>
         <main>
@@ -45,49 +45,62 @@
                     // Select the node that will be observed for mutations
                     const editor = document.currentScript.parentElement;
                     // Options for the observer (which mutations to observe)
-                    const config = { characterData: true, subtree: true };
+                    const config = { attributes: true, childList: true, characterData: true, subtree: true,  };
                     // Callback function to execute when mutations are observed
                     const callback = function(mutationsList, observer) {
+                        // select element to unwrap
+                        var allSpans = document.getElementsByTagName('span')
+                        for(let el of allSpans) {
+                            // get the element's parent node
+                            var parent = el.parentNode;
+                            // move all children out of the element
+                            while (el.firstChild) parent.insertBefore(el.firstChild, el);
+                            // remove the empty element
+                            parent.removeChild(el);
+                        }
                         // Use traditional 'for loops' for IE 11
                         for(let mutation of mutationsList) {
-                            var className = "";
-                            var id = "";
-                            switch (mutation.target.textContent.charAt()) {
-                                case '\\':
-                                    className = "light";
-                                    break;
-                                case '~':
-                                    className = "sans";
-                                    break;
-                                case ':':
-                                    className = "emphasis";
-                                    break;
-                                case '/':
-                                    className = "italics";
-                                    break;
-                                case '-':
-                                    className = "strikethrough";
-                                    break;
-                                case '_':
-                                    className = "underline";
-                                    break;
-                                case '|':
-                                    className = "bold";
-                                    break;
-                                case '=':
-                                    className = "highlight";
-                                    break;
-//                                case '#':
-//                                    id = mutation.target.textContent.slice(1);
-//                                    break;
-                                default:
-                            }
-                            const element = mutation.target.parentElement;
-                            element.className = className;
-                            element.id = id;
-                            element.style = "";
-                            while (element.firstChild && element.firstChild.firstChild) {
-                              element.firstChild.removeChild(element.firstChild.firstChild);
+                            if (mutation.type === "characterData"){
+                                var className = "";
+                                var id = "";
+                                switch (mutation.target.textContent.charAt()) {
+                                    case '\\':
+                                        className = "light";
+                                        break;
+                                    case '~':
+                                        className = "sans";
+                                        break;
+                                    case ':':
+                                        className = "emphasis";
+                                        break;
+                                    case '/':
+                                        className = "italics";
+                                        break;
+                                    case '-':
+                                        className = "strikethrough";
+                                        break;
+                                    case '_':
+                                        className = "underline";
+                                        break;
+                                    case '|':
+                                        className = "bold";
+                                        break;
+                                    case '=':
+                                        className = "highlight";
+                                        break;
+    //                                case '#':
+    //                                    id = mutation.target.textContent.slice(1);
+    //                                    break;
+                                    default:
+                                }
+                                const element = mutation.target.parentElement;
+                                element.className = className;
+                                element.id = id;
+                                element.style = "";
+
+    //                            while (element.firstChild && element.firstChild.firstChild) {
+    //                              element.firstChild.removeChild(element.firstChild.firstChild);
+    //                            }
                             }
                         }
                     };
