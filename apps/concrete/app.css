@@ -18,7 +18,7 @@ h1, h2, h3, h4
 }
 main
 {
-    border: solid 2px;
+    border: solid 2px #ccc;
     padding: 24px 32px;
     flex-grow: 1;
     position: relative;
@@ -48,10 +48,6 @@ footer > *
     display: flex;
     flex-direction: column;
     padding: 1em 0 0;
-}
-div
-{
-    color: #000;
 }
 .bold
 {
