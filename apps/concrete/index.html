@@ -11,18 +11,19 @@
     <body>
         <header>
             <h1 class="highlight">
-                =concrete
+                \concrete
             </h1>
-            <h2 class="light">
-                \lightweight brutalist markup
+            <h2 class="bold">
+                + lightweight brutalist markup
             </h2>
             <h3 class="italics">
-                /try typing in the box below
+                / try typing in the box below
             </h3>
         </header>
         <main>
+<!--
             <section class="downloads">
-                +save.txt
+                =save.txt
                 <script>
                     const save = document.currentScript.parentElement;
                     save.onclick = function saveFile(){
@@ -36,17 +37,20 @@
                     }
                 </script>
             </section>
+-->
             <section class="editor" contenteditable="true">
-                <div>normal</div>
-                <div class="light">\light</div>
-                <div class="sans">~proportional</div>
+                <div class="">normal</div>
+<!--                <div class="light">.light</div>-->
+<!--                <div class="mono">:monospace</div>-->
+                <div class="code">>code</div>
+                <div class="quote">|quote</div>
                 <div class="link">@link</div>
-                <div class="target">#target</div>
+                <div class="target">#tag</div>
                 <div class="italics">/italics</div>
                 <div class="strikethrough">-strike-through</div>
                 <div class="underline">_underline</div>
-                <div class="bold">|bold</div>
-                <div class="highlight">=highlight</div>
+                <div class="bold">+bold</div>
+                <div class="highlight">\highlight</div>
     <!--
                 these I really want to include but don't know what for
                 <div class="wat">:abc</div>
@@ -60,26 +64,26 @@
                     // Options for the observer (which mutations to observe)
                     const config = { attributes: true, childList: true, characterData: true, subtree: true,  };
                     // Callback function to execute when mutations are observed
-                    const callback = function(mutationsList, observer) {
-                        // select element to unwrap
-                        var allSpans = document.getElementsByTagName('span')
-                        for(let el of allSpans) {
-                            // get the element's parent node
-                            var parent = el.parentNode;
-                            // move all children out of the element
-                            while (el.firstChild) parent.insertBefore(el.firstChild, el);
-                            // remove the empty element
-                            parent.removeChild(el);
-                        }
+                    const callback = (mutationsList, observer) => {
+//                        // select element to unwrap
+//                        let allSpans = document.getElementsByTagName('span')
+//                        for(let el of allSpans) {
+//                            // get the element's parent node
+//                            let parent = el.parentNode;
+//                            // move all children out of the element
+//                            while (el.firstChild) parent.insertBefore(el.firstChild, el);
+//                            // remove the empty element
+//                            parent.removeChild(el);
+//                        }
                         const updateStyle = function(elem){
                             var className = "";
                                 var id = "";
                                 switch (elem.textContent.charAt()) {
-                                    case '\\':
+                                    case '.':
                                         className = "light";
                                         break;
-                                    case '~':
-                                        className = "sans";
+                                    case ':':
+                                        className = "mono";
                                         break;
                                     case '@':
                                         className = "link";
@@ -97,12 +101,18 @@
                                         className = "underline";
                                         break;
                                     case '|':
-                                        className = "bold";
+                                        className = "code";
                                         break;
-                                    case '=':
-                                        className = "highlight";
+                                    case '>':
+                                        className = "quote";
                                         break;
                                     case '+':
+                                        className = "bold";
+                                        break;
+                                    case '\\':
+                                        className = "highlight";
+                                        break;
+                                    case '=':
                                         className = "downloads";
                                         break;
     //                                case '#':
@@ -131,6 +141,7 @@
                     const observer = new MutationObserver(callback);
                     // Start observing the target node for configured mutations
                     observer.observe(editor, config);
+                    editor.focus();
                 </script>
             </section>
             <canvas class="top left" data-fragment-url="../../shaders/superRectTopLeft.frag" width="32" height="32">

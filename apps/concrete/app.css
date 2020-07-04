@@ -44,6 +44,9 @@ canvas
     float: right;
     display: none;
 }
+header{
+    font-family: inherit;
+}
 footer
 {
     display: flex;
@@ -62,14 +65,23 @@ footer > *
 .link::first-line
 {
     text-decoration: none;
-    color: #0043ff;
+    color: #0000fd;
 }
+/*
 .link::after
 {
     display: inline-block;
     transform: scale(-1, 1);
     content: "\21f1";
 }
+*/
+/*
+p
+{
+    font-family: Fira Sans;
+}
+*/
+/*
 .downloads:hover::first-line
 {
     text-decoration: underline;
@@ -85,26 +97,34 @@ footer > *
     display: inline-block;
     content: "\2b73";
 }
+*/
+/*
 .downloads:hover::after
 {
     text-decoration: underline;
 }
+*/
 .bold::first-line
 {
-    font-weight: 900;
+    font-weight: bold;
 }
 .italics::first-line
 {
     font-style: italic;
 }
+/*
 .light::first-line
 {
     color: #bbb;
+    font-weight: 100;
 }
-.sans::first-line
+*/
+/*
+.mono::first-line
 {
-    font-family: Fira Sans;
+    font-family: Fira Mono;
 }
+*/
 .underline::first-line
 {
     text-decoration: underline;
@@ -122,12 +142,12 @@ footer > *
 }
 .target:hover::first-line
 {
-    text-decoration: overline;
+    text-decoration: underline;
 }
 .target::first-line
 {
     text-decoration: none;
-    color: #c00000;
+    color: #9c0000;
 }
 .small::first-line
 {
