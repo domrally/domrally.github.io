@@ -10,15 +10,11 @@
     </head>
     <body>
         <header>
-            <h1 class="highlight">
-                \concrete
-            </h1>
-            <h2 class="bold">
-                + lightweight brutalist markup
-            </h2>
-            <h3 class="italics">
-                / try typing in the box below
-            </h3>
+            <span class="styled">\ <span class="highlight">concrete</span></span>
+            <br>
+            <span class="styled">+ <span class="bold">lightweight brutalist markup</span></span>
+            <br>
+            <span class="styled">/ <span class="italics">try typing in the box below</span></span>
         </header>
         <main>
 <!--
@@ -38,110 +34,153 @@
                 </script>
             </section>
 -->
-            <section class="editor" contenteditable="true">
-                <div class="">normal</div>
-<!--                <div class="light">.light</div>-->
-<!--                <div class="mono">:monospace</div>-->
-                <div class="code">>code</div>
-                <div class="quote">|quote</div>
-                <div class="link">@link</div>
-                <div class="target">#tag</div>
-                <div class="italics">/italics</div>
-                <div class="strikethrough">-strike-through</div>
-                <div class="underline">_underline</div>
-                <div class="bold">+bold</div>
-                <div class="highlight">\highlight</div>
-    <!--
-                these I really want to include but don't know what for
-                <div class="wat">:abc</div>
-                i don't know about these
-                <sup class="super">^superscript</sup>
-                <div class="small">.small-caps</div>
-    -->
+            <section contenteditable>
+                normal<br>
+                >code<br>
+                |quote<br>
+                @https://www.dommandy.com/apps/concrete<br>
+                #anchor<br>
+                /italics<br>
+                -strike-through<br>
+                _underline<br>
+                +bold<br>
+                \highlight<br>
                 <script>
                     // Select the node that will be observed for mutations
                     const editor = document.currentScript.parentElement;
                     // Options for the observer (which mutations to observe)
-                    const config = { attributes: true, childList: true, characterData: true, subtree: true,  };
-                    // Callback function to execute when mutations are observed
-                    const callback = (mutationsList, observer) => {
-//                        // select element to unwrap
-//                        let allSpans = document.getElementsByTagName('span')
-//                        for(let el of allSpans) {
-//                            // get the element's parent node
-//                            let parent = el.parentNode;
-//                            // move all children out of the element
-//                            while (el.firstChild) parent.insertBefore(el.firstChild, el);
-//                            // remove the empty element
-//                            parent.removeChild(el);
-//                        }
-                        const updateStyle = function(elem){
-                            var className = "";
-                                var id = "";
-                                switch (elem.textContent.charAt()) {
-                                    case '.':
-                                        className = "light";
-                                        break;
-                                    case ':':
-                                        className = "mono";
-                                        break;
-                                    case '@':
-                                        className = "link";
-                                        break;
-                                    case '#':
-                                        className = "target";
-                                        break;
-                                    case '/':
-                                        className = "italics";
-                                        break;
-                                    case '-':
-                                        className = "strikethrough";
-                                        break;
-                                    case '_':
-                                        className = "underline";
-                                        break;
-                                    case '|':
-                                        className = "code";
-                                        break;
-                                    case '>':
-                                        className = "quote";
-                                        break;
-                                    case '+':
-                                        className = "bold";
-                                        break;
-                                    case '\\':
-                                        className = "highlight";
-                                        break;
-                                    case '=':
-                                        className = "downloads";
-                                        break;
-    //                                case '#':
-    //                                    id = mutation.target.textContent.slice(1);
-    //                                    break;
-                                    default:
-                                }
-                                const element = elem.parentElement;
-                                element.className = className;
-                                element.id = id;
-                                element.style = "";
+                    const config = 
+                    { 
+                        attributes: true,
+                        characterData: true, 
+                        subtree: true,  
+                    };
+                    const appendElement = (word) => 
+                    {
+                        const key = word.charAt();
+                        let className = "";
+                        let id = "";
+                        let tagName = null;
+                        let href = null;
+                        switch (key) 
+                        {
+                            case '@':
+                                className = "link";
+                                tagName = "a";
+                                href = word.slice(1);
+                                break;
+                            case '#':
+                                className = "anchor";
+                                tagName = "a";
+                                href = word;
+                                id = word.slice(1);
+                                break;
+                            case '/':
+                                className = "italics";
+                                tagName = "span";
+                                break;
+                            case '-':
+                                className = "strikethrough";
+                                tagName = "span";
+                                break;
+                            case '_':
+                                className = "underline";
+                                tagName = "span";
+                                break;
+                            case '>':
+                                tagName = "code";
+                                break;
+                            case '|':
+                                tagName = "blockquote"
+                                break;
+                            case '+':
+                                className = "bold";
+                                tagName = "span";
+                                break;
+                            case '\\':
+                                className = "highlight";
+                                tagName = "span";
+                                break;
+                            default:
+                                break;
                         }
-                        // Use traditional 'for loops' for IE 11
-                        for(let mutation of mutationsList) {
-                            if (mutation.type === "characterData"){
-                                updateStyle(mutation.target);
+                        if (tagName)
+                        {
+                            const element = document.createElement(tagName);
+                            element.className = className;
+                            element.id = id;
+                            element.href = href;
+                            const keyElement = document.createElement("span");
+                            keyElement.className = "styled";
+                            keyElement.append(key);
+                            editor.append(keyElement);
+//                            parent.append(element);
+                            element.append(word.slice(1));
+                            if (href)
+                            {
+                                element.ondblclick = () => 
+                                {
+                                    const anchor = document.createElement('a');
+                                    anchor.href = href;
+                                    anchor.click();
+                                };
                             }
-                            else if(mutation.type === "childList"){
-                                for(let child of document.getElementsByTagName('div')){
-                                    updateStyle(child.firstChild);
-                                }
-                            }
+                            editor.append(element);
+                        }
+                        else
+                        {
+                            editor.append(word);
                         }
                     };
+                    // Callback function to execute when mutations are observed
+                    const onMutate = (mutationsList, observer) => 
+                    {
+//                        let count = 0;
+//                        for(let el of editor.children)
+//                        {         
+//                            if (el.textContent === window.getSelection().anchorNode.textContent)
+//                            {
+//                                count += window.getSelection().anchorOffset;
+//                                break;
+//                            }
+//                            count += el.innerText.length;
+//                        }
+//                        console.log(count);
+//                        const selection = window.getSelection().anchorOffset;
+//                        console.log(selection);
+                        const text = editor.innerText;
+                        editor.innerHTML = "";
+                        const lines = text.split('\n');
+//                        const chunk = "";
+                        for(let line of lines) 
+                        {
+                            if (line !== lines[0]) editor.append(document.createElement("br"));
+                            const words = line.split(' ');
+//                            if (word[0] === "")
+                            for(let word of words) 
+                            {
+//                                chunk += word;
+//                                const span = document.createElement("span");
+                                appendElement(word);
+//                                editor.append(element);
+                            }
+                        }
+//                        let newCount = 0;
+//                        for(let el of editor.children)
+//                        {         
+//                            newCount += el.innerText.length;
+//                            if (newCount > count)
+//                            {
+//                                window.getSelection().collapse(el, selection);
+//                            }
+//                        }
+                    };
                     // Create an observer instance linked to the callback function
-                    const observer = new MutationObserver(callback);
+                    const observer = new MutationObserver(onMutate);
                     // Start observing the target node for configured mutations
                     observer.observe(editor, config);
                     editor.focus();
+                    onMutate(null, null);
                 </script>
             </section>
             <canvas class="top left" data-fragment-url="../../shaders/superRectTopLeft.frag" width="32" height="32">

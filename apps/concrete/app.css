@@ -6,15 +6,13 @@ body
     flex-direction: column;
     width: 720px;    
     margin: 1em auto;  
-}
-#description
-{
-    font-style: italic;
+/*    letter-spacing: unset;*/
 }
 h1, h2, h3, h4
 {
     font-size: inherit;
     font-weight: inherit;
+    display: inline;
 }
 main
 {
@@ -26,10 +24,16 @@ main
     width: 100%;
     height: 100%;
 }
-section
+.styled
 {
-/*    width: 100%;*/
+    color: #bbb;
 }
+/*
+.styled > *
+{
+    color: #000;
+}
+*/
 canvas
 {
     margin: auto;
@@ -39,129 +43,49 @@ canvas
 {
     text-align: center;
 }
-.linkToComments
+code
 {
-    float: right;
-    display: none;
-}
-header{
     font-family: inherit;
+    background: #005900;    
+    color: #00fd00;
 }
-footer
+blockquote
 {
-    display: flex;
-    flex-direction: column;
+    display: inline;
+    margin: 0;
+    font-size: .786em;
+    letter-spacing: .174em;
+    vertical-align: middle;
+/*    line-height: 1em;*/
 }
-footer > * 
+a, .link
 {
-    display: flex;
-    flex-direction: column;
-    padding: 1em 0 0;
-}
-.link:hover::first-line
-{
-    text-decoration: underline;
-}
-.link::first-line
-{
-    text-decoration: none;
     color: #0000fd;
 }
-/*
-.link::after
-{
-    display: inline-block;
-    transform: scale(-1, 1);
-    content: "\21f1";
-}
-*/
-/*
-p
-{
-    font-family: Fira Sans;
-}
-*/
-/*
-.downloads:hover::first-line
-{
-    text-decoration: underline;
-}
-.downloads::first-line
-{
-    text-decoration: overline;
-    color: #7800ff;
-}
-.downloads::after
-{
-    text-decoration: none;
-    display: inline-block;
-    content: "\2b73";
-}
-*/
-/*
-.downloads:hover::after
-{
-    text-decoration: underline;
-}
-*/
-.bold::first-line
+.bold
 {
     font-weight: bold;
 }
-.italics::first-line
+.italics
 {
     font-style: italic;
 }
-/*
-.light::first-line
-{
-    color: #bbb;
-    font-weight: 100;
-}
-*/
-/*
-.mono::first-line
-{
-    font-family: Fira Mono;
-}
-*/
-.underline::first-line
+.underline
 {
     text-decoration: underline;
 }
-.strikethrough::first-line
+.strikethrough
 {
     text-decoration: line-through;
 }
-.highlight::first-line
+.highlight
 {
     background: #000;
     color: #fff;
-    display: inline;
-    padding: .3em;
 }
-.target:hover::first-line
+.anchor
 {
-    text-decoration: underline;
-}
-.target::first-line
-{
-    text-decoration: none;
     color: #9c0000;
-}
-.small::first-line
-{
-    font-variant: small-caps;
-}
-section:nth-of-type(2)
-{
-    margin: 0;
-    padding: 0;
-    min-height: 360px;
-}
-section > *:nth-child(2n-1)
-{
-    background: #eee;
 }
 .top
 {
