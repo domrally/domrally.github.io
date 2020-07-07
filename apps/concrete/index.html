@@ -52,12 +52,14 @@
                     const config = 
                     { 
                         attributes: true,
+                        childList: true,
                         characterData: true, 
                         subtree: true,  
                     };
                     const appendElement = (word) => 
                     {
                         const key = word.charAt();
+                        const value = word.slice(1);
                         let className = "";
                         let id = "";
                         let tagName = null;
@@ -104,76 +106,105 @@
                             default:
                                 break;
                         }
+                        let wordElement = word;
                         if (tagName)
                         {
-                            const element = document.createElement(tagName);
-                            element.className = className;
-                            element.id = id;
-                            element.href = href;
                             const keyElement = document.createElement("span");
                             keyElement.className = "styled";
                             keyElement.append(key);
-                            editor.append(keyElement);
-//                            parent.append(element);
-                            element.append(word.slice(1));
+                            
+                            const valueElement = document.createElement(tagName);
+                            valueElement.className = className;
+                            valueElement.id = id;
+                            valueElement.href = href;                            
+                            valueElement.append(value);
+                            
                             if (href)
                             {
-                                element.ondblclick = () => 
+                                valueElement.ondblclick = () => 
                                 {
                                     const anchor = document.createElement('a');
                                     anchor.href = href;
                                     anchor.click();
                                 };
                             }
-                            editor.append(element);
+                            
+                            wordElement = document.createElement('span');
+                            wordElement.append(keyElement);
+                            wordElement.append(valueElement);
                         }
-                        else
-                        {
-                            editor.append(word);
-                        }
+                        return wordElement;
                     };
                     // Callback function to execute when mutations are observed
                     const onMutate = (mutationsList, observer) => 
                     {
-//                        let count = 0;
-//                        for(let el of editor.children)
-//                        {         
-//                            if (el.textContent === window.getSelection().anchorNode.textContent)
-//                            {
-//                                count += window.getSelection().anchorOffset;
-//                                break;
-//                            }
-//                            count += el.innerText.length;
-//                        }
-//                        console.log(count);
-//                        const selection = window.getSelection().anchorOffset;
-//                        console.log(selection);
+                        if (observer) observer.disconnect();
+
+                        const selectedOffset = window.getSelection().anchorOffset;
+
+                        const anchorNode = window.getSelection().anchorNode;
+                        const editorTree = editor.firstChild;
+                        let depth = 0;
+                        let height = 0;
+                        let count = 0;
+                        const findAnchor = (node) => 
+                        {
+                            while (node)
+                            {
+                                count++;
+                                if (node === anchorNode)
+                                {
+                                    return true;
+                                }
+                                if (node.firstChild)
+                                {
+                                    depth++;
+                                    if (findAnchor(node.firstChild)) return true;
+                                }
+                                node = node.nextSibling;
+                                height++;
+                            }
+                            depth--;
+                            return false;
+                        }
+                        findAnchor(editorTree);
+                        
                         const text = editor.innerText;
                         editor.innerHTML = "";
                         const lines = text.split('\n');
-//                        const chunk = "";
                         for(let line of lines) 
                         {
-                            if (line !== lines[0]) editor.append(document.createElement("br"));
+                            const lineElement = document.createElement('div');
                             const words = line.split(' ');
-//                            if (word[0] === "")
                             for(let word of words) 
                             {
-//                                chunk += word;
-//                                const span = document.createElement("span");
-                                appendElement(word);
-//                                editor.append(element);
+                                const wordElement = appendElement(word);
+                                lineElement.append(wordElement);
                             }
+                            editor.append(lineElement);
                         }
-//                        let newCount = 0;
-//                        for(let el of editor.children)
-//                        {         
-//                            newCount += el.innerText.length;
-//                            if (newCount > count)
-//                            {
-//                                window.getSelection().collapse(el, selection);
-//                            }
-//                        }
+                        let counter = 0;
+                        const seekAnchor = (node) => 
+                        {
+                            while (node)
+                            {
+                                counter++;
+                                if (count === counter)
+                                {
+                                    window.getSelection().removeAllRanges();
+                                    if (node.textContent.length >= selectedOffset) window.getSelection().collapse(node, selectedOffset);
+                                    return true;
+                                }
+                                if (node.firstChild)
+                                {
+                                    if (seekAnchor(node.firstChild)) return true;
+                                }
+                                node = node.nextSibling;
+                            }
+                            return false;
+                        }
+                        seekAnchor(editor.firstChild);
+                        if (observer) observer.observe(editor, config);
                     };
                     // Create an observer instance linked to the callback function
                     const observer = new MutationObserver(onMutate);
@@ -184,32 +215,16 @@
                 </script>
             </section>
             <canvas class="top left" data-fragment-url="../../shaders/superRectTopLeft.frag" width="32" height="32">
-                <script>
-                    var canvas = document.currentScript.parentElement;
-                    var sandbox = new GlslCanvas(canvas);
-                    sandbox.pause();                    
-                </script>
+                <script src="../../js/drawShader.js"></script>
             </canvas>
             <canvas class="bottom left" data-fragment-url="../../shaders/superRectBottomLeft.frag" width="32" height="32">
-                <script>
-                    var canvas = document.currentScript.parentElement;
-                    var sandbox = new GlslCanvas(canvas);
-                    sandbox.pause();                    
-                </script>
+                <script src="../../js/drawShader.js"></script>
             </canvas>
             <canvas class="top right" data-fragment-url="../../shaders/superRectTopRight.frag" width="32" height="32">
-                <script>
-                    var canvas = document.currentScript.parentElement;
-                    var sandbox = new GlslCanvas(canvas);
-                    sandbox.pause();                    
-                </script>
+                <script src="../../js/drawShader.js"></script>
             </canvas>
             <canvas class="right bottom" data-fragment-url="../../shaders/superRectBottomRight.frag" width="32" height="32">
-                <script>
-                    var canvas = document.currentScript.parentElement;
-                    var sandbox = new GlslCanvas(canvas);
-                    sandbox.pause();                    
-                </script>
+                <script src="../../js/drawShader.js"></script>
             </canvas>
         </main>
     </body>
