@@ -7,12 +7,6 @@ body
     width: 720px;    
     margin: 1em auto;  
 }
-h1, h2, h3, h4
-{
-    font-size: inherit;
-    font-weight: inherit;
-    display: inline;
-}
 main
 {
     border: solid 2px #ccc;
