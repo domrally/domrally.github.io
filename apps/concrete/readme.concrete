@@ -1,14 +1,29 @@
 + #concrete
-| lightweight brutalist markup
+
+| +concrete is a brutalist featherweight markup language by Dom Mandy @https://www.dommandy.com
+
+#contents
+@#motivations
+@#goals
+@#syntax
+@#influences
+
+#motivations
+I wanted a markup language where the plain-text source file and the richly styled document would be roughly identical. Plain text is +bomb.
 
 #goals
-plain text is +bomb
+- all characters in the source text must be visible
+- accessibility
+- no closing tags, opening tags act on individual lines or words 
 
 #syntax
-> fn main() {
->     println!("Hello, world!");
-> }
-| I celebrate myself, and sing myself,
-| And what I assume you shall assume,
-| For every atom belonging to me as good belongs to you.
-@https://www.dommandy.com/apps/concrete
+word-level:
+   link @https://www.dommandy.com/apps/concrete
+   anchor to an internal #point in a document
+   inline |quote
+   bold +word
+line-level:
+| block quote
++ bold line
+
+#influences

@@ -21,9 +21,9 @@ const getStyles = (key) =>
             href = true;
             id = true;
             break;
-        case '>':
-            tagName = "code";
-            break;
+//        case '>':
+//            tagName = "code";
+//            break;
         case '|':
             tagName = "blockquote"
             break;
@@ -39,7 +39,7 @@ const getStyles = (key) =>
     if (tagName)
     {
         const keyElement = document.createElement("span");
-        keyElement.className = "styled";
+        keyElement.className = "markup";
 //        keyElement.aria-hidden = aria;
         keyElement.append(key);
 
