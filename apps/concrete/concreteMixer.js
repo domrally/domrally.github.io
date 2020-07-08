@@ -4,22 +4,22 @@ document.currentScript.parentElement.append(parent);
 const getStyles = (key) => 
 {
     let className = "";
-    let id = null;
+    let id = false;
     let tagName = null;
-    let href = null;
+    let href = false;
     let aria = "true";
     switch (key) 
     {
         case '@':
             className = "link";
             tagName = "a";
-            href = "";
+            href = true;
             break;
         case '#':
             className = "anchor";
             tagName = "a";
-            href = "#";
-            id = "";
+            href = true;
+            id = true;
             break;
         case '>':
             tagName = "code";
@@ -44,11 +44,9 @@ const getStyles = (key) =>
         keyElement.append(key);
 
         const valueElement = document.createElement(tagName);
-        valueElement.className = className;
-        valueElement.id = id;
-        valueElement.href = href;                            
+        valueElement.className = className;                          
 
-        element = { keyElement, valueElement };
+        element = { keyElement, valueElement, href, id };
     }
     return element;
 };
@@ -99,8 +97,18 @@ const parseConcrete = (text) =>
                 lineElement.append(wordStyles.keyElement);
                 lineElement.append(wordStyles.valueElement);
                 wordStyles.valueElement.append(word.slice(1));
-                if (wordStyles.valueElement.href) wordStyles.valueElement.href += word.slice(1);
-                if (wordStyles.valueElement.id) wordStyles.valueElement.id = word.slice(1);
+                if (wordStyles.href)
+                {
+                    if (wordStyles.id) 
+                    {
+                        wordStyles.valueElement.id = word.slice(1);
+                        wordStyles.valueElement.href = word;
+                    }
+                    else
+                    {
+                        wordStyles.valueElement.href = word.slice(1);
+                    }
+                }
             }
             else
             {
