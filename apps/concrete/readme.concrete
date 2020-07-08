@@ -17,13 +17,13 @@ I wanted a markup language where the plain-text source file and the richly style
 - no closing tags, opening tags act on individual lines or words 
 
 #syntax
-word-level:
-   link @https://www.dommandy.com/apps/concrete
-   anchor to an internal #point in a document
-   inline |quote
-   bold +word
 line-level:
-| block quote
 + bold line
+| block quote
+word-level:
+   bold +word
+   inline |quote
+   anchor to an internal #point in a document
+   link to anything, including back to that @#point
 
 #influences
