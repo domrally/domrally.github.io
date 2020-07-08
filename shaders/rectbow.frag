@@ -285,38 +285,43 @@ vec4   luvToRgb(float x, float y, float z, float a) {return   luvToRgb( vec4(x,y
 /*
 END HSLUV-GLSL
 */
-//
+// 
 float tanh(float t)
 {
-    float e=exp(2.*t);
-    return(e-1.)/(e+1.);
+    float e = exp(2. * t);
+    return (e - 1.) / (e + 1.);
 }
-//
+// 
 float atanh(float x)
 {
-    return.5*log((1.+x)/(1.-x));
+    return .5 * log((1. + x) / (1. - x));
 }
-//
-const float k=1.19228;
-//
+// 
+const float k = 1.19228;
+// 
 float sinf(float t)
 {
-    return tanh(k*tan(t));
+    float f = tanh(k * tan(t));
+    f = mix(1., f, step(t, 1.5));
+    return f;
 }
-//
+// 
 float asinf(float y)
 {
-    return atan(atanh(y)/k);
+    float f = atan(atanh(y) / k);
+    return f;
 }
-//
+// 
 float cosf(float t)
 {
-    return tanh(k/tan(t));
+    return tanh(k / tan(t));
 }
-//
+// 
 float acosf(float x)
 {
-    return atan(k/atanh(x));
+    float f = atan(k / atanh(x));
+    f = mix(f, 0., step(1., x));
+    return f;
 }
 //
 vec4 getColor(vec3 background,float fill,float stroke)
@@ -331,35 +336,10 @@ void main()
 {
     vec2 uv=gl_FragCoord.xy/u_resolution.xy;
     float h=360.*uv.x;
-    float l=mix(4.,88.,uv.y);
+    float t = .5 + .5 * cosf(.07 + (1. - uv.y) * 3.);
+    float l=mix(32.,87.,t);
     
     vec3 color=lchToRgb(l,19.,h);
-    
-    vec2 d2=abs(uv-.5);
-    float d1=max(d2.x,d2.y);
-    // float fade=clamp(2.*d1,-1.,1.);
-    // fade=exp(-1./(1.-fade*fade))/exp(-1.);
-    // color=mix(vec3(1.),color,fade);
     // render
-    gl_FragColor=vec4(color,1.);//getColor(color,fill,stroke);
-    
-    // // set up the composition
-    // float scale=1./min(u_resolution.x,u_resolution.y);
-    // vec2 p=scale*(2.*gl_FragCoord.xy-u_resolution.xy);
-    // // antialiasing
-    // float r=max(16.*scale,.015);
-    // // take advantage of symmetry
-    // p=-abs(p);
-    // //stay stable
-    // p.x=min(p.x,.0);
-    // p.y=min(p.y,-.000001);
-    // // since the shape is convex we can be sure which points are inside
-    // float x=p.y-sinf(acosf(p.x));
-    // float y=p.x-cosf(asinf(p.y));
-    // float fill=step(.0,x)*step(.0,y);
-    // // distance field becomes assymptotically correct as points get close to curve
-    // float d=.25*x*y*inversesqrt(x*x+y*y);
-    // float stroke=smoothstep(r,r-4.*scale,d);
-    // // render
-    // gl_FragColor=getColor(color,fill,stroke);
+    gl_FragColor=vec4(color,1.);
 }

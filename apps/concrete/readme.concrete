@@ -1,0 +1,14 @@
++ #concrete
+| lightweight brutalist markup
+
+#goals
+plain text is +bomb
+
+#syntax
+> fn main() {
+>     println!("Hello, world!");
+> }
+| I celebrate myself, and sing myself,
+| And what I assume you shall assume,
+| For every atom belonging to me as good belongs to you.
+@https://www.dommandy.com/apps/concrete

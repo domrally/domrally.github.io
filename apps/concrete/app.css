@@ -1,8 +1,7 @@
 @import url(../../css/common.css);
-@import url(https://code.cdn.mozilla.net/fonts/fira.css);
 body
 {
-    position: absolute;
+    position: relative;
     font-family: Fira Mono;
     min-height: 100%;
     margin: 0;
@@ -33,28 +32,33 @@ main
     flex-grow: 1;
     
     padding: 24px 32px;
-    position: relative;    
+    position: relative;  
 }
-[contenteditable] {
-    outline: 0px solid transparent;
-}
-div
+section
 {
-    min-height: .618em;
+    white-space: pre-wrap;
+}
+p
+{
+    min-height: 1.618em;
+    margin: 0;
+    display: flex;
 }
 .styled
 {
     color: #bbb;
-}
-.math
-{
-    text-align: center;
+    font-weight: normal;
+    background: #f7f7f7;
 }
 code
 {
     font-family: inherit;
-    background: #005900;    
+    background: #e2e2e2; 
     color: #00fd00;
+    color: #005900;
+    border-radius: .2em;
+    display: inline-block;
+    flex-grow: 1;
 }
 blockquote
 {
@@ -72,23 +76,6 @@ a, .link
 .bold
 {
     font-weight: bold;
-}
-.italics
-{
-    font-style: italic;
-}
-.underline
-{
-    text-decoration: underline;
-}
-.strikethrough
-{
-    text-decoration: line-through;
-}
-.highlight
-{
-    background: #000;
-    color: #fff;
 }
 .anchor
 {
