@@ -46,9 +46,9 @@ vec4 getColor(float fill, float stroke)
 {
     vec4 color;
     color.a = 1.;
-    color.rgb = vec3(1.);
-    color = mix(color, vec4(vec3(.733),1.), stroke);
-    //color = mix(color, vec4(0.), fill);
+    color.rgb = vec3(247./255.);
+    color = mix(vec4(0.), color, fill);
+    color = mix(color, vec4(vec3(247./255.),1.), stroke);
     return color;
 }
 

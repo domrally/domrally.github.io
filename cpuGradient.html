@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <title>concrete by Dom Mandy</title>
+        <meta name="description" content="lightweight brutalist markup">
+        <meta name="keywords" content="concrete, app, Dom, Mandy">
+        <link href="favicon.ico" rel="shortcut icon">
+        <link href="app.css" rel="stylesheet" media="screen">
+        <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+    </head>
+    <body>
+        <header>
+            <span class="styled">\ <span class="highlight">concrete</span></span>
+            <br>
+            <span class="styled">+ <span class="bold">lightweight brutalist markup</span></span>
+            <br>
+            <span class="styled">/ <span class="italics">try typing in the box below</span></span>
+        </header>
+        <main>
+            <script>
+                // Select the node that will be observed for mutations
+                const editor = document.currentScript.parentElement;
+                
+                var ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0);
+                img.style.display = 'none';
+                var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                var data = imageData.data;
+
+                var invert = () => {
+                    for (var i = 0; i < data.length; i += 4) {
+                        data[i]     = 255 - data[i];     // red
+                        data[i + 1] = 255 - data[i + 1]; // green
+                        data[i + 2] = 255 - data[i + 2]; // blue
+                    }
+                    ctx.putImageData(imageData, 0, 0);
+                };
+            </script>
+        </main>
+    </body>
+</html>

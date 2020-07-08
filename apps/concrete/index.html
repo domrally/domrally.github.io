@@ -9,38 +9,21 @@
         <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
     </head>
     <body>
-        <header>
-            <div><span class="styled">\</span><span class="highlight">concrete</span></div>
-            <div><span class="styled">+ </span><span class="bold">lightweight brutalist markup</span></div>
-            <div><span class="styled">/ </span><span class="italics">try typing in the box below</span></div>
-        </header>
-        <main>
-<!--
-            <section class="downloads">
-                =save.txt
-                <script>
-                    const save = document.currentScript.parentElement;
-                    save.onclick = function saveFile(){
-                        var text = save.nextElementSibling.innerText,
-                            blob = new Blob([text], { type: 'text/plain' }),
-                            anchor = document.createElement('a');
-                        anchor.download = "save.txt";
-                        anchor.href = (window.webkitURL || window.URL).createObjectURL(blob);
-                        anchor.dataset.downloadurl = ['text/plain', anchor.download, anchor.href].join(':');
-                        anchor.click();
-                    }
-                </script>
-            </section>
--->
+        <canvas class="background" data-fragment-url="../../shaders/rectbow.frag" width="720" height="720">
+            <script src="../../js/drawShader.js"></script>
+        </canvas>
+        <main class="column">
             <section contenteditable>
-                normal<br>
+                +concrete<br>
+                <br>
+                | lightweight brutalist markup<br>
+                try editing any of this text<br>
+                <br>
+                plain<br>
                 >code<br>
                 |quote<br>
                 @https://www.dommandy.com/apps/concrete<br>
                 #anchor<br>
-                /italics<br>
-                -strike-through<br>
-                _underline<br>
                 +bold<br>
                 \highlight<br>
                 <script>
@@ -56,12 +39,14 @@
                     };
                     const appendElement = (word) => 
                     {
+                        word += ' ';
                         const key = word.charAt();
                         const value = word.slice(1);
                         let className = "";
                         let id = "";
                         let tagName = null;
                         let href = null;
+                        let aria = "true";
                         switch (key) 
                         {
                             case '@':
@@ -74,18 +59,6 @@
                                 tagName = "a";
                                 href = word;
                                 id = word.slice(1);
-                                break;
-                            case '/':
-                                className = "italics";
-                                tagName = "span";
-                                break;
-                            case '-':
-                                className = "strikethrough";
-                                tagName = "span";
-                                break;
-                            case '_':
-                                className = "underline";
-                                tagName = "span";
                                 break;
                             case '>':
                                 tagName = "code";
@@ -102,6 +75,7 @@
                                 tagName = "span";
                                 break;
                             default:
+                                aria = "undefined";
                                 break;
                         }
                         let wordElement = word;
@@ -109,14 +83,15 @@
                         {
                             const keyElement = document.createElement("span");
                             keyElement.className = "styled";
+    //                            keyElement.aria-hidden = aria;
                             keyElement.append(key);
-                            
+
                             const valueElement = document.createElement(tagName);
                             valueElement.className = className;
                             valueElement.id = id;
                             valueElement.href = href;                            
                             valueElement.append(value);
-                            
+
                             if (href)
                             {
                                 valueElement.ondblclick = () => 
@@ -126,7 +101,7 @@
                                     anchor.click();
                                 };
                             }
-                            
+
                             wordElement = document.createElement('span');
                             wordElement.append(keyElement);
                             wordElement.append(valueElement);
@@ -166,7 +141,7 @@
                             return false;
                         }
                         findAnchor(editorTree);
-                        
+
                         const text = editor.innerText;
                         editor.innerHTML = "";
                         const lines = text.split('\n');
@@ -179,6 +154,7 @@
                                 const wordElement = appendElement(word);
                                 lineElement.append(wordElement);
                             }
+                            
                             editor.append(lineElement);
                         }
                         let counter = 0;
