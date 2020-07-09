@@ -1,12 +1,12 @@
 + #concrete
 
-| +concrete is a brutalist featherweight markup language by Dom Mandy @https://www.dommandy.com
+| +concrete is a brutalist featherweight markup language by Dom Mandy https://www.dommandy.com
 
 #contents
-@#motivations
-@#goals
-@#syntax
-@#influences
+@motivations
+@goals
+@syntax
+@influences
 
 #motivations
 I wanted a markup language where the plain text source file and the richly styled document would be roughly identical. Plain text is +bomb.
@@ -24,6 +24,6 @@ word level:
    bold +word
    inline |quote
    anchor to an internal #point in a document
-   link to anything, including back to that @#point
+   link to anything, including back to that @point
 
 #influences

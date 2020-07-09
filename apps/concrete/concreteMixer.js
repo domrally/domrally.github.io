@@ -6,19 +6,24 @@ const getStyles = (key) =>
     let className = "";
     let id = false;
     let tagName = null;
-    let href = false;
+    let href = "";
     let aria = "true";
     switch (key) 
     {
+        case 'https://':
+            className = "link";
+            tagName = "a";
+            href = key;
+            break;
         case '@':
             className = "link";
             tagName = "a";
-            href = true;
+            href = "#";
             break;
         case '#':
             className = "anchor";
             tagName = "a";
-            href = true;
+            href = "#";
             id = true;
             break;
 //        case '>':
@@ -90,25 +95,34 @@ const parseConcrete = (text) =>
                     continue;
                 }
             }
-            
-            const wordStyles = getStyles(word.charAt());
+            const https = 'https://';
+            let wordStyles;
+            if (word.startsWith(https))
+            {
+                wordStyles = getStyles(https);
+            }
+            else
+            {
+                wordStyles = getStyles(word.charAt());
+            }
             if (wordStyles) 
             {
                 lineElement.append(wordStyles.keyElement);
                 lineElement.append(wordStyles.valueElement);
-                wordStyles.valueElement.append(word.slice(1));
-                if (wordStyles.href)
+                if (wordStyles.href !== "")
                 {
+                    word = word.slice(wordStyles.href.length);
+                    wordStyles.valueElement.href = wordStyles.href + word;
                     if (wordStyles.id) 
                     {
-                        wordStyles.valueElement.id = word.slice(1);
-                        wordStyles.valueElement.href = word;
-                    }
-                    else
-                    {
-                        wordStyles.valueElement.href = word.slice(1);
+                        wordStyles.valueElement.id = word;
                     }
                 }
+                else
+                {
+                    word = word.slice(1);
+                }
+                wordStyles.valueElement.append(word);
             }
             else
             {

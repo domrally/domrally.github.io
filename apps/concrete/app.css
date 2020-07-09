@@ -75,27 +75,28 @@ blockquote
 /*    font-weight: 600;*/
 /*    font-weight: bold;*/
     color: #7900ff;
+    color: #9c0000;
 }
 .link
 {
     color: #0000fd;
 }
-blockquote .link
-{
-    color: #0044fd;
-}
-blockquote .anchor
-{
-    color: #c00000;
-}
 .bold
 {
     font-weight: bold;
+/*    color: #7900ff;*/
 /*    font-weight: 900;*/
+}
+.bold .anchor
+{
+    color: #111;
 }
 .anchor
 {
     color: #9c0000;
+    color: #111;
+    color: #6161ff;
+    font-weight: 900;
 }
 .top
 {
