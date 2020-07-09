@@ -2,7 +2,6 @@
 body
 {
     position: relative;
-/*    font-family: Fira Mono;*/
     min-height: 100%;
     margin: 0;
     display: flex;
@@ -46,7 +45,6 @@ p
 {
     min-height: 1.618em;
     margin: 0;
-/*    display: flex;*/
 }
 .markup
 {
@@ -54,50 +52,29 @@ p
     font-weight: normal;
     background: #f7f7f7;
 }
-/*
-code
-{
-    font-family: Fira Mono;
-    background: #e2e2e2; 
-    color: #00fd00;
-    color: #005900;
-    background: #eee;
-    color: inherit;
-    border-radius: .2em;
-    display: inline-block;
-    flex-grow: 1;
-}
-*/
 blockquote
 {
     display: inline;
     margin: 0;
-/*    font-weight: 600;*/
-/*    font-weight: bold;*/
-    color: #7900ff;
-    color: #9c0000;
     color: #055;
-}
-.link
-{
-    color: #0000fd;
 }
 .bold
 {
     font-weight: bold;
-/*    color: #7900ff;*/
-/*    font-weight: 900;*/
+    color: #333;
 }
 .bold .anchor
 {
     color: #000;
     font-weight: 900;
 }
+blockquote .bold
+{
+    color: #155;
+}
 .anchor
 {
-    color: #9c0000;
-    color: #111;
-    color: #6161ff;
+    color: #33C;
     font-weight: bold;
 }
 .top
