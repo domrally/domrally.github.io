@@ -1,4 +1,5 @@
 const parent = document.createElement('section');
+parent.className = "concrete";
 document.currentScript.parentElement.append(parent);
 
 const getStyles = (key) => 
