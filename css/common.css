@@ -37,3 +37,23 @@ a
     color: #ccc;
     font-family: Fira Mono;
 }
+.top
+{
+    top: 0px;
+}
+.left
+{
+    left: 0px;
+}
+.right
+{
+    right: 0px;
+}
+.bottom
+{
+    bottom: 0px;
+}
+.top, .left, .right, .bottom
+{
+    position: absolute;
+}

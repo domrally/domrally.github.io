@@ -67,7 +67,7 @@ blockquote
 {
     display: inline;
     margin: 0;
-    color: #055;
+    font-style: italic;
 }
 .bold
 {
@@ -79,32 +79,8 @@ blockquote
     color: #000;
     font-weight: 900;
 }
-blockquote .bold
-{
-    color: #155;
-}
 .anchor
 {
     color: #33C;
     font-weight: bold;
-}
-.top
-{
-    top: 0px;
-}
-.left
-{
-    left: 0px;
-}
-.right
-{
-    right: 0px;
-}
-.bottom
-{
-    bottom: 0px;
-}
-.top, .left, .right, .bottom
-{
-    position: absolute;
 }
