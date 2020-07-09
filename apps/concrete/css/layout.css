@@ -31,10 +31,9 @@ section
     white-space: pre-wrap;
     overflow-wrap: break-word;
 }
-p
+.line
 {
     min-height: 1.618em;
-    margin: 0;
 }
 blockquote
 {

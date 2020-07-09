@@ -60,7 +60,8 @@ const parseConcrete = (text) =>
     const lines = text.split('\n');
     for(let line of lines) 
     {
-        const paragraph = document.createElement('p');
+        const paragraph = document.createElement('div');
+        paragraph.className = "line";
         parent.append(paragraph);
                 
         let lineElement = paragraph;
