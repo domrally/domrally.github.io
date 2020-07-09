@@ -90,14 +90,15 @@ blockquote
 }
 .bold .anchor
 {
-    color: #111;
+    color: #000;
+    font-weight: 900;
 }
 .anchor
 {
     color: #9c0000;
     color: #111;
     color: #6161ff;
-    font-weight: 900;
+    font-weight: bold;
 }
 .top
 {
