@@ -23,7 +23,7 @@ line level:
 word level:
    bold +word
    inline |quote
-   anchor to an internal #point in a document
-   link to anything, including back to that @point
+   anchor to a #tag in a page
+   link to a @tag or a site https://www.dommandy.com/apps/concrete
 
 #influences
