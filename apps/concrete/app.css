@@ -10,6 +10,7 @@ body
     align-items: center;
     width: 100%;
     background: #eee;
+    color: #111;
 }
 .background
 {
@@ -71,18 +72,26 @@ blockquote
 {
     display: inline;
     margin: 0;
-    font-size: .786em;
-    letter-spacing: .125em;
-    vertical-align: middle;
-/*    line-height: 1em;*/
+/*    font-weight: 600;*/
+/*    font-weight: bold;*/
+    color: #7900ff;
 }
-a, .link
+.link
 {
     color: #0000fd;
+}
+blockquote .link
+{
+    color: #0044fd;
+}
+blockquote .anchor
+{
+    color: #c00000;
 }
 .bold
 {
     font-weight: bold;
+/*    font-weight: 900;*/
 }
 .anchor
 {

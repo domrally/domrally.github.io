@@ -9,7 +9,7 @@
 @#influences
 
 #motivations
-I wanted a markup language where the plain-text source file and the richly styled document would be roughly identical. Plain text is +bomb.
+I wanted a markup language where the plain text source file and the richly styled document would be roughly identical. Plain text is +bomb.
 
 #goals
 - all characters in the source text must be visible
@@ -17,10 +17,10 @@ I wanted a markup language where the plain-text source file and the richly style
 - no closing tags, opening tags act on individual lines or words 
 
 #syntax
-line-level:
+line level:
 + bold line
 | block quote
-word-level:
+word level:
    bold +word
    inline |quote
    anchor to an internal #point in a document
