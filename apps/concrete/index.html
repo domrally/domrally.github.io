@@ -5,20 +5,16 @@
         <meta name="description" content="lightweight brutalist markup">
         <meta name="keywords" content="concrete, app, Dom, Mandy">
         <link href="favicon.ico" rel="shortcut icon">
-        <link href="app.css" rel="stylesheet" media="screen">
+        <link href="index.css" rel="stylesheet" media="screen">
         <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
     </head>
     <body>
-        <canvas class="background" data-fragment-url="../../shaders/rectbow.frag" width="720" height="720">
-            <script src="../../js/drawShader.js"></script>
-        </canvas>
         <main class="column">
             <script src="concreteMixer.js"></script>
             <script>
                 fetch("readme.concrete")
                     .then(response => response.text()
-                          .then(text => parseConcrete(text))
-                         );
+                          .then(text => parseConcrete(text)));
             </script>
             <canvas class="top left" data-fragment-url="../../shaders/superRectTopLeft.frag" width="32" height="32">
                 <script src="../../js/drawShader.js"></script>

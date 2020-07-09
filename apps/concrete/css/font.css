@@ -1,0 +1,36 @@
+body
+{
+    font-size: 1.618rem;
+    line-height: 1.618em;
+    letter-spacing: .04em;
+}
+@media (max-aspect-ratio: 1/1) {
+    body
+    {
+        font-size: 3em;
+    }
+}
+.markup
+{
+    font-weight: normal;
+}
+blockquote
+{
+    font-style: italic;
+}
+.bold .anchor
+{
+    font-weight: 900;
+}
+.anchor, .bold
+{
+    font-weight: bold;
+}
+a:hover
+{
+    text-decoration: underline;
+}
+a
+{
+    text-decoration: none;
+}

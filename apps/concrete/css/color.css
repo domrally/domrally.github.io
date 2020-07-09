@@ -1,0 +1,30 @@
+body
+{
+    background: #eee;
+    color: #111;
+}
+main
+{
+    background: #f7f7f7; 
+}
+.markup
+{
+    color: #bbb;
+    background: #f7f7f7;
+}
+.bold
+{
+    color: #333;
+}
+.bold .anchor
+{
+    color: #000;
+}
+.anchor
+{
+    color: #33C;
+}
+a
+{
+    color: #00f;
+}

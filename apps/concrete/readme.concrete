@@ -6,7 +6,9 @@
 @motivations
 @goals
 @syntax
-@influences
+@color
+@font
+@credits
 
 #motivations
 I wanted a markup language where the plain text source file and the richly styled document would be roughly identical. Plain text is +bomb.
@@ -25,5 +27,16 @@ word level:
    inline |quote
    anchor to a #tag in a page
    link to a @tag or a site https://www.dommandy.com/apps/concrete
+   
+#color
++dark/light 
+many shades perceptable, but limit to 3 or 4 categories
++colorful/greyscale
+i think this must be bound to interactivity since links colorful
++hue
+implies category and links are a commonly understood category
 
-#influences
+#font
+bold, italic, variable width, letter spacing, line height, font size, 
+
+#credits

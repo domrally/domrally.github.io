@@ -1,0 +1,9 @@
+@import url(https://code.cdn.mozilla.net/fonts/fira.css);
+body
+{
+    font-family: Fira Sans; 
+}
+header, footer
+{
+    font-family: Fira Mono;
+}
