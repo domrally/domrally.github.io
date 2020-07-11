@@ -3,6 +3,9 @@ body
     background: #eee;
     color: #111;
 }
+::selection { 
+    background: #ff0; 
+}
 main
 {
     background: #f7f7f7; 
