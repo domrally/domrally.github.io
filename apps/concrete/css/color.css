@@ -19,9 +19,17 @@ main
 {
     color: #333;
 }
+blockquote
+{
+    color: #4c4c4c;
+}
+.bold blockquote, blockquote .bold
+{
+    color: #444;
+}
 .bold .anchor
 {
-    color: #007;
+    color: #008;
 }
 .anchor
 {
