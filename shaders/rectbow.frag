@@ -337,6 +337,7 @@ void main()
     vec2 uv=gl_FragCoord.xy/u_resolution.xy;
     float h=360.*uv.x;
     float t = .5 + .5 * cosf(.07 + (1. - uv.y) * 3.);
+    t=uv.y;
     float l=mix(32.,87.,t);
     
     vec3 color=lchToRgb(l,19.,h);

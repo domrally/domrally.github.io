@@ -342,7 +342,9 @@ float hsluv_maxSafeChromaForL(float L){
                                     vec2 uv=gl_FragCoord.xy/u_resolution.xy;
                                     
                                     float l=mix(40.,71.,uv.y);
-                                    float t=max(l-53.,0.)/(71.-53.);
+                                    float t=max(l-53.2,0.)/(71.-53.2);
+                                    //t*=t*t*t;
+                                    //l=mix(min(53.,l),71.,t);
                                     float h=mix(12.2,37.1,t);
                                     float s=mix(0.,100.,uv.x);
                                     

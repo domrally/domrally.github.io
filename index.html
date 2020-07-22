@@ -21,65 +21,45 @@
     <main>
         <figure>
             <figcaption>
-                fixed lightness
+                prismatics
             </figcaption>
             <canvas data-fragment-url="shaders/ringbow.frag" width="720" height="720">
-                <script>
-                    var canvas = document.currentScript.parentElement;
-                    var sandbox = new GlslCanvas(canvas);
-                    sandbox.pause();                    
-                </script>
+                <script src="js/drawShader.js"></script>
             </canvas>
-        </figure>
-        <figure>
-            <figure>
-                <figcaption>
-                    line of chartreuses
-                </figcaption>
-                <canvas data-fragment-url="shaders/lineOfChartreuses.frag" width="720" height="180">
-                    <script>
-                        var canvas = document.currentScript.parentElement;
-                        var sandbox = new GlslCanvas(canvas);
-                        sandbox.pause();                    
-                    </script>
-                </canvas>
-            </figure>
-            <figure>
-                <figcaption>
-                    line of oranges
-                </figcaption>
-                <canvas data-fragment-url="shaders/lineOfOranges.frag" width="720" height="180">
-                    <script>
-                        var canvas = document.currentScript.parentElement;
-                        var sandbox = new GlslCanvas(canvas);
-                        sandbox.pause();                    
-                    </script>
-                </canvas>
-            </figure>
-            <figure>
-                <figcaption>
-                    line of violets
-                </figcaption>
-                <canvas data-fragment-url="shaders/triangleOfPurples.frag" width="720" height="180">
-                    <script>
-                        var canvas = document.currentScript.parentElement;
-                        var sandbox = new GlslCanvas(canvas);
-                        sandbox.pause();                    
-                    </script>
-                </canvas>
-            </figure>
         </figure>
         <figure>
             <figcaption>
-                fixed colorfulness
+                pastels
             </figcaption>
             <canvas data-fragment-url="shaders/rectbow.frag" width="720" height="720">
-                <script>
-                    var canvas = document.currentScript.parentElement;
-                    var sandbox = new GlslCanvas(canvas);
-                    sandbox.pause();                    
-                </script>
+                <script src="js/drawShader.js"></script>
             </canvas>
+        </figure>
+        <figure>
+            <figure>
+                <figcaption>
+                    chartreuses
+                </figcaption>
+                <canvas data-fragment-url="shaders/lineOfChartreuses.frag" width="720" height="180">
+                    <script src="js/drawShader.js"></script>
+                </canvas>
+            </figure>
+            <figure>
+                <figcaption>
+                    oranges
+                </figcaption>
+                <canvas data-fragment-url="shaders/lineOfOranges.frag" width="720" height="180">
+                    <script src="js/drawShader.js"></script>
+                </canvas>
+            </figure>
+            <figure>
+                <figcaption>
+                    violets
+                </figcaption>
+                <canvas data-fragment-url="shaders/triangleOfPurples.frag" width="720" height="180">
+                    <script src="js/drawShader.js"></script>
+                </canvas>
+            </figure>
         </figure>
     </main>
     <footer>

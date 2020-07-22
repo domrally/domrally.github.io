@@ -340,8 +340,10 @@ float hsluv_maxSafeChromaForL(float L){
                                 void main()
                                 {
                                     vec2 uv=gl_FragCoord.xy/u_resolution.xy;
-                                    
-                                    vec3 color=hpluvToRgb(360.*uv.y,100.*uv.x,76.);
+                                    float hue=mix(0.,360.,uv.x);
+                                    float saturation=mix(0.,100.,uv.y);
+                                    float lightness=76.;
+                                    vec3 color=hpluvToRgb(hue,saturation,lightness);
                                     // render
                                     gl_FragColor=vec4(color,1.);
                                 }
