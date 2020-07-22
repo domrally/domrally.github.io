@@ -12,6 +12,8 @@ const getStyles = (key) =>
     switch (key) 
     {
         case 'https://':
+        case '../':
+        case './':
             className = "link";
             tagName = "a";
             href = key;
@@ -33,7 +35,7 @@ const getStyles = (key) =>
         case '|':
             tagName = "blockquote"
             break;
-        case '+':
+        case '*':
             className = "bold";
             tagName = "span";
             break;
@@ -68,6 +70,7 @@ const parseConcrete = (text) =>
         let lineElement = paragraph;
         const words = line.split(' ');
         let chunk = line;
+        let isFirst = true;
         for(let word of words)
         {
             let count = 0;
@@ -86,8 +89,9 @@ const parseConcrete = (text) =>
                 }
             }
             
-            if (word === words[0])
+            if (isFirst && word !== '')
             {
+                isFirst = false;
                 const lineStyles = getStyles(word);
                 if (lineStyles) 
                 {
@@ -98,10 +102,20 @@ const parseConcrete = (text) =>
                 }
             }
             const https = 'https://';
+            const dotDotSlash = '../';            
+            const dotSlash = './';
             let wordStyles;
             if (word.startsWith(https))
             {
                 wordStyles = getStyles(https);
+            } 
+            else if (word.startsWith(dotDotSlash))
+            {
+                wordStyles = getStyles(dotDotSlash);
+            }
+            else if (word.startsWith(dotSlash))
+            {
+                wordStyles = getStyles(dotSlash);
             }
             else
             {

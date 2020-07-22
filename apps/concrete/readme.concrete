@@ -1,6 +1,6 @@
-+ #concrete
+* ../../ #concrete
 
-| +concrete is a brutalist featherweight markup language by Dom Mandy https://www.dommandy.com
+| *concrete is a brutalist featherweight markup language
 
 #contents
 @motivations
@@ -11,32 +11,60 @@
 @credits
 
 #motivations
-I wanted a markup language where the plain text source file and the richly styled document would be roughly identical. Plain text is +bomb.
+I wanted a markup language where the plain text source file and the richly styled document would be roughly identical. Plain text is *bomb.
+
+././
 
 #goals
 - all characters in the source text must be visible
 - accessibility
-- no closing tags, opening tags act on individual lines or words 
+- tags markup lines or words
+   | spaces and newlines close tags
+   
+././
 
 #syntax
 line level:
-+ bold line
-| block quote
+ * bold line
+ | block quote
 word level:
-   bold +word
+   bold *word
    inline |quote
    anchor to a #tag in a page
    link to a @tag or a site https://www.dommandy.com/apps/concrete
    
+././
+   
 #color
-+dark/light 
+*dark/light 
 many shades perceptable, but limit to 3 or 4 categories
-+colorful/greyscale
+*colorful/greyscale
 i think this must be bound to interactivity since links colorful
-+hue
+*hue
 implies category and links are a commonly understood category
+
+././
 
 #font
 bold, italic, variable width, letter spacing, line height, font size, 
 
+././
+
+#programming
+
+| import integer class from standard library
+#integer - https://concrete.community/standard_library/integer
+| import from project file
+#myUtilityClass - https://github.com/domrally/utilities/asdf
+| this function returns 5
+#functionName () - @integer
+    *varName - @integer#from (5)
+    - varName
+| this function also returns 5
+* #publicFunc () - @integer
+    *newVar - @functionName ()
+    - @myLocalClass#myLocalFunc (newVar)
+
 #credits
+
+././
