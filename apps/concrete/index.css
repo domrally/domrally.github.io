@@ -17,6 +17,9 @@ main
     flex-grow: 1;
     padding: 24px 32px;
     position: relative;  
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 @media (max-aspect-ratio: 1/1) {
     main

@@ -75,6 +75,8 @@ now we have our flat triginometric analogues
 cosf
 sinf
 
+flat trig functions
+
 next we need to find the bifurcation point to make sure that there are only 4 bends in the curve to match a square
 k = 1.19228
 

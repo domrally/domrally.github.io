@@ -39,6 +39,9 @@ const getStyles = (key) =>
             className = "bold";
             tagName = "span";
             break;
+        case ':)':
+            className = "smiley";
+            break;
         default:
             aria = "undefined";
             break;
@@ -58,8 +61,11 @@ const getStyles = (key) =>
     }
     return element;
 };
-const parseConcrete = (text) => 
+const parseConcrete = (area) => 
 {
+//    autoGrow(area)
+    const text = area.value
+    parent.textContent = ''
     const lines = text.split('\n');
     for(let line of lines) 
     {
@@ -147,3 +153,9 @@ const parseConcrete = (text) =>
         }
     }
 };
+
+function autoGrow (oField) {
+  if (oField.scrollHeight > oField.clientHeight) {
+    oField.style.height = oField.scrollHeight + "px";
+  }
+}

@@ -33,4 +33,5 @@ a:hover
 a
 {
     text-decoration: none;
+    pointer-events: auto;
 }

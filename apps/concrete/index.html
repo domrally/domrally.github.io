@@ -10,12 +10,17 @@
     </head>
     <body>
         <main class="column">
-            <script src="concreteMixer.js"></script>
+            <textarea oninput="parseConcrete(this)"></textarea>
             <script>
+                const textarea = document.currentScript.parentElement.firstChild.nextSibling
                 fetch("readme.concrete")
                     .then(response => response.text()
-                          .then(text => parseConcrete(text)));
+                        .then(text => {
+                            textarea.value = text
+                            parseConcrete(textarea)
+                        }));
             </script>
+            <script src="concreteMixer.js"></script>
             <canvas class="top left" data-fragment-url="../../shaders/superRectTopLeft.frag" width="32" height="32">
                 <script src="../../js/drawShader.js"></script>
             </canvas>

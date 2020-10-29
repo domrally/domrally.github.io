@@ -2,6 +2,48 @@
 {
     white-space: pre-wrap;
     overflow-wrap: break-word;
+    pointer-events: none;
+/*    position: relative;*/
+    z-index: 12;
+    min-height: 1em;
+/*    vertical-align: text-top;*/
+/*
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+*/
+/*    background: red;*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+}
+textarea
+{
+    position: absolute;
+/*
+    top: 24px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+*/
+    width: calc(100% - 72px);
+    height: calc(100% - 48px);
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+    letter-spacing: inherit;
+    line-height: inherit;
+/*    line-height: calc(1.618em * 1.618em);*/
+    resize: none;
+    overflow: hidden;
+/*    float: left;*/
+    color: #fff0;
+    background: #fff0;
+    caret-color: black;
 }
 .line
 {

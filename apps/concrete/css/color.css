@@ -13,7 +13,13 @@ main
 .markup
 {
     color: #bbb;
-    background: #f7f7f7;
+/*    background: #f7f7f7;*/
+}
+.smiley
+{
+    color: #000;
+    background: #ff0;
+    border-radius: 1ch;
 }
 .bold
 {
