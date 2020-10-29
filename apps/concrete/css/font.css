@@ -1,11 +1,11 @@
-body
+body, textarea
 {
     font-size: 1.618rem;
     line-height: 1.618em;
     letter-spacing: .04em;
 }
 @media (max-aspect-ratio: 1/1) {
-    body
+    body, textarea
     {
         font-size: 3em;
     }

@@ -29,25 +29,20 @@ textarea
 */
     width: calc(100% - 72px);
     height: calc(100% - 48px);
-    font-family: inherit;
-    font-size: inherit;
+    font-family: Fira Mono;
     padding: 0;
     margin: 0;
     outline: none;
     border: none;
-    letter-spacing: inherit;
-    line-height: inherit;
-/*    line-height: calc(1.618em * 1.618em);*/
     resize: none;
     overflow: hidden;
-/*    float: left;*/
     color: #fff0;
     background: #fff0;
     caret-color: black;
 }
 .line
 {
-    min-height: 1.618em;
+    min-height: 1.6em;
 }
 blockquote
 {
