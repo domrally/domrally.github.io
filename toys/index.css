@@ -1,0 +1,41 @@
+@import url(https://code.cdn.mozilla.net/fonts/fira.css);
+body, textarea
+{
+    font-family: Fira Sans; 
+    font-size: 32px;
+}
+::selection 
+{ 
+    background: #ff0; 
+}
+.concrete
+{
+    position: relative;
+    width: -moz-min-content;    /* Firefox */
+    width: -webkit-min-content; /* Chrome */
+    width: min-content;
+}
+textarea
+{
+/*    position: relative;*/
+    color: white;
+    outline: none;
+    caret-color: black;
+}
+textarea::selection 
+{ 
+    color: #ff0; 
+}
+.formatted, textarea
+{
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+.formatted
+{
+    width: 100%;
+    top: 0;
+    position: absolute;
+    pointer-events: none;
+}

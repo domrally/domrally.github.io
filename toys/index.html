@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        <title>by Dom Mandy</title>
+        <meta name="description" content="shit tin">
+        <meta name="keywords" content="Dom, Mandy">
+        <link href="favicon.ico" rel="shortcut icon">
+        <link href="index.css" rel="stylesheet" media="screen">
+        
+        <script src="../apps/concrete/concreteMixer.js"></script>
+    </head>
+    <body>
+        <header>
+        </header>
+        <main class="concrete">
+            <textarea oninput="format(this, event)">test 1 2 3 thing</textarea>
+            <div class="formatted">
+                <script>
+                    const formatted = document.currentScript.parentElement
+                    const format = (textarea, keyEvent) => {
+                        const text = textarea.value
+                        formatted.textContent = ''
+                        parseConcrete(text)
+                    }
+                </script>
+            </div>
+        </main>
+        <footer>
+        </footer>
+    </body>
+</html>
