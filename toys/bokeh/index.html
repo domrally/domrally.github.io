@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+    <head>
+        <title>by Dom Mandy</title>
+        <meta name="description" content="shit tin">
+        <meta name="keywords" content="Dom, Mandy">
+        <link href="favicon.ico" rel="shortcut icon">
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+                overflow: hidden;
+            }
+            canvas{
+                width: 100vw;
+                height: 100vh;
+/*                filter: blur(2px);*/
+            }
+        </style>
+    </head>
+    <body>
+        <canvas width="800" height="360">
+            <script>
+                (function() {function f(a){var c=[],b=Math.pow(a+16,3)/1560896;b=b>g?b:a/k;for(var d=0;3>d;){var e=d++,h=l[e][0],w=l[e][1];e=l[e][2];for(var x=0;2>x;){var y=x++,z=(632260*e-126452*w)*b+126452*y;c.push({b:(284517*h-94839*e)*b/z,a:((838422*e+769860*w+731718*h)*a*b-769860*y*a)/z})}}return c}function m(a){a=f(a);for(var c=Infinity,b=0;b<a.length;){var d=a[b];++b;c=Math.min(c,Math.abs(d.a)/Math.sqrt(Math.pow(d.b,2)+1))}return c}
+function n(a,c){c=c/360*Math.PI*2;a=f(a);for(var b=Infinity,d=0;d<a.length;){var e=a[d];++d;e=e.a/(Math.sin(c)-e.b*Math.cos(c));0<=e&&(b=Math.min(b,e))}return b}function p(a,c){for(var b=0,d=0,e=a.length;d<e;){var h=d++;b+=a[h]*c[h]}return b}function q(a){return.0031308>=a?12.92*a:1.055*Math.pow(a,.4166666666666667)-.055}function r(a){return.04045<a?Math.pow((a+.055)/1.055,2.4):a/12.92}function t(a){return[q(p(l[0],a)),q(p(l[1],a)),q(p(l[2],a))]}
+function u(a){a=[r(a[0]),r(a[1]),r(a[2])];return[p(v[0],a),p(v[1],a),p(v[2],a)]}function A(a){var c=a[0],b=a[1];a=c+15*b+3*a[2];0!=a?(c=4*c/a,a=9*b/a):a=c=NaN;b=b<=g?b/B*k:116*Math.pow(b/B,.3333333333333333)-16;return 0==b?[0,0,0]:[b,13*b*(c-C),13*b*(a-D)]}function E(a){var c=a[0];if(0==c)return[0,0,0];var b=a[1]/(13*c)+C;a=a[2]/(13*c)+D;c=8>=c?B*c/k:B*Math.pow((c+16)/116,3);b=0-9*c*b/((b-4)*a-b*a);return[b,c,(9*c-15*a*c-a*b)/(3*a)]}
+function F(a){var c=a[0],b=a[1],d=a[2];a=Math.sqrt(b*b+d*d);1E-8>a?b=0:(b=180*Math.atan2(d,b)/Math.PI,0>b&&(b=360+b));return[c,a,b]}function G(a){var c=a[1],b=a[2]/360*2*Math.PI;return[a[0],Math.cos(b)*c,Math.sin(b)*c]}function H(a){var c=a[0],b=a[1];a=a[2];if(99.9999999<a)return[100,0,c];if(1E-8>a)return[0,0,c];b=n(a,c)/100*b;return[a,b,c]}function I(a){var c=a[0],b=a[1];a=a[2];if(99.9999999<c)return[a,0,100];if(1E-8>c)return[a,0,0];var d=n(c,a);return[a,b/d*100,c]}
+function J(a){var c=a[0],b=a[1];a=a[2];if(99.9999999<a)return[100,0,c];if(1E-8>a)return[0,0,c];b=m(a)/100*b;return[a,b,c]}function K(a){var c=a[0],b=a[1];a=a[2];if(99.9999999<c)return[a,0,100];if(1E-8>c)return[a,0,0];var d=m(c);return[a,b/d*100,c]}function L(a){for(var c="#",b=0;3>b;){var d=b++;d=Math.round(255*a[d]);var e=d%16;c+=M.charAt((d-e)/16|0)+M.charAt(e)}return c}
+function N(a){a=a.toLowerCase();for(var c=[],b=0;3>b;){var d=b++;c.push((16*M.indexOf(a.charAt(2*d+1))+M.indexOf(a.charAt(2*d+2)))/255)}return c}function O(a){return t(E(G(a)))}function P(a){return F(A(u(a)))}function Q(a){return O(H(a))}function R(a){return I(P(a))}function S(a){return O(J(a))}function T(a){return K(P(a))}
+var l=[[3.240969941904521,-1.537383177570093,-.498610760293],[-.96924363628087,1.87596750150772,.041555057407175],[.055630079696993,-.20397695888897,1.056971514242878]],v=[[.41239079926595,.35758433938387,.18048078840183],[.21263900587151,.71516867876775,.072192315360733],[.019330818715591,.11919477979462,.95053215224966]],B=1,C=.19783000664283,D=.46831999493879,k=903.2962962,g=.0088564516,M="0123456789abcdef";
+window.hsluv={hsluvToRgb:Q,rgbToHsluv:R,hpluvToRgb:S,rgbToHpluv:T,hsluvToHex:function(a){return L(Q(a))},hexToHsluv:function(a){return R(N(a))},hpluvToHex:function(a){return L(S(a))},hexToHpluv:function(a){return T(N(a))},lchToHpluv:K,hpluvToLch:J,lchToHsluv:I,hsluvToLch:H,lchToLuv:G,luvToLch:F,xyzToLuv:A,luvToXyz:E,xyzToRgb:t,rgbToXyz:u,lchToRgb:O,rgbToLch:P};})();
+            </script>
+            <script>
+                const canvas = document.currentScript.parentElement
+                var img = new Image(canvas.width, canvas.height);
+                var canvasWidth = canvas.width;
+                const canvasHeight = canvas.height;
+
+                function getColorIndicesForCoord(x, y, width) {
+                    var red = y * (width * 4) + x * 4;
+                    return [red, red + 1, red + 2, red + 3];
+                }
+                function init() {
+                    for (let i = 0; i < data.length; i += 4){
+                        const h = 360. * Math.random();
+                        const t = Math.random();
+                        let l = 32. * t + 87. * (1 - t); 
+                        l = 76.;
+                        let s = 19;
+//                        s = 100 - Math.random() * 100;
+                        s = 100;
+
+                        let color = window.hsluv.lchToRgb([l, s, h]);
+                        
+                        data[i]     = Math.floor(color[0]*256);     // red
+                        data[i + 1] = Math.floor(color[1]*256); // green
+                        data[i + 2] = Math.floor(color[2]*256); // blue
+                        data[i+3] = 255; 
+                    }
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                    window.requestAnimationFrame(draw);
+                }
+                
+                function update() {
+                                                let count = {xx,yy};
+                            const dx = Math.floor(3*Math.random()-1);
+                            const dy = Math.floor(3*Math.random()-1);
+                            let count2 = {x: count.xx + dx, y: count.yy + dy}
+                            var colorIndices = getColorIndicesForCoord(count.xx, count.yy, canvasWidth);
+                            var redIndex = colorIndices[0];
+                            var greenIndex = colorIndices[1];
+                            var blueIndex = colorIndices[2];
+                            const poo = getColorIndicesForCoord(count2.x, count2.y, canvasWidth); 
+                            let b = data[poo[0]];
+                            data[redIndex]     = b;     // red
+                            data[greenIndex] = data[poo[0]+1]; // green
+                            data[blueIndex] = data[poo[0]+2]; // blue
+                }
+        
+                var ctx = canvas.getContext('2d');
+                
+                const imageData = ctx.getImageData(0, 0, canvasWidth, canvasWidth);
+                const data = imageData.data;
+                function draw() {
+                    for (let i = 1; i < canvasWidth; i++){
+                        let sum = [0,0,0]
+                        const radius = 50;
+                        let weight = 0;
+                        let oldcolor = {r:data[0],g:data[1],b:data[2]};
+                        let newColor = {r:0,g:0,b:0};
+                        for (let j = -radius; j <= radius; j++){
+                            const spax = getColorIndicesForCoord(i, Math.max(j, 0), canvasWidth);
+                            sum[0] += data[spax[0]];
+                            sum[1] += data[spax[1]];
+                            sum[2] += data[spax[2]];
+                        }
+                        for (let j = 0; j < canvasHeight; j++){
+                            let thing = getColorIndicesForCoord(i, Math.min(j + radius + 1, canvasWidth - 1), canvasWidth);
+                            newColor.r = data[thing[0]];
+                            newColor.g = data[thing[1]];
+                            newColor.b = data[thing[2]];
+                            sum[0] += newColor.r - oldcolor.r;
+                            sum[1] += newColor.g - oldcolor.g;
+                            sum[2] += newColor.b - oldcolor.b;
+                            thing = getColorIndicesForCoord(i, Math.max(j - radius - 51, 0), canvasWidth);
+                            oldcolor.r = data[thing[0]];
+                            oldcolor.g = data[thing[1]];
+                            oldcolor.b = data[thing[2]];
+                            const n = getColorIndicesForCoord(i, j, canvasWidth)[0];
+                            for(let k = 0; k < 3; k++){
+                                data[n+k] = sum[k] / (2* radius + 1);
+                            }
+                        }
+                        weight++;
+                        weight%=radius;
+                    }
+                    ctx.putImageData(imageData, 0, 0);
+
+                    window.requestAnimationFrame(draw);
+                }
+
+                init();
+            </script>
+        </canvas>
+    </body>
+</html>
